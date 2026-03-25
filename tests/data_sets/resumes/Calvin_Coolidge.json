@@ -1,0 +1,141 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Calvin",
+            "last_name": "Coolidge"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Massachusetts",
+                "city": "Northampton",
+                "zip_code": "01060",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "calvin.coolidge@example.com",
+            "phone": "+1-413-555-1923"
+        },
+        "job_title": {
+            "position": "30th President of the United States",
+            "role": "Economic Conservative, Silent Leader, and Policy Reformer"
+        },
+        "summary": "Calvin Coolidge, the 30th President of the United States, was known for his quiet but firm leadership style, economic conservatism, and commitment to limited government. His presidency oversaw economic growth and tax reductions, reinforcing pro-business policies.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Advanced": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1923 - 1929",
+            "role": "President",
+            "job_description": "Promoted economic growth, reduced federal spending, and advocated for civil rights policies while maintaining a limited government approach."
+        },
+        {
+            "org_name": "Vice President of the United States",
+            "location": "Washington, D.C.",
+            "employment_length": "1921 - 1923",
+            "role": "Vice President",
+            "job_description": "Served under President Warren G. Harding, presiding over the Senate and assuming the presidency upon Harding’s death."
+        },
+        {
+            "org_name": "Governor of Massachusetts",
+            "location": "Boston, Massachusetts",
+            "employment_length": "1919 - 1921",
+            "role": "Governor",
+            "job_description": "Handled the Boston Police Strike of 1919, gaining a national reputation for his firm stance on law and order."
+        },
+        {
+            "org_name": "Lieutenant Governor of Massachusetts",
+            "location": "Boston, Massachusetts",
+            "employment_length": "1916 - 1919",
+            "role": "Lieutenant Governor",
+            "job_description": "Assisted the governor in overseeing state policies and administration."
+        },
+        {
+            "org_name": "Massachusetts Senate President",
+            "location": "Boston, Massachusetts",
+            "employment_length": "1914 - 1915",
+            "role": "Senate President",
+            "job_description": "Led the Massachusetts Senate and helped pass key state policies."
+        },
+        {
+            "org_name": "Massachusetts State Senate",
+            "location": "Boston, Massachusetts",
+            "employment_length": "1912 - 1915",
+            "role": "State Senator",
+            "job_description": "Advocated for progressive taxation and infrastructure projects at the state level."
+        },
+        {
+            "org_name": "Massachusetts House of Representatives",
+            "location": "Boston, Massachusetts",
+            "employment_length": "1907 - 1908",
+            "role": "State Representative",
+            "job_description": "Worked on local legislative matters, focusing on public works and budget management."
+        },
+        {
+            "org_name": "City of Northampton",
+            "location": "Northampton, Massachusetts",
+            "employment_length": "1910 - 1911",
+            "role": "Mayor",
+            "job_description": "Served as mayor, managing municipal services, public works, and economic development in Northampton."
+        },
+        {
+            "org_name": "Coolidge & Hemenway Law Firm",
+            "location": "Northampton, Massachusetts",
+            "employment_length": "1897 - 1912",
+            "role": "Lawyer",
+            "job_description": "Practiced law, specializing in corporate, real estate, and municipal legal cases."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts",
+        "location": "Amherst College, Amherst, Massachusetts",
+        "majored_in": "Law and Political Science"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Andrew Mellon",
+        "reference_title": "Former U.S. Secretary of the Treasury",
+        "reference_contact": "mellon.contact@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/calvincoolidge",
+            "linkedin": "https://linkedin.com/in/calvincoolidge",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/calvin-coolidge/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/calvin-coolidge/",
+            "historical_writings": "https://www.coolidgefoundation.org/"
+        }
+    },
+    "notes": "Calvin Coolidge’s presidency emphasized small government, economic growth, and civic responsibility. His leadership style was characterized by decisiveness and a belief in the power of the free market."
+}

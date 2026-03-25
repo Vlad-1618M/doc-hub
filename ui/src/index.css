@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #0f172a;
+  --color-sidebar: #0f172a;
+  --color-accent: #0c8ee7;
+}
+
+body {
+  @apply font-sans text-slate-200 antialiased;
+  background: var(--color-bg);
+}
+
+/* Doc Portal DP logo - gold glow animation (soft glow, no hard edge), used everywhere */
+.doc-portal-logo-dp {
+  background: linear-gradient(135deg, #0070c5, #0159a0);
+  box-shadow: 0 0 12px rgba(253, 224, 71, 0.25), 0 0 24px rgba(253, 224, 71, 0.1);
+  animation: docPortalLogoGlow 2.5s ease-in-out infinite;
+}
+@keyframes docPortalLogoGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(253, 224, 71, 0.25), 0 0 24px rgba(253, 224, 71, 0.1); }
+  50% { box-shadow: 0 0 18px rgba(253, 224, 71, 0.4), 0 0 36px rgba(253, 224, 71, 0.15); }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-slate-200/80 bg-white shadow-sm;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  .input-field {
+    @apply block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-800 placeholder-slate-500 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500;
+  }
+}
+
+/* Recent records glow - available app-wide for list/dashboard */
+@keyframes recentGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+  50% { box-shadow: 0 0 12px 2px rgba(52, 211, 153, 0.25); }
+}
+@keyframes recentGlowTerracotta {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0); }
+  50% { box-shadow: 0 0 12px 2px rgba(234, 88, 12, 0.35); }
+}
+@keyframes recentGlowLight {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(219, 39, 119, 0); }
+  50% { box-shadow: 0 0 12px 2px rgba(219, 39, 119, 0.35); }
+}
+.recent-glow { animation: recentGlow 2s ease-in-out infinite; }
+.recent-glow-terracotta { animation: recentGlowTerracotta 2s ease-in-out infinite; }
+.recent-glow-light { animation: recentGlowLight 2s ease-in-out infinite; }

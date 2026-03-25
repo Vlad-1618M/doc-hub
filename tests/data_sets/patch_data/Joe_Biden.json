@@ -1,0 +1,101 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Joe",
+            "last_name": "Biden"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Delaware",
+                "city": "Wilmington",
+                "zip_code": "19801",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "joe.biden@example.com",
+            "phone": "+1-302-555-2024"
+        },
+        "job_title": {
+            "position": "46th President of the United States",
+            "role": "Commander-in-Chief, Legislator, and Policy Strategist"
+        },
+        "summary": "Joe Biden, the 46th President of the United States, has a long career in public service, including serving as Vice President under Barack Obama. His leadership has focused on economic recovery, infrastructure, foreign relations, and social policies.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Advanced": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Advanced": true
+            },
+            "Law and Legislation": {
+                "Expert": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "2021 - Present",
+            "role": "President",
+            "job_description": "Led efforts on economic recovery, healthcare reform, climate initiatives, and international diplomacy."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "2009 - 2017",
+            "role": "Vice President",
+            "job_description": "Played a crucial role in economic recovery efforts, foreign policy, and legislative negotiations."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Washington, D.C.",
+            "employment_length": "1973 - 2009",
+            "role": "Senator (Delaware)",
+            "job_description": "Served as Chair of the Senate Foreign Relations and Judiciary Committees, focusing on international affairs and legal matters."
+        },
+        {
+            "org_name": "Biden Institute, University of Delaware",
+            "location": "Newark, Delaware",
+            "employment_length": "2017 - 2021",
+            "role": "Founder & Lecturer",
+            "job_description": "Established a policy institute focusing on domestic and foreign policy challenges."
+        },
+        {
+            "org_name": "Biden Foundation",
+            "location": "Delaware",
+            "employment_length": "2017 - 2020",
+            "role": "Founder & Advocate",
+            "job_description": "Focused on community engagement, equality, and policy research."
+        }
+    ],
+    "education": {
+        "degree": "Juris Doctor (J.D.)",
+        "location": "Syracuse University College of Law, Syracuse, NY",
+        "majored_in": "Law"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Barack Obama",
+        "reference_title": "44th President of the United States",
+        "reference_contact": "barack.obama@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/joe-biden/",
+            "historical_writings": "https://en.wikipedia.org/wiki/Joe_Biden"
+        }
+    },
+    "notes": "Joe Biden has played a key role in shaping modern U.S. policy, advocating for bipartisanship, social justice, and economic stability."
+}

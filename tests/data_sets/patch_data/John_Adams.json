@@ -1,0 +1,101 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "John",
+            "last_name": "Adams"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Massachusetts",
+                "city": "Quincy",
+                "zip_code": "02169",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "john.adams@example.com",
+            "phone": "+1-617-555-1797"
+        },
+        "job_title": {
+            "position": "2nd President of the United States",
+            "role": "Chief Executive, Diplomat, and Founding Father"
+        },
+        "summary": "John Adams, the 2nd President of the United States and a key Founding Father, played a crucial role in American independence. He served as a diplomat, Vice President, and President, advocating for strong federal governance and the rule of law.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Advanced": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Advanced": true
+            },
+            "Law and Legislation": {
+                "Expert": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1797 - 1801",
+            "role": "President",
+            "job_description": "Led the nation as its second president, navigating conflicts with France and strengthening U.S. governance."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1789 - 1797",
+            "role": "Vice President",
+            "job_description": "Served as the first Vice President of the United States under George Washington."
+        },
+        {
+            "org_name": "Continental Congress",
+            "location": "Philadelphia, Pennsylvania",
+            "employment_length": "1774 - 1778",
+            "role": "Delegate",
+            "job_description": "A key advocate for independence, helped draft the Declaration of Independence."
+        },
+        {
+            "org_name": "U.S. Diplomatic Service",
+            "location": "France, Netherlands, United Kingdom",
+            "employment_length": "1778 - 1788",
+            "role": "Ambassador",
+            "job_description": "Negotiated treaties and secured European support for the American Revolution."
+        },
+        {
+            "org_name": "Massachusetts State Government",
+            "location": "Boston, Massachusetts",
+            "employment_length": "1770 - 1774",
+            "role": "Legal Advocate & Public Servant",
+            "job_description": "Defended British soldiers in the Boston Massacre trial, ensuring legal fairness."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts",
+        "location": "Harvard University, Cambridge, MA",
+        "majored_in": "Law & Political Philosophy"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Thomas Jefferson",
+        "reference_title": "3rd President of the United States",
+        "reference_contact": "thomas.jefferson@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/john-adams/",
+            "historical_writings": "https://www.nps.gov/adam/index.htm"
+        }
+    },
+    "notes": "John Adams was a strong advocate for independence and the rule of law, playing a crucial role in the founding of the United States."
+}

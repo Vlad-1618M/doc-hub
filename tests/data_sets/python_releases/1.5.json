@@ -1,0 +1,8 @@
+{
+  "version": "1.5",
+  "release_date": "1998-01-03",
+  "eol_date": "1999-04-13",
+  "status": "eol",
+  "summary": "Python 1.5 was the last major 1.x release. It refined the language and added features that would carry into Python 2.0. The 1.5.2 release in 1999 was the final 1.x patch. Development focus shifted toward 2.0.",
+  "notes": "Unsupported since 1999-04-13. Last micro 1.5.2. The 1.x line was superseded by Python 2.0 in October 2000."
+}

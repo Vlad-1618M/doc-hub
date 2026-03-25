@@ -1,0 +1,5 @@
+{
+  "name": "doc-hub",
+  "private": true,
+  "description": "Monorepo root (Python API + ui/). See README.md."
+}

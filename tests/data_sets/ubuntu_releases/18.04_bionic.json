@@ -1,0 +1,9 @@
+{
+  "version": "18.04 LTS",
+  "codename": "Bionic Beaver",
+  "release_date": "2018-04-26",
+  "support_type": "LTS",
+  "eol_date": "2023-05-31",
+  "summary": "Ubuntu 18.04 (Bionic Beaver) was the seventh LTS release. Standard support ended 31 May 2023; ESM until 2028-04-26 for Ubuntu Pro. Features: GNOME 3.28 (with Ubuntu dock and other extensions), minimal GNOME tweaks, Xorg as default for LTS (Wayland optional), netplan for network config, Python 3.6. The beaver symbolized hard work and building. Widely used for development and servers.",
+  "notes": "Standard support ended 2023-05-31. ESM until 2028-04-26 for Ubuntu Pro. Kernel 4.15. Bionic is still common in CI/CD and cloud images."
+}

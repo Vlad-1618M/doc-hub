@@ -1,0 +1,106 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Rutherford",
+            "last_name": "B. Hayes"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Ohio",
+                "city": "Delaware",
+                "zip_code": "43015",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "rhayes@example.com",
+            "phone": "+1-740-555-1877"
+        },
+        "job_title": {
+            "position": "19th President of the United States",
+            "role": "President, Governor, Lawyer, Military Officer"
+        },
+        "summary": "Rutherford B. Hayes was the **19th President of the United States (1877-1881)**, known for **ending Reconstruction, civil service reform, and advocating for African American rights**. Prior to his presidency, he served as **Governor of Ohio** and was a decorated **Union Army officer during the Civil War**.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1877 - 1881",
+            "role": "President",
+            "job_description": "Oversaw the **end of Reconstruction**, withdrawing federal troops from the South, while advocating for **education and civil rights**. Focused on **civil service reform** and rebuilding trust in government institutions."
+        },
+        {
+            "org_name": "State of Ohio",
+            "location": "Ohio",
+            "employment_length": "1868 - 1872, 1876 - 1877",
+            "role": "Governor of Ohio",
+            "job_description": "Implemented policies focused on **public education, veterans' support, and economic reforms**. Advocated for **equal rights for African Americans**."
+        },
+        {
+            "org_name": "Union Army (Civil War)",
+            "location": "Various Battlefronts",
+            "employment_length": "1861 - 1865",
+            "role": "Brigadier General",
+            "job_description": "Served with distinction in the **American Civil War**, leading Union troops in major battles such as **South Mountain and Cedar Creek**. Was wounded in combat but continued to command troops effectively."
+        },
+        {
+            "org_name": "Private Law Practice",
+            "location": "Ohio",
+            "employment_length": "1845 - 1861",
+            "role": "Attorney",
+            "job_description": "Practiced law with a focus on **criminal defense and civil rights cases**, defending escaped slaves and supporting abolitionist causes."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts (B.A.) & Law Degree",
+        "location": "Kenyon College, Harvard Law School",
+        "majored_in": "Law and Government"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "William Tecumseh Sherman",
+        "reference_title": "Union Army General",
+        "reference_contact": "wsherman@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/rbhayes",
+            "linkedin": "https://linkedin.com/in/rutherfordbhayes",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/rutherford-b-hayes/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/rutherford-b-hayes/",
+            "historical_writings": "https://www.rbhayes.org/"
+        }
+    },
+    "notes": "Hayes is known for **winning one of the most controversial elections in U.S. history (Compromise of 1877)**. He **refused to run for a second term**, believing in a **one-term presidency**."
+}

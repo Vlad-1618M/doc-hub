@@ -1,0 +1,8 @@
+{
+  "version": "1.4",
+  "release_date": "1996-10-25",
+  "eol_date": "1998-01-03",
+  "status": "eol",
+  "summary": "Python 1.4 acquired several notable features: keyword arguments (inspired by Modula-3), built-in support for complex numbers, and a basic form of data hiding via name mangling. Van Rossum launched the CP4E (Computer Programming for Everybody) initiative at CNRI, funded by DARPA, to make programming more accessible. Python's clean syntax suited this goal.",
+  "notes": "Unsupported. Succeeded by 1.5 in January 1998."
+}

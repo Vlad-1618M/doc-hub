@@ -1,0 +1,9 @@
+{
+  "version": "25.04",
+  "codename": "Plucky Puffin",
+  "release_date": "2025-04-17",
+  "support_type": "Interim",
+  "eol_date": "2026-01-15",
+  "summary": "Ubuntu 25.04 (Plucky Puffin) was released on 17 April 2025. Features: GNOME 47 or newer, kernel 6.12, continued desktop and server updates. The puffin is a distinctive seabird; 'plucky' suggests courage. Interim release on the path to 26.04 LTS.",
+  "notes": "Standard support until 2026-01-15. Interim release with 9-month support."
+}

@@ -1,0 +1,9 @@
+{
+  "version": "24.04 LTS",
+  "codename": "Noble Numbat",
+  "release_date": "2024-04-25",
+  "support_type": "LTS",
+  "eol_date": "2029-05-31",
+  "summary": "Ubuntu 24.04 LTS Noble Numbat is a long-term support release based on systemd v255.4 and Linux kernel 6.8. The kernel includes improved support for gamepads, better swap memory handling, and patches for the year 2038 problem on 32-bit armhf systems. Raspberry Pi users no longer need separate Bluetooth packages. Netplan v1.0 became the default network configuration tool. System image size was reduced by 200 MB. GNOME 46 brings many apps updated to libadwaita and GTK4: Nautilus file manager gains quality-of-life improvements, Wi-Fi settings add QR code generation for credentials, notifications show app headers, settings are reorganized, and touch users tap-to-click by default. Cheese was replaced by GNOME Snapshot; Thunderbird is snap-only.",
+  "notes": "Extended Security Maintenance (ESM) runs until 2034; the Legacy add-on extends support to 2039 for paid Ubuntu Pro subscribers. Some criticism: .deb package installation behavior changed from 23.10, causing friction with App Center; by July 2024 App Center added .deb install support with a warning. The numbat is a small Australian marsupial; the codename follows Ubuntu's alliterative adjective-animal convention."
+}

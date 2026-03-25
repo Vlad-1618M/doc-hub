@@ -1,0 +1,9 @@
+{
+  "version": "21.10",
+  "codename": "Impish Indri",
+  "release_date": "2021-10-14",
+  "support_type": "Interim",
+  "eol_date": "2022-07-14",
+  "summary": "Ubuntu 21.10 (Impish Indri) was released on 14 October 2021. Features: GNOME 40, kernel 5.13, PipeWire for audio. The indri is a large lemur; 'impish' suggested playfulness. GNOME 40 brought a refreshed layout and workflow.",
+  "notes": "Unsupported since 2022-07-14. Kernel 5.13. PipeWire replaced PulseAudio as the default audio server for better Bluetooth and pro-audio support."
+}

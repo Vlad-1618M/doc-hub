@@ -1,0 +1,9 @@
+{
+  "version": "23.04",
+  "codename": "Lunar Lobster",
+  "release_date": "2023-04-20",
+  "support_type": "Interim",
+  "eol_date": "2024-01-25",
+  "summary": "Ubuntu 23.04 (Lunar Lobster) was released on 20 April 2023. Features: GNOME 44, kernel 6.2, improved firmware updates. The lobster suggested tenacity; 'lunar' evoked the moon and cycles. Desktop and server polish with updated toolchains.",
+  "notes": "Unsupported since 2024-01-25. Kernel 6.2. Interim release."
+}

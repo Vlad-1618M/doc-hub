@@ -1,0 +1,9 @@
+{
+  "version": "20.10",
+  "codename": "Groovy Gorilla",
+  "release_date": "2020-10-22",
+  "support_type": "Interim",
+  "eol_date": "2021-07-22",
+  "summary": "Ubuntu 20.10 (Groovy Gorilla) was released on 22 October 2020. Features: GNOME 3.38, kernel 5.8, improved Raspberry Pi support, active directory integration improvements. The gorilla symbolized strength and the 'groovy' 70s vibe. Released during the pandemic; Canonical maintained the six-month cycle.",
+  "notes": "Unsupported since 2021-07-22. Kernel 5.8. Interim release with 9-month support."
+}

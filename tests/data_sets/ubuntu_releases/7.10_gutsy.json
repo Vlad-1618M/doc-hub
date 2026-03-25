@@ -1,0 +1,9 @@
+{
+  "version": "7.10",
+  "codename": "Gutsy Gibbon",
+  "release_date": "2007-10-18",
+  "support_type": "Interim",
+  "eol_date": "2009-04-18",
+  "summary": "Ubuntu 7.10 (Gutsy Gibbon) was released on 18 October 2007. It added AppArmor security framework, fast desktop search, Ubufox Firefox plug-in manager, graphical X.Org configuration, full NTFS read/write via NTFS-3G, revamped printing with PDF by default. Compiz Fusion was enabled by default and fast user switching was added.",
+  "notes": "Unsupported since 2009-04-18. Kernel 2.6.22. NTFS-3G made dual-boot with Windows much smoother."
+}

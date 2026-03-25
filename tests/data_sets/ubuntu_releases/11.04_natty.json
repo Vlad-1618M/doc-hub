@@ -1,0 +1,9 @@
+{
+  "version": "11.04",
+  "codename": "Natty Narwhal",
+  "release_date": "2011-04-28",
+  "support_type": "Interim",
+  "eol_date": "2012-10-28",
+  "summary": "Ubuntu 11.04 (Natty Narwhal) introduced the Unity desktop, replacing GNOME Shell as the default. Unity moved the window controls to the left, added a launcher bar and global menu integration. Banshee replaced Rhythmbox. LibreOffice replaced OpenOffice.org. The change from GNOME 2 to Unity was polarizing—many users switched to Xubuntu or Lubuntu or forked MATE/GNOME.",
+  "notes": "Unsupported since 2012-10-28. Kernel 2.6.38. Unity was controversial but eventually became Ubuntu's identity until it was replaced by GNOME in 17.10."
+}

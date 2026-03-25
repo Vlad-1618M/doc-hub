@@ -1,0 +1,14 @@
+-r requirements.txt
+
+# Testing
+pytest~=8.3.4
+pytest-cov~=6.0.0
+pytest-timeout~=2.3.1
+pytest-benchmark~=5.1.0
+coverage~=7.6.10
+mongomock~=4.3.0
+
+# Tooling (used by logger, sys tests, etc.)
+colorama~=0.4.6
+distro~=1.9.0
+requests~=2.32.3

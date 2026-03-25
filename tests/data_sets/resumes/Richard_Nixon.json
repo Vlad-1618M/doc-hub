@@ -1,0 +1,106 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Richard",
+            "last_name": "Nixon"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "California",
+                "city": "Yorba Linda",
+                "zip_code": "92886",
+                "timezone": "PST (Pacific Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "rnixon@example.com",
+            "phone": "+1-714-555-1969"
+        },
+        "job_title": {
+            "position": "37th President of the United States",
+            "role": "President, Vice President, Congressman, Lawyer"
+        },
+        "summary": "Richard Nixon was the 37th President of the United States, serving from **1969 to 1974**. He was **the only U.S. president to resign from office** following the **Watergate scandal**. His administration was known for **diplomatic relations with China and the Soviet Union**, the **end of U.S. involvement in Vietnam**, and **domestic policies like the EPA's creation**.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1969 - 1974",
+            "role": "President",
+            "job_description": "Initiated **détente** with the Soviet Union and opened diplomatic relations with China. Ended direct U.S. military involvement in Vietnam, signed the **Anti-Ballistic Missile Treaty**, and **established the Environmental Protection Agency (EPA)**. Resigned following the Watergate scandal."
+        },
+        {
+            "org_name": "Executive Branch",
+            "location": "Washington, D.C.",
+            "employment_length": "1953 - 1961",
+            "role": "Vice President",
+            "job_description": "Served as **Vice President under Dwight D. Eisenhower**. Known for his **'Checkers Speech'**, and played a significant role in **Cold War diplomacy**."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Washington, D.C.",
+            "employment_length": "1950 - 1953",
+            "role": "Senator from California",
+            "job_description": "Served as a staunch anti-communist, investigating Alger Hiss in **the Red Scare era**."
+        },
+        {
+            "org_name": "U.S. House of Representatives",
+            "location": "Washington, D.C.",
+            "employment_length": "1947 - 1950",
+            "role": "Congressman",
+            "job_description": "Focused on anti-communist legislation, rising to national prominence."
+        }
+    ],
+    "education": {
+        "degree": "Juris Doctor (J.D.)",
+        "location": "Duke University School of Law",
+        "majored_in": "Law"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Dwight D. Eisenhower",
+        "reference_title": "34th President of the United States",
+        "reference_contact": "deisenhower@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/rnixon",
+            "linkedin": "https://linkedin.com/in/richardnixon",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/richard-nixon/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/richard-nixon/",
+            "historical_writings": "https://www.archives.gov/presidential-libraries/about/nixon"
+        }
+    },
+    "notes": "Despite his **foreign policy successes**, Nixon's legacy is overshadowed by **Watergate**, leading to his **resignation in 1974**. He was later **pardoned by Gerald Ford**."
+}

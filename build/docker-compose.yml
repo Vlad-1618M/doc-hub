@@ -1,0 +1,195 @@
+# Project name "build" = network build_app-network, images build-*
+name: build
+
+services:
+  doc-hub-mongo:
+    build:
+      context: ..
+      dockerfile: build/mongodb.Dockerfile
+    container_name: doc-hub-mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ADMIN_USER}       # <-- MongoDB root username:    [ admin user          ]
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ADMIN_PASS}       # <-- MongoDB root password:    [ admin user password ]
+      MONGO_USER: ${MONGO_USER}                             # <-- MongoDB application user: [ non-admin           ]
+      MONGO_PASS: ${MONGO_PASS}                             # <-- MongoDB application user: password
+      MONGO_DB: ${MONGO_DB}                                 # <-- Default MongoDB database: name
+    ports:
+      - "${MONGO_PORT}:27017"                               # <-- Expose MongoDB port to host:
+    volumes:
+      - mongo-data:/data/db                                 # <-- Persist MongoDB data across container restarts:
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.runCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    # _____________ Alternative MongoDB variables _________________________________________________________
+    #   MONGO_INITDB_DATABASE: ${MONGO_DB}             # Initialize a specific database during startup:
+    #   MONGO_INITDB_ROOT_ROLE: root                   # Custom root role: [ if applicable ]
+    #   MONGO_REPLICA_SET_NAME: rs0                    # Define a replica set for high availability:
+    #   MONGO_OPLOG_SIZE: 1024                         # Oplog size: [ only applicable to replication setups ]
+    # ______________________________________________________________________________________________________
+
+  doc-hub-api:
+    build:
+      context: ..
+      dockerfile: build/fastapi.Dockerfile
+    container_name: doc-hub-api
+    environment:
+      MONGO_HOST: ${MONGO_HOST:-doc-hub-mongo}          # <-- MongoDB hostname:     [ service name or IP  ]
+      MONGO_PORT: ${MONGO_PORT:-27017}                 # <-- MongoDB service port: [ 27017 default       ]
+      MONGO_USER: ${MONGO_USER}                        # <-- MongoDB application user:
+      MONGO_PASS: ${MONGO_PASS}                        # <-- MongoDB application user password:
+      MONGO_DB: ${MONGO_DB}                            # <-- MongoDB database name:
+      MONGO_AUTH_DB: ${MONGO_AUTH_DB:-resume_auth}
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production-use-env-var}
+      ADMIN_SECRET: ${ADMIN_SECRET:-}
+      UVICORN_LOG_LEVEL: ${UVICORN_LOG_LEVEL:-info}
+      APP_LOG_LEVEL: ${APP_LOG_LEVEL:-INFO}
+      MONGO_LOG_COMMANDS: ${MONGO_LOG_COMMANDS:-}
+    ports:
+      - "${FASTAPI_PORT}:8000"                         # <-- Expose FastAPI API on the specified host port:
+    depends_on:
+      doc-hub-mongo:
+        condition: service_healthy                     # <-- Wait until MongoDB is healthy before starting:
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://doc-hub-api:8000/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+    # _____________ Alternative FastAPI variables ___________________________________________________________________
+    #   DEBUG: "true"                                         # Enable debug mode for API:
+    #   RELOAD: "true"                                        # Auto-reload API on file changes: [ development only ]
+    #   WORKERS: 4                                            # Number of Gunicorn worker processes:
+    #   LOG_LEVEL: "info"                                     # Logging level: [ debug, info, warning, error ]
+    #   CORS_ORIGINS: "http://localhost,http://example.com"   # Allowed CORS origins for frontend clients:
+    # _______________________________________________________________________________________________________________
+
+  doc-hub-ui:
+    build:
+      context: ..
+      dockerfile: build/ui.Dockerfile
+    container_name: doc-hub-ui
+    ports:
+      - "${UI_PORT:-3000}:80"
+    depends_on:
+      doc-hub-api:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  mongo-express:
+    image: mongo-express:1.0.2
+    container_name: mongo-express-ui
+    environment:
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"                # <-- Enable MongoDB admin access in UI:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_ADMIN_USER}  # <-- Admin username for mongo-express:
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_ADMIN_PASS}  # <-- Admin password for mongo-express:
+      ME_CONFIG_BASICAUTH_USERNAME: ${BASICAUTH_USER}       # <-- Basic auth username for UI:
+      ME_CONFIG_BASICAUTH_PASSWORD: ${BASICAUTH_PASS}       # <-- Basic auth password for UI:
+      ME_CONFIG_MONGODB_SERVER: ${MONGO_HOST}               # <-- MongoDB server hostname or service name:
+      ME_CONFIG_MONGODB_PORT: ${MONGO_PORT}                 # <-- MongoDB service port: [ 27017 default ]
+      ME_CONFIG_OPTIONS_EDITORTHEME: dracula                # <-- UI theme for mongo-express:
+      ME_CONFIG_SITE_SSL_ENABLED: "false"                   # <-- Disable SSL for web UI:
+
+    ports:
+      - "${PORTS}:8081"                                     # <-- Expose Mongo Express UI on host:
+    networks:
+      - app-network
+    depends_on:
+      doc-hub-mongo:
+        condition: service_healthy                          # <-- Ensure MongoDB is healthy before starting UI:
+
+    # _____________ alternative mongo-express variables _________________________________________________________
+    #   ME_CONFIG_OPTIONS_EDITORTHEME: default         # Default theme:
+    #   ME_CONFIG_OPTIONS_EDITORTHEME: ambiance        # Ambiance theme:
+    #   ME_CONFIG_OPTIONS_EDITORTHEME: eclipse         # Eclipse theme:
+    #   ME_CONFIG_OPTIONS_EDITORTHEME: material        # Material theme:
+    #   ME_CONFIG_OPTIONS_EDITORTHEME: monokai         # Monokai theme:
+    #   ME_CONFIG_OPTIONS_EDITORTHEME: neat            # Neat theme:
+    #   ME_CONFIG_OPTIONS_EDITORTHEME: night           # Night theme:
+    #   ME_CONFIG_OPTIONS_EDITORTHEME: solarized       # Solarized theme:
+    #   ME_CONFIG_SITE_BASEURL: "/mongo-express"       # Base URL path: [ e.g., behind a reverse proxy ]
+    #   ME_CONFIG_SITE_COOKIESECRET: "mysecret"        # Cookie secret for sessions: 
+    #   ME_CONFIG_SITE_SESSIONSECRET: "mysecret"       # Secret key for sessions:
+    #   ME_CONFIG_SITE_SSL_ENABLED: "true"             # Enable SSL encryption:
+    #   ME_CONFIG_SITE_SSL_CRT_PATH: "/path/to/cert"   # SSL certificate file path:
+    #   ME_CONFIG_SITE_SSL_KEY_PATH: "/path/to/key"    # SSL key file path:
+    # ________________________________________________________________________________________________________
+    #   ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
+    #   ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_ADMIN_USER}
+    #   ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_ADMIN_PASS}
+    #   ME_CONFIG_BASICAUTH_USERNAME: ${BASICAUTH_USER}
+    #   ME_CONFIG_BASICAUTH_PASSWORD: ${BASICAUTH_PASS}
+    #   ME_CONFIG_MONGODB_SERVER: doc-hub-mongo
+    #   ME_CONFIG_MONGODB_PORT: "27017"
+    #   ME_CONFIG_OPTIONS_EDITORTHEME: dracula
+    #   ME_CONFIG_SITE_SSL_ENABLED: "false"
+    # ________________________________________________________________________________________________________
+
+  tests-ci:
+    build:
+      context: ..
+      dockerfile: build/test.Dockerfile
+    container_name: tests-ci
+    environment:
+      ADMIN_SECRET: ${ADMIN_SECRET:-}
+    depends_on:
+      doc-hub-api:
+        condition: service_healthy
+    networks:
+      - app-network
+    command: >
+      sh -c "ping -c 4 -w 5 doc-hub-api &&
+             curl -v http://doc-hub-api:8000/ &&
+             ./build/sh_scripts/cicd_run.sh"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://doc-hub-api:8000/resume/status/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    
+  # _____________ tests-ci Purpose ____________________________________________________________
+  #   Runs CI/CD pipeline tests against FastAPI after it becomes or whne the server is healthy:
+  #   Calls the script 'cicd_run.sh' which contains the actual test sequence.
+  # ___________________________________________________________________________________________
+
+  tests-manual:
+    build:
+      context: ..
+      dockerfile: build/test.Dockerfile
+    container_name: tests-manual
+    environment:
+      - BASE_URL=http://doc-hub-api:8000
+      - ADMIN_SECRET=${ADMIN_SECRET:-}
+    depends_on:
+      doc-hub-api:
+        condition: service_healthy
+    networks:
+      - app-network
+    command: >
+      sh -c "if [ ! -f /tmp/api_key.txt ]; then ./tests/curl_tests/get_auth_key.sh && pytest -v -r charts tests/py_tests/test_mock_endpoints.py; fi;
+            tail -f /dev/null"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f -H \"X-API-Key: $(cat /tmp/api_key.txt)\" http://doc-hub-api:8000/resume/status/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  mongo-data:                   # <-- Persistent storage for MongoDB data:
+
+networks:
+  app-network:
+    driver: bridge              # <-- bridge network is in use for internal-container communication:
+    
+# _____________ tests-manual Purpose ______________________________________________________
+#   Alternative test container for API endpoints for debug . dev or manual needs:
+#   Generates an API key if it does not already exist:
+#   Runs Pytest against defined test files:
+#   Keeps the container running to allow manual execution of any additional tests as needed:
+# __________________________________________________________________________________________

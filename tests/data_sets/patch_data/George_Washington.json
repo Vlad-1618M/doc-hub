@@ -1,0 +1,129 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "George",
+            "last_name": "Washington"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Virginia",
+                "city": "Mount Vernon",
+                "zip_code": "22121",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "george.washington@example.com",
+            "phone": "+1-703-555-1776"
+        },
+        "job_title": {
+            "position": "1st President of the United States",
+            "role": "Revolutionary Leader, Founding Father, and Nation Builder"
+        },
+        "summary": "George Washington, the first President of the United States and a key Founding Father, led the nation through its early years, established the executive branch, and set many democratic precedents. As Commander-in-Chief of the Continental Army, he secured American independence during the Revolutionary War.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Advanced": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Expert": true
+            },
+            "Law and Legislation": {
+                "Advanced": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1789 - 1797",
+            "role": "President",
+            "job_description": "Established the foundation of the U.S. government, set the precedent for a two-term presidency, and maintained neutrality in foreign affairs."
+        },
+        {
+            "org_name": "Continental Army",
+            "location": "United States",
+            "employment_length": "1775 - 1783",
+            "role": "Commander-in-Chief",
+            "job_description": "Led the American Revolutionary War effort against British forces, securing victory at Yorktown and ensuring American independence."
+        },
+        {
+            "org_name": "United States Constitutional Convention",
+            "location": "Philadelphia, PA",
+            "employment_length": "1787",
+            "role": "President of the Constitutional Convention",
+            "job_description": "Presided over the drafting of the U.S. Constitution, helping to shape the structure of the federal government."
+        },
+        {
+            "org_name": "House of Burgesses",
+            "location": "Virginia",
+            "employment_length": "1758 - 1774",
+            "role": "Representative",
+            "job_description": "Served as a Virginia delegate, advocating for colonial rights and opposing British taxation policies."
+        },
+        {
+            "org_name": "Mount Vernon Estate",
+            "location": "Virginia",
+            "employment_length": "1754 - 1799",
+            "role": "Plantation Owner & Entrepreneur",
+            "job_description": "Managed a large agricultural estate, implementing innovative farming techniques and overseeing commercial enterprises."
+        },
+        {
+            "org_name": "French and Indian War",
+            "location": "British American Colonies",
+            "employment_length": "1754 - 1758",
+            "role": "Colonel",
+            "job_description": "Served as a military officer, gaining leadership experience and establishing his reputation as a capable commander."
+        },
+        {
+            "org_name": "Surveyor's Office",
+            "location": "Virginia",
+            "employment_length": "1749 - 1752",
+            "role": "Surveyor",
+            "job_description": "Mapped and surveyed land in the Virginia frontier, gaining firsthand knowledge of colonial territories and resources."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Philadelphia, PA",
+            "employment_length": "1796 - 1797",
+            "role": "Farewell Address",
+            "job_description": "Delivered his farewell address, warning against political factions and foreign alliances, setting long-term precedents for U.S. policy."
+        },
+        {
+            "org_name": "Founding of Washington, D.C.",
+            "location": "Washington, D.C.",
+            "employment_length": "1791 - 1799",
+            "role": "City Planner & Advocate",
+            "job_description": "Oversaw the establishment of the U.S. capital, working with architects and planners to develop the layout of Washington, D.C."
+        }
+    ],
+    "education": {
+        "degree": "Self-Educated",
+        "location": "Virginia",
+        "majored_in": "Military Science, Leadership, and Agriculture"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "John Adams",
+        "reference_title": "2nd President of the United States",
+        "reference_contact": "adams.contact@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/george-washington/",
+            "historical_writings": "https://www.loc.gov/exhibits/treasures/trr001.html"
+        }
+    },
+    "notes": "George Washington\u2019s leadership shaped the U.S. presidency and set precedents for governance. His role in the Revolutionary War and constitutional development established him as a defining figure in American history."
+}

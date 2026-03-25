@@ -1,0 +1,9 @@
+{
+  "version": "23.10",
+  "codename": "Mantic Minotaur",
+  "release_date": "2023-10-12",
+  "support_type": "Interim",
+  "eol_date": "2024-07-11",
+  "summary": "Ubuntu 23.10 (Mantic Minotaur) was released on 12 October 2023. Features: GNOME 45, kernel 6.5, installer improvements. The minotaur is a mythical creature; 'mantic' relates to prophecy and wisdom. Preparatory release for 24.04 LTS.",
+  "notes": "Unsupported since 2024-07-11. Kernel 6.5. Last interim before Noble Numbat LTS."
+}

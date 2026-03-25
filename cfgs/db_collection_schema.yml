@@ -1,0 +1,110 @@
+resume:
+  name:
+    first_name: ""
+    last_name: ""
+  location:
+    address:
+      country: ""
+      state: ""
+      city: ""
+      zip_code: ""
+      timezone: ""
+  contact:
+    email: ""
+    phone: ""
+  job_title:
+    position: ""
+    role: ""
+  summary: ""
+  skills:
+    Leadership: {}
+    Military_Strategy: {}
+    Economic_Policy: {}
+    Public_Speaking: {}
+    Crisis_Management: {}
+    Project_Management:
+      Legislative_Negotiation: {}
+      Economic_Recovery_Planning: {}
+      Foreign_Policy_Strategy: {}
+      Trust_Busting_Legislation: {}
+      Judicial_Reform: {}
+      Government_Administration: {}
+      Trade_Policy_Development: {}
+      Military_Oversight: {}
+      Territorial_Expansion: {}
+      Battlefield_Strategy: {}
+      Government_Oversight: {}
+      Crisis_Decision_Making: {}
+    Programming_Languages: {}
+    Automation: {}
+    Testing: {}
+    Development_Tools: {}
+    Web_Technologies: {}
+    Build_Tools: {}
+    DevOps: {}
+    Microservices: {}
+    Databases: {}
+    Version_Control: {}
+    OS_Architecture: {}
+    Virtualization_Compute: {}
+    Network_Protocols: {}
+    Management_Tools:
+      Kubernetes: {}
+      Monitoring_Observability: {}
+      Project_Management: {}
+  Work_Experience:
+  - org_name: ""
+    location: ""
+    employment_length: ""
+    role: ""
+    job_description: ""
+  - org_name: ""
+    location: ""
+    employment_length: ""
+    role: ""
+    job_description: ""
+  - org_name: ""
+    location: ""
+    employment_length: ""
+    role: ""
+    job_description: ""
+  - org_name: ""
+    location: ""
+    employment_length: ""
+    role: ""
+    job_description: ""
+  - org_name: ""
+    location: ""
+    employment_length: ""
+    role: ""
+    job_description: ""
+  - org_name: ""
+    location: ""
+    employment_length: ""
+    role: ""
+    job_description: ""
+  - org_name: ""
+    location: ""
+    employment_length: ""
+    role: ""
+    job_description: ""
+  - org_name: ""
+    location: ""
+    employment_length: ""
+    role: ""
+    job_description: ""
+  - org_name: ""
+    location: ""
+    employment_length: ""
+    role: ""
+    job_description: ""
+  education:
+    degree: ""
+    location: ""
+    majored_in: ""
+  work_authorization: ""
+  reference: {}
+  links:
+    tech: {}
+    info: {}
+  notes: ""

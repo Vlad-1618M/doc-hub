@@ -1,0 +1,8 @@
+{
+  "version": "2.1",
+  "release_date": "2001-04-15",
+  "eol_date": "2002-04-09",
+  "status": "eol",
+  "summary": "Python 2.1 was closely aligned with 1.6.1 and 2.0. Its license was renamed to the Python Software Foundation License. All code added from the 2.1 alpha onward is owned by the PSF, a nonprofit formed in 2001. The release added nested scopes (like statically scoped languages), a feature turned off by default until 2.2.",
+  "notes": "Unsupported since 2002-04-09. Last micro 2.1.3. The PSF became Python's legal steward."
+}

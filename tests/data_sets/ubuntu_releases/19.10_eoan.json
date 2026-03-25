@@ -1,0 +1,9 @@
+{
+  "version": "19.10",
+  "codename": "Eoan Ermine",
+  "release_date": "2019-10-17",
+  "support_type": "Interim",
+  "eol_date": "2020-07-17",
+  "summary": "Ubuntu 19.10 (Eoan Ermine) was released on 17 October 2019. Features: GNOME 3.34, kernel 5.3, ZFS support as an experimental root option in the installer. The ermine (stoat in winter coat) suggested elegance and dawn ('eoan'). ZFS root was a notable experimental option for advanced users.",
+  "notes": "Unsupported since 2020-07-17. Kernel 5.3. ZFS root install remained experimental; production use typically preferred ext4 or LVM."
+}

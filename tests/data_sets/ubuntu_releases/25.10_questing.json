@@ -1,0 +1,9 @@
+{
+  "version": "25.10",
+  "codename": "Questing Quokka",
+  "release_date": "2025-10-09",
+  "support_type": "Interim",
+  "eol_date": "2026-07-09",
+  "summary": "Ubuntu 25.10 (Questing Quokka) was released on 9 October 2025. Features: latest GNOME and kernel, continued refinements to App Center and package management. The quokka is an Australian marsupial known for its smile; 'questing' suggests exploration. Final interim before 26.04 LTS Resolute Raccoon.",
+  "notes": "Standard support until 2026-07-09. Interim release bridging to the next LTS."
+}

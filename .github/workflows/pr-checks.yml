@@ -1,0 +1,54 @@
+# Fast checks without Docker: mock pytest + UI lint/build.
+
+name: PR checks
+
+on:
+  push:
+    branches: [main, master, repo_init, v.tools_main]
+  pull_request:
+    branches: [main, master, repo_init, v.tools_main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python-mock-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: deps/requirements-dev.txt
+
+      - name: Install dependencies
+        run: pip install -r deps/requirements-dev.txt
+
+      - name: Mock API tests (no Docker, no coverage)
+        run: |
+          pytest tests/py_tests/test_mock_endpoints.py \
+            --override-ini="addopts=-q --strict-markers --timeout=60 --maxfail=3"
+
+  ui:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: ui/package-lock.json
+
+      - name: Install and verify UI
+        working-directory: ui
+        run: |
+          npm ci
+          npm run lint
+          npm run build

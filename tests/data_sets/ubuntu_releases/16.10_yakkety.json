@@ -1,0 +1,9 @@
+{
+  "version": "16.10",
+  "codename": "Yakkety Yak",
+  "release_date": "2016-10-13",
+  "support_type": "Interim",
+  "eol_date": "2017-07-20",
+  "summary": "Ubuntu 16.10 (Yakkety Yak) was released on 13 October 2016. Features: Unity 8 preview available (not default), improved snap integration, Mesa 12, Python 3.6. The yak symbolized endurance and conversation (yakkety = talkative). Last interim before the switch to GNOME.",
+  "notes": "Unsupported since 2017-07-20. Kernel 4.8. Unity 8 was still in development; GNOME switch announced for 17.10."
+}

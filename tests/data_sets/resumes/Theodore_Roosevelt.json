@@ -1,0 +1,113 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Theodore",
+            "last_name": "Roosevelt"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "New York",
+                "city": "New York City",
+                "zip_code": "10001",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "troosevelt@example.com",
+            "phone": "+1-212-555-1901"
+        },
+        "job_title": {
+            "position": "26th President of the United States",
+            "role": "President, Governor, Soldier, Conservationist, Author"
+        },
+        "summary": "Theodore Roosevelt was the **26th President of the United States (1901-1909)**. Known for **progressive reforms, trust-busting, conservation efforts, and foreign policy strength**, he reshaped the modern presidency. A war hero and adventurer, he was instrumental in **building the Panama Canal** and establishing **national parks**.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Advanced": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1901 - 1909",
+            "role": "President",
+            "job_description": "Led **progressive reforms**, including **trust-busting**, labor rights, and **consumer protections**. Championed **conservation efforts**, expanding national parks. Negotiated **the end of the Russo-Japanese War**, earning the **Nobel Peace Prize**."
+        },
+        {
+            "org_name": "State of New York",
+            "location": "Albany, NY",
+            "employment_length": "1899 - 1900",
+            "role": "Governor of New York",
+            "job_description": "Implemented **anti-corruption policies**, championed **civil service reforms**, and **regulated businesses** to curb monopolistic practices."
+        },
+        {
+            "org_name": "United States Army (Spanish-American War)",
+            "location": "Cuba",
+            "employment_length": "1898",
+            "role": "Lieutenant Colonel, Rough Riders",
+            "job_description": "Led the **Rough Riders** in the **Battle of San Juan Hill**, gaining national fame for **bravery and tactical skill**."
+        },
+        {
+            "org_name": "United States Civil Service Commission",
+            "location": "Washington, D.C.",
+            "employment_length": "1889 - 1895",
+            "role": "Commissioner",
+            "job_description": "Pushed for **merit-based hiring** and **anti-corruption measures** in the federal workforce."
+        },
+        {
+            "org_name": "New York City Police Department",
+            "location": "New York City, NY",
+            "employment_length": "1895 - 1897",
+            "role": "Police Commissioner",
+            "job_description": "Reformed **NYC law enforcement**, enforcing **strict anti-corruption policies** and **modernizing the force**."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts (B.A.)",
+        "location": "Harvard University",
+        "majored_in": "History and Political Science"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "William Howard Taft",
+        "reference_title": "Successor & 27th President",
+        "reference_contact": "wtaft@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/troosevelt",
+            "linkedin": "https://linkedin.com/in/theodoreroosevelt",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/theodore-roosevelt/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/theodore-roosevelt/",
+            "historical_writings": "https://www.theodorerooseveltcenter.org/"
+        }
+    },
+    "notes": "Roosevelt was the **youngest U.S. president at age 42**, created the **National Park Service**, and was the first sitting president to **win the Nobel Peace Prize**."
+}

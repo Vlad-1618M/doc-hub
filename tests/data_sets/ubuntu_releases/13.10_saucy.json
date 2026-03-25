@@ -1,0 +1,9 @@
+{
+  "version": "13.10",
+  "codename": "Saucy Salamander",
+  "release_date": "2013-10-17",
+  "support_type": "Interim",
+  "eol_date": "2014-07-17",
+  "summary": "Ubuntu 13.10 (Saucy Salamander) was released on 17 October 2013. Features: Smart Scopes refined and privacy options added, LibreOffice 4.1, MIR display server in development (not default). Touch-friendly improvements. 'Saucy' hinted at boldness; salamander suggested adaptability.",
+  "notes": "Unsupported since 2014-07-17. Kernel 3.11. Mir was planned as a Wayland alternative; Canonical later abandoned it in favor of Wayland."
+}

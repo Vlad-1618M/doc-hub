@@ -1,0 +1,134 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "James",
+            "last_name": "Buchanan"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Pennsylvania",
+                "city": "Lancaster",
+                "zip_code": "17603",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "james.buchanan@example.com",
+            "phone": "+1-717-555-1860"
+        },
+        "job_title": {
+            "position": "15th President of the United States",
+            "role": "Diplomat, Lawyer, and Statesman"
+        },
+        "summary": "James Buchanan, the 15th President of the United States, served from 1857 to 1861. His presidency was marked by the increasing tensions that led to the Civil War. A lifelong public servant, Buchanan held multiple government roles before the presidency, including Secretary of State and U.S. Minister to the United Kingdom.",
+        "skills": {
+            "Leadership": {"Advanced": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Intermediate": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1857 - 1861",
+            "role": "President",
+            "job_description": "Oversaw a divided nation on the brink of Civil War; attempted to maintain peace but failed to prevent secession."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "London, United Kingdom",
+            "employment_length": "1853 - 1856",
+            "role": "U.S. Minister to the United Kingdom",
+            "job_description": "Negotiated the Ostend Manifesto, attempting to acquire Cuba from Spain, though the plan was highly controversial."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1845 - 1849",
+            "role": "U.S. Secretary of State",
+            "job_description": "Served under President James K. Polk, managing foreign relations during the Mexican-American War and overseeing the Oregon Treaty."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1834 - 1845",
+            "role": "U.S. Senator",
+            "job_description": "Represented Pennsylvania in the Senate, supporting states’ rights, economic development, and territorial expansion."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1832 - 1834",
+            "role": "U.S. Minister to Russia",
+            "job_description": "Negotiated trade agreements with Russia, strengthening diplomatic relations and economic ties."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1821 - 1831",
+            "role": "U.S. Representative",
+            "job_description": "Served in the House of Representatives, advocating for infrastructure projects and fiscal conservatism."
+        },
+        {
+            "org_name": "Pennsylvania State Legislature",
+            "location": "Harrisburg, PA",
+            "employment_length": "1814 - 1816",
+            "role": "State Representative",
+            "job_description": "Early career in public service, supporting economic policies and judicial reforms."
+        },
+        {
+            "org_name": "Private Law Practice",
+            "location": "Lancaster, PA",
+            "employment_length": "1812 - 1857",
+            "role": "Lawyer",
+            "job_description": "Built a successful law practice specializing in property law, banking regulations, and government contracts."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts",
+        "location": "Dickinson College, Carlisle, PA",
+        "majored_in": "Law & Political Science"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Franklin Pierce",
+        "reference_title": "Former U.S. President",
+        "reference_contact": "pierce.contact@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/jamesbuchanan",
+            "linkedin": "https://linkedin.com/in/jamesbuchanan",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/james-buchanan/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/james-buchanan/",
+            "historical_writings": "https://www.loc.gov/exhibits/buchanan/"
+        }
+    },
+    "notes": "James Buchanan is often criticized for his inaction leading up to the Civil War, but his long political career made him one of the most experienced presidents before taking office."
+}

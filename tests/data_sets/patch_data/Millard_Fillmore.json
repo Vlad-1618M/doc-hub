@@ -1,0 +1,94 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Millard",
+            "last_name": "Fillmore"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "New York",
+                "city": "Buffalo",
+                "zip_code": "14202",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "mfillmore@example.com",
+            "phone": "+1-716-555-1850"
+        },
+        "job_title": {
+            "position": "13th President of the United States",
+            "role": "Statesman, Vice President, President, Lawyer"
+        },
+        "summary": "Millard Fillmore was the 13th President of the United States, ascending to the presidency after the death of Zachary Taylor. His tenure was marked by the **Compromise of 1850**, which attempted to ease sectional tensions between the North and South. He later ran unsuccessfully as the Know-Nothing Party\u2019s candidate in 1856.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Advanced": true
+            },
+            "Crisis Management": {
+                "Advanced": true
+            },
+            "Strategic Planning": {
+                "Expert": true
+            },
+            "Law and Legislation": {
+                "Expert": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1850 - 1853",
+            "role": "President",
+            "job_description": "Took office after Zachary Taylor's death. Signed the **Compromise of 1850**, which included the **Fugitive Slave Act**, causing political controversy."
+        },
+        {
+            "org_name": "Executive Branch",
+            "location": "Washington, D.C.",
+            "employment_length": "1849 - 1850",
+            "role": "Vice President",
+            "job_description": "Elected as Zachary Taylor\u2019s running mate. Presided over the Senate and supported efforts to maintain the Union amid growing sectional tensions."
+        },
+        {
+            "org_name": "U.S. House of Representatives",
+            "location": "Washington, D.C.",
+            "employment_length": "1833 - 1835, 1837 - 1843",
+            "role": "Congressman",
+            "job_description": "Advocated for economic modernization, protective tariffs, and internal improvements."
+        },
+        {
+            "org_name": "New York State Government",
+            "location": "Albany, NY",
+            "employment_length": "1847 - 1849",
+            "role": "New York State Comptroller",
+            "job_description": "Managed state finances and implemented the first state banking oversight system."
+        }
+    ],
+    "education": {
+        "degree": "Law Apprenticeship",
+        "location": "Buffalo, NY",
+        "majored_in": "Law"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Zachary Taylor",
+        "reference_title": "12th President of the United States",
+        "reference_contact": "ztaylor@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/millard-fillmore/",
+            "historical_writings": "https://www.loc.gov/item/millard-fillmore-papers/"
+        }
+    },
+    "notes": "Fillmore was **the last Whig president** and **did not have a vice president** during his term. His decision to sign the **Fugitive Slave Act** made him unpopular in the North, contributing to the Whig Party\u2019s collapse."
+}

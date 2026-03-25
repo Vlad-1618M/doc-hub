@@ -1,0 +1,8 @@
+{
+  "version": "2.6",
+  "release_date": "2008-10-01",
+  "eol_date": "2013-10-29",
+  "status": "eol",
+  "summary": "Python 2.6 was released to coincide with Python 3.0. It included backported features from 3.0 and a 'warnings' mode that highlighted use of features removed in 3.0. The 2to3 utility was introduced to help migrate Python 2 code to Python 3. Multiprocessing and json modules were added. Byte literals (b'...') and the bytes type were backported.",
+  "notes": "Unsupported since 2013-10-29. Last micro 2.6.9. Full support ended 2010-08-24; security fixes continued until 2013. 2.6 and 3.0 shared the same release day."
+}

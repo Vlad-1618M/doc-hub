@@ -1,0 +1,9 @@
+{
+  "version": "4.10",
+  "codename": "Warty Warthog",
+  "release_date": "2004-10-20",
+  "support_type": "Interim",
+  "eol_date": "2006-04-30",
+  "summary": "Ubuntu 4.10 (Warty Warthog) was the inaugural release of Ubuntu, released on 20 October 2004. It is built upon Debian with plans for a new release every six months and eighteen months of support. It used the ext3 filesystem. Ubuntu 4.10 was offered as a free download and, through Canonical's ShipIt service, was also mailed to users free of charge in CD format. Unlike other distros at the time, Ubuntu curated 'one best FOSS app' for each category, minimizing installer questions and disk space. APT with automatic dependency resolution was a key differentiator. The warthog codename was a self-deprecating nod to the 'rough' first release.",
+  "notes": "Unsupported since 2006-04-30. Repositories removed from main servers; archived at old-releases.ubuntu.com. Kernel 2.6.8. This was Mark Shuttleworth's first release after founding Canonical."
+}

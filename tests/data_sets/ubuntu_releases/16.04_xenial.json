@@ -1,0 +1,9 @@
+{
+  "version": "16.04 LTS",
+  "codename": "Xenial Xerus",
+  "release_date": "2016-04-21",
+  "support_type": "LTS",
+  "eol_date": "2021-04-30",
+  "summary": "Ubuntu 16.04 (Xenial Xerus) was the sixth LTS release. Standard support ended 30 April 2021; ESM until 2026-04-21 for Ubuntu Pro. Features: Snap packages, ZFS experimental support, GCC 5, Python 3.5, LXD 2.0. The xerus (African ground squirrel) suggested friendliness and reliability. Widely used in cloud and containers.",
+  "notes": "Standard support ended 2021-04-30. ESM until 2026-04-21 for Ubuntu Pro. Kernel 4.4. Xenial was the first LTS with snap support and remained a default base for many Docker images."
+}

@@ -1,0 +1,101 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "John",
+            "last_name": "Tyler"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Virginia",
+                "city": "Charles City",
+                "zip_code": "23030",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "jtyler@example.com",
+            "phone": "+1-804-555-1841"
+        },
+        "job_title": {
+            "position": "10th President of the United States",
+            "role": "Statesman, Legislator, Vice President, President"
+        },
+        "summary": "John Tyler, the 10th President of the United States, was the first vice president to ascend to the presidency following the death of a sitting president. Known for his firm constitutional views, he expanded U.S. territory by annexing Texas and promoted states\u2019 rights during his tenure.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Advanced": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Advanced": true
+            },
+            "Law and Legislation": {
+                "Expert": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1841 - 1845",
+            "role": "President",
+            "job_description": "Assumed presidency after William Henry Harrison\u2019s death, asserting full executive powers. Advocated for annexing Texas and resisted federal economic intervention."
+        },
+        {
+            "org_name": "Executive Branch",
+            "location": "Washington, D.C.",
+            "employment_length": "1841",
+            "role": "Vice President",
+            "job_description": "Served as vice president under William Henry Harrison. Became the first VP to ascend to the presidency due to the president\u2019s death."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Virginia",
+            "employment_length": "1827 - 1836",
+            "role": "Senator",
+            "job_description": "Opposed federal overreach, defended states\u2019 rights, and advocated for strict adherence to the Constitution."
+        },
+        {
+            "org_name": "Governor of Virginia",
+            "location": "Virginia",
+            "employment_length": "1825 - 1827",
+            "role": "Governor",
+            "job_description": "Focused on education reform, economic policy, and judicial restructuring."
+        },
+        {
+            "org_name": "U.S. House of Representatives",
+            "location": "Virginia",
+            "employment_length": "1816 - 1821",
+            "role": "Congressman",
+            "job_description": "Defended Southern interests and opposed expansion of federal authority over states."
+        }
+    ],
+    "education": {
+        "degree": "Law Degree",
+        "location": "College of William & Mary, Williamsburg, VA",
+        "majored_in": "Law & Government"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "William Henry Harrison",
+        "reference_title": "9th President of the United States",
+        "reference_contact": "whharrison@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/john-tyler/",
+            "historical_writings": "https://www.loc.gov/item/today-in-history/march-29/"
+        }
+    },
+    "notes": "John Tyler was the first vice president to become president after a president's death. He was later elected to the Confederate Congress but died before taking office."
+}

@@ -1,0 +1,113 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Jimmy",
+            "last_name": "Carter"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Georgia",
+                "city": "Plains",
+                "zip_code": "31780",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "jimmy.carter@example.com",
+            "phone": "+1-229-555-1977"
+        },
+        "job_title": {
+            "position": "39th President of the United States",
+            "role": "Humanitarian, Diplomat, and Global Peace Advocate"
+        },
+        "summary": "Jimmy Carter, the 39th President of the United States, was known for his focus on human rights, energy policy, and peace efforts. After his presidency, he became a key figure in global humanitarian efforts, earning the Nobel Peace Prize in 2002.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Advanced": true},
+            "Project_Management": {"Expert": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1977 - 1981",
+            "role": "President",
+            "job_description": "Focused on energy policy, environmental conservation, and international diplomacy, including brokering the Camp David Accords between Egypt and Israel."
+        },
+        {
+            "org_name": "Carter Center",
+            "location": "Atlanta, Georgia",
+            "employment_length": "1982 - Present",
+            "role": "Founder & Humanitarian",
+            "job_description": "Dedicated to advancing human rights, election monitoring, disease eradication, and global peace initiatives."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1971 - 1975",
+            "role": "Governor of Georgia",
+            "job_description": "Reformed Georgia's government to emphasize efficiency, civil rights, and education."
+        },
+        {
+            "org_name": "United States Navy",
+            "location": "Various Locations",
+            "employment_length": "1946 - 1953",
+            "role": "Naval Officer & Nuclear Submarine Engineer",
+            "job_description": "Worked under Admiral Hyman Rickover in developing the U.S. Navy’s nuclear submarine program."
+        },
+        {
+            "org_name": "Carter Farms & Agribusiness",
+            "location": "Plains, Georgia",
+            "employment_length": "1953 - 1971",
+            "role": "Business Owner & Farmer",
+            "job_description": "Managed a successful peanut farming business, improving agricultural efficiency and sustainability."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Science",
+        "location": "United States Naval Academy, Annapolis, MD",
+        "majored_in": "Nuclear Engineering"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Rosalynn Carter",
+        "reference_title": "Former First Lady & Humanitarian Partner",
+        "reference_contact": "rosalynn.carter@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/jimmycarter",
+            "linkedin": "https://linkedin.com/in/jimmycarter",
+            "webapp": "https://www.cartercenter.org/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/jimmy-carter/",
+            "historical_writings": "https://www.cartercenter.org/about/jimmy_carter.html"
+        }
+    },
+    "notes": "Jimmy Carter remains a global figure in diplomacy and humanitarian work, advocating for democracy, human rights, and global health improvements."
+}

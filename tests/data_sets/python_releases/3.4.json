@@ -1,0 +1,8 @@
+{
+  "version": "3.4",
+  "release_date": "2014-03-16",
+  "eol_date": "2019-03-18",
+  "status": "eol",
+  "summary": "Python 3.4 added the asyncio module for asynchronous I/O (PEP 3156), the pathlib module for object-oriented path handling, the enum module, and ensurepip to bootstrap pip in fresh installs. The statistics module was added. .pyo files were removed; .pyc represents both optimized and unoptimized bytecode. This release established the asyncio ecosystem.",
+  "notes": "Unsupported since 2019-03-18. Last micro 3.4.10. Full support ended 2017-08-09. asyncio became the foundation for async frameworks like aiohttp and FastAPI."
+}

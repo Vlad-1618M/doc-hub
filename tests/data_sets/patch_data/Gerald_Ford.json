@@ -1,0 +1,122 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Gerald",
+            "last_name": "Ford"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Michigan",
+                "city": "Grand Rapids",
+                "zip_code": "49503",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "gerald.ford@example.com",
+            "phone": "+1-616-555-1974"
+        },
+        "job_title": {
+            "position": "38th President of the United States",
+            "role": "Crisis Leader, Diplomatic Peacemaker, and Economic Stabilizer"
+        },
+        "summary": "Gerald Ford, the 38th President of the United States, took office during a national crisis following the Watergate scandal. His presidency focused on restoring trust in government, stabilizing the economy, and leading post-Vietnam War foreign policy efforts.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Advanced": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Advanced": true
+            },
+            "Law and Legislation": {
+                "Expert": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1974 - 1977",
+            "role": "President",
+            "job_description": "Pardoned Richard Nixon following the Watergate scandal, led economic recovery efforts, and signed the Helsinki Accords to ease Cold War tensions."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1973 - 1974",
+            "role": "Vice President",
+            "job_description": "Appointed as Vice President following the resignation of Spiro Agnew, providing stability during political turmoil."
+        },
+        {
+            "org_name": "United States House of Representatives",
+            "location": "Washington, D.C.",
+            "employment_length": "1949 - 1973",
+            "role": "Congressman",
+            "job_description": "Represented Michigan\u2019s 5th congressional district, serving as House Minority Leader and advocating for fiscal responsibility and national defense."
+        },
+        {
+            "org_name": "United States Navy",
+            "location": "Pacific Theater",
+            "employment_length": "1942 - 1946",
+            "role": "Lieutenant Commander",
+            "job_description": "Served in the U.S. Navy during World War II, participating in combat missions aboard the USS Monterey."
+        },
+        {
+            "org_name": "University of Michigan Football Team",
+            "location": "Ann Arbor, MI",
+            "employment_length": "1932 - 1935",
+            "role": "Football Player & Team Captain",
+            "job_description": "Played as a center and linebacker for the Wolverines, winning two national championships and later declining offers to play professional football."
+        },
+        {
+            "org_name": "Yale Law School",
+            "location": "New Haven, CT",
+            "employment_length": "1938 - 1941",
+            "role": "Law Student",
+            "job_description": "Earned a law degree while working as an assistant football coach for the Yale Bulldogs."
+        },
+        {
+            "org_name": "Private Law Practice",
+            "location": "Grand Rapids, MI",
+            "employment_length": "1941 - 1942",
+            "role": "Attorney",
+            "job_description": "Practiced law in Michigan before joining the U.S. Navy following the attack on Pearl Harbor."
+        },
+        {
+            "org_name": "Republican National Committee",
+            "location": "Washington, D.C.",
+            "employment_length": "1965 - 1973",
+            "role": "House Minority Leader",
+            "job_description": "Led the Republican caucus, advocating for conservative fiscal policies and government transparency."
+        }
+    ],
+    "education": {
+        "degree": "Juris Doctor",
+        "location": "Yale Law School, New Haven, CT",
+        "majored_in": "Law & Government"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Henry Kissinger",
+        "reference_title": "Former U.S. Secretary of State",
+        "reference_contact": "kissinger.contact@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/gerald-ford/",
+            "historical_writings": "https://www.archives.gov/presidential-libraries/ford"
+        }
+    },
+    "notes": "Gerald Ford\u2019s presidency was marked by his efforts to heal the nation post-Watergate, diplomatic foreign relations, and economic stabilization during a turbulent period."
+}

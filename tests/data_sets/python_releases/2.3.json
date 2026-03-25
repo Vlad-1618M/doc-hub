@@ -1,0 +1,8 @@
+{
+  "version": "2.3",
+  "release_date": "2003-06-29",
+  "eol_date": "2008-03-11",
+  "status": "eol",
+  "summary": "Python 2.3 extended the language with yield expressions, the enumerate() and sum() builtins, and a reworked import system. The set type was added. SSL support improved. This release received long-term maintenance; 2.3.7 was the final patch. Python 2.3 was widely used in the mid-2000s.",
+  "notes": "Unsupported since 2008-03-11. Last micro 2.3.7. One of the longest-supported 2.x branches before 2.7."
+}

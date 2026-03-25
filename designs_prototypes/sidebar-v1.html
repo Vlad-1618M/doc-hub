@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume Portal — Sidebar Variant 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --sidebar: #0c1222;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --success: #34d399;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar {
+      width: 220px;
+      background: var(--sidebar);
+      border-right: 1px solid var(--border);
+      flex-shrink: 0;
+      transition: width 0.25s, margin 0.25s;
+    }
+    .sidebar.collapsed {
+      width: 56px;
+    }
+    .sidebar.collapsed .nav-text,
+    .sidebar.collapsed .logo-text { display: none; }
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { display: flex; align-items: center; gap: 0.5rem; }
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent), #0ea5e9);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hamburger {
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .hamburger:hover { color: var(--accent); background: rgba(56,189,248,0.1); }
+    .hamburger svg { width: 20px; height: 20px; }
+    .nav { padding: 0.5rem; }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s;
+      margin-bottom: 2px;
+    }
+    .nav-item:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+    .nav-item.active { color: var(--accent); background: rgba(56,189,248,0.1); }
+    .nav-item svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .main {
+      flex: 1;
+      overflow-x: hidden;
+      padding: 2rem;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(56,189,248,0.06), transparent);
+    }
+    .hero h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .hero p { color: var(--muted); font-size: 0.9375rem; }
+    .purpose {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    .purpose h2 { font-size: 1rem; color: var(--accent); margin-bottom: 0.75rem; }
+    .purpose ul { list-style: none; }
+    .purpose li { padding: 0.25rem 0; padding-left: 1rem; position: relative; font-size: 0.875rem; }
+    .purpose li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+    .flow-section { margin: 2rem 0; }
+    .flow-section h2 { font-size: 1rem; color: var(--accent); margin-bottom: 1rem; }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      max-width: 900px;
+    }
+    @media (max-width: 800px) { .flow-steps { grid-template-columns: 1fr; } }
+    .flow-step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .flow-step::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(56,189,248,0.08), transparent);
+      animation: stepShine 3s ease-in-out infinite;
+    }
+    .flow-step:nth-child(1)::before { animation-delay: 0s; }
+    .flow-step:nth-child(2)::before { animation-delay: 0.5s; }
+    .flow-step:nth-child(3)::before { animation-delay: 1s; }
+    .flow-step:nth-child(4)::before { animation-delay: 1.5s; }
+    @keyframes stepShine {
+      0% { left: -100%; }
+      100% { left: 150%; }
+    }
+    .flow-step-num {
+      font-size: 0.7rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .flow-step-title {
+      font-size: 0.875rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .flow-step-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .flow-connectors {
+      display: none;
+    }
+    @media (min-width: 801px) {
+      .flow-steps { position: relative; }
+      .flow-step::after {
+        content: '→';
+        position: absolute;
+        right: -0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--accent);
+        font-size: 1rem;
+        opacity: 0.6;
+        animation: arrowPulse 1.5s ease-in-out infinite;
+      }
+      .flow-step:last-child::after { display: none; }
+    }
+    @keyframes arrowPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+    .auth-dialog {
+      max-width: 380px;
+      margin: 2rem 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .auth-tabs { display: flex; border-bottom: 1px solid var(--border); }
+    .auth-tab {
+      flex: 1;
+      padding: 0.875rem;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .auth-tab:hover { color: var(--text); }
+    .auth-tab.active { color: var(--accent); border-bottom: 2px solid var(--accent); margin-bottom: -1px; }
+    .auth-panel { display: none; padding: 1.5rem; }
+    .auth-panel.active { display: block; }
+    .form-group { margin-bottom: 0.75rem; }
+    .form-group label { display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 0.25rem; }
+    .form-group input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 0.875rem;
+    }
+    .form-group input:focus { outline: none; border-color: var(--accent); }
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent), #0ea5e9);
+      color: var(--bg);
+      transition: all 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">DP</div>
+          <span class="logo-text">Resume Portal</span>
+        </div>
+        <button type="button" class="hamburger" id="hamburger" aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <nav class="nav">
+        <a href="#" class="nav-item active">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+          <span class="nav-text">Home</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          <span class="nav-text">Resumes</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>
+          <span class="nav-text">API Keys</span>
+        </a>
+        <a href="index.html" class="nav-item" style="margin-top: 1rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l4-4-4-4" /></svg>
+          <span class="nav-text">View layouts</span>
+        </a>
+      </nav>
+    </aside>
+    <main class="main">
+      <section class="hero">
+        <h1>Internal Records & Document Hub</h1>
+        <p>HR, teams, and internal data in one place.</p>
+      </section>
+      <section class="purpose">
+        <h2>What is this for?</h2>
+        <ul>
+          <li><strong>HR & Employee Records</strong> — Resumes, profiles</li>
+          <li><strong>Team Data</strong> — Research, IT, Marketing, work logs</li>
+          <li><strong>Internal Documents</strong> — Centralized doc server</li>
+          <li><strong>Secure</strong> — Stays inside your infrastructure</li>
+        </ul>
+      </section>
+      <section class="flow-section">
+        <h2>How data flows</h2>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-step-num">STEP 1</div>
+            <div class="flow-step-title">User (Browser)</div>
+            <div class="flow-step-desc">Submits login or form data via HTTPS</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-num">STEP 2</div>
+            <div class="flow-step-title">React UI</div>
+            <div class="flow-step-desc">Renders SPA, proxies /auth & /resume to backend</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-num">STEP 3</div>
+            <div class="flow-step-title">FastAPI</div>
+            <div class="flow-step-desc">JWT auth, validates requests, CRUD logic</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-num">STEP 4</div>
+            <div class="flow-step-title">MongoDB</div>
+            <div class="flow-step-desc">Stores users, resumes, API keys (documents)</div>
+          </div>
+        </div>
+      </section>
+      <section class="auth-section">
+        <h2 style="font-size: 1rem; margin-bottom: 0.5rem;">Sign in or create an account</h2>
+        <div class="auth-dialog">
+          <div class="auth-tabs">
+            <button type="button" class="auth-tab active" data-tab="login">Sign in</button>
+            <button type="button" class="auth-tab" data-tab="register">Create account</button>
+          </div>
+          <div class="auth-panel active" id="login-panel">
+            <form>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="you@company.com" />
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="••••••••" />
+              </div>
+              <button type="submit" class="btn">Sign in</button>
+            </form>
+          </div>
+          <div class="auth-panel" id="register-panel">
+            <form>
+              <div class="form-group">
+                <label>Name (optional)</label>
+                <input type="text" placeholder="Your name" />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="you@company.com" />
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="At least 8 characters" />
+              </div>
+              <div class="form-group">
+                <label>Confirm password</label>
+                <input type="password" placeholder="••••••••" />
+              </div>
+              <button type="submit" class="btn">Create account</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('sidebar').classList.toggle('collapsed');
+    });
+    document.querySelectorAll('.auth-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab === 'login' ? 'login-panel' : 'register-panel';
+        document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

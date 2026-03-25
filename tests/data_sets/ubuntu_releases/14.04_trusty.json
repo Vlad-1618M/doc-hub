@@ -1,0 +1,9 @@
+{
+  "version": "14.04 LTS",
+  "codename": "Trusty Tahr",
+  "release_date": "2014-04-17",
+  "support_type": "LTS",
+  "eol_date": "2019-04-25",
+  "summary": "Ubuntu 14.04 (Trusty Tahr) was the fifth LTS release. Standard support ended 25 April 2019; ESM available until 2024-04-25 for paid Ubuntu Pro subscribers. Features: improved Unity, better HiDPI support, LXD container manager introduced, LibreOffice 4.2, kernel 3.13. Widely used for servers and desktops. The tahr (Himalayan tahr, a mountain goat) symbolized stability and sure-footedness.",
+  "notes": "Standard support ended 2019-04-25. ESM until 2024-04-25 for Ubuntu Pro. Kernel 3.13. Trusty remains popular on older hardware and in container base images."
+}

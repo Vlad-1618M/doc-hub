@@ -1,0 +1,99 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Zachary",
+            "last_name": "Taylor"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Louisiana",
+                "city": "Baton Rouge",
+                "zip_code": "70802",
+                "timezone": "CST (Central Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "zachary.taylor@example.com",
+            "phone": "+1-225-555-1850"
+        },
+        "job_title": {
+            "position": "12th President of the United States",
+            "role": "Military Leader, Statesman"
+        },
+        "summary": "Zachary Taylor was the **12th President of the United States (1849-1850)** and a **career military leader** known for his **victories in the Mexican-American War**. Despite **no prior political experience**, he was elected as a war hero but served only **16 months before passing away in office**.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Intermediate": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Basic": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Intermediate": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "March 4, 1849 - July 9, 1850",
+            "role": "President",
+            "job_description": "Focused on **preserving the Union amid tensions over slavery**. Opposed the spread of slavery into new territories but **died before implementing major policies**."
+        },
+        {
+            "org_name": "United States Army",
+            "location": "Various Locations",
+            "employment_length": "1808 - 1849",
+            "role": "General",
+            "job_description": "Led **U.S. forces in the Mexican-American War (1846-1848)**, winning key battles at **Buena Vista and Monterrey**. Known for **decisive battlefield leadership** and earning the nickname **'Old Rough and Ready'**."
+        },
+        {
+            "org_name": "Fort Snelling",
+            "location": "Minnesota Territory",
+            "employment_length": "1828 - 1837",
+            "role": "Military Commander",
+            "job_description": "Oversaw **fortifications and defenses** along the **Mississippi River** during conflicts with Native American tribes."
+        }
+    ],
+    "education": {
+        "degree": "Military Education through U.S. Army",
+        "location": "United States Army",
+        "majored_in": "Tactical Warfare and Leadership"
+    },
+    "work_authorization": "U.S. Citizen",
+    "reference": {
+        "reference_name": "Winfield Scott",
+        "reference_title": "General-in-Chief, U.S. Army",
+        "reference_contact": "wscott@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/zacharytaylor",
+            "linkedin": "https://linkedin.com/in/zacharytaylor",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/zachary-taylor/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/zachary-taylor/",
+            "historical_writings": "https://www.loc.gov/collections/zachary-taylor-papers/"
+        }
+    },
+    "notes": "Taylor's presidency was **cut short by illness**. His stance on **preserving the Union** set the stage for the **Compromise of 1850**, though he did not live to see it enacted."
+}

@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "release_date": "1994-01-26",
+  "eol_date": "1994-07-14",
+  "status": "eol",
+  "summary": "Python 1.0 was the first official release, published in January 1994. It introduced the functional programming tools lambda, map, filter, and reduce—courtesy of a Lisp hacker who missed them and submitted working patches. The language was developed by Guido van Rossum at CWI in the Netherlands. Python 1.0 laid the groundwork for the module system, exception handling, and core datatypes (list, dict, str) that had been present since 0.9.1.",
+  "notes": "Unsupported since 1994-07-14. Last micro 1.0.4. Python 1.0 predated the Python Software Foundation and formal release policies. comp.lang.python was formed in 1994."
+}

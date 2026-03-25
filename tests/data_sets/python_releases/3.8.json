@@ -1,0 +1,8 @@
+{
+  "version": "3.8",
+  "release_date": "2019-10-14",
+  "eol_date": "2024-10-07",
+  "status": "eol",
+  "summary": "Python 3.8 added the walrus operator (:=), positional-only parameters, improved f-string debugging (f'{x=}'), and the typing.TypedDict. The C API was cleaned up. Python 3.8 was the last version to support Windows 7 (Microsoft's extended support ended). Performance improvements continued from the Faster CPython work.",
+  "notes": "Unsupported since 2024-10-07. Last micro 3.8.20. Full support ended 2021-05-03. The walrus operator (assignment expressions) streamlined loops and conditionals."
+}

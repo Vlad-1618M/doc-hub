@@ -1,0 +1,101 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "William",
+            "last_name": "Henry Harrison"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Indiana",
+                "city": "Vincennes",
+                "zip_code": "47591",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "wharrison@example.com",
+            "phone": "+1-317-555-1841"
+        },
+        "job_title": {
+            "position": "9th President of the United States",
+            "role": "General, Territorial Governor, U.S. Senator, President"
+        },
+        "summary": "William Henry Harrison was the **9th President of the United States (1841)** and a **military hero** from the War of 1812. He served the **shortest presidency in U.S. history**, lasting only **32 days** before his death. Prior to his presidency, he was known for his role as the **Governor of the Indiana Territory** and his military leadership in the **Battle of Tippecanoe (1811)**.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Advanced": true
+            },
+            "Crisis Management": {
+                "Advanced": true
+            },
+            "Strategic Planning": {
+                "Expert": true
+            },
+            "Law and Legislation": {
+                "Intermediate": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "March 4, 1841 - April 4, 1841",
+            "role": "President",
+            "job_description": "Served as the **9th President of the United States**, delivering the **longest inaugural address in history (8,445 words)**, but passed away after **32 days in office** due to pneumonia."
+        },
+        {
+            "org_name": "U.S. Senate",
+            "location": "Washington, D.C.",
+            "employment_length": "1825 - 1828",
+            "role": "U.S. Senator from Ohio",
+            "job_description": "Represented **Ohio** in the U.S. Senate, focusing on **land policy, westward expansion, and military funding**."
+        },
+        {
+            "org_name": "House of Representatives",
+            "location": "Washington, D.C.",
+            "employment_length": "1816 - 1819",
+            "role": "U.S. Congressman from Ohio",
+            "job_description": "Advocated for **veteran benefits, military readiness, and Western expansion**."
+        },
+        {
+            "org_name": "Indiana Territory Government",
+            "location": "Vincennes, Indiana",
+            "employment_length": "1801 - 1812",
+            "role": "Governor of Indiana Territory",
+            "job_description": "Oversaw the governance and development of **Indiana Territory**, including land negotiations with Native American tribes and infrastructure projects."
+        },
+        {
+            "org_name": "U.S. Military",
+            "location": "Western Frontier",
+            "employment_length": "1791 - 1814",
+            "role": "Major General",
+            "job_description": "Led **U.S. forces** against Native American resistance at the **Battle of Tippecanoe (1811)** and played a key role in the **War of 1812**, defeating **British forces at the Battle of the Thames (1813)**."
+        }
+    ],
+    "education": {
+        "degree": "Medicine (Incomplete)",
+        "location": "Hampden-Sydney College, University of Pennsylvania",
+        "majored_in": "Medicine (later pursued military and political career instead)"
+    },
+    "work_authorization": "U.S. Citizen",
+    "reference": {
+        "reference_name": "Henry Clay",
+        "reference_title": "U.S. Senator, Statesman",
+        "reference_contact": "hclay@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/william-henry-harrison/",
+            "historical_writings": "https://www.loc.gov/collections/william-henry-harrison-papers/"
+        }
+    },
+    "notes": "Harrison was the **first president to die in office**, leading to the **25th Amendment** clarifying presidential succession. His legacy remains as a **military leader, frontier governor, and short-lived president**."
+}

@@ -1,0 +1,9 @@
+{
+  "version": "14.10",
+  "codename": "Utopic Unicorn",
+  "release_date": "2014-10-23",
+  "support_type": "Interim",
+  "eol_date": "2015-07-23",
+  "summary": "Ubuntu 14.10 (Utopic Unicorn) was released on 23 October 2014. Features: Unity 8 (converged desktop/phone UI) in development, improved multi-monitor support, AppArmor improvements. Focus on preparing for convergence with Ubuntu Touch. The unicorn symbolized the aspirational, almost mythical goal of a unified experience across devices.",
+  "notes": "Unsupported since 2015-07-23. Kernel 3.16. Unity 8 and convergence were later abandoned when Canonical pivoted away from phones."
+}

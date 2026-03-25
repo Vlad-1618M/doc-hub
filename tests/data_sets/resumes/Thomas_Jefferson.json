@@ -1,0 +1,113 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Thomas",
+            "last_name": "Jefferson"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Virginia",
+                "city": "Charlottesville",
+                "zip_code": "22902",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "tjefferson@example.com",
+            "phone": "+1-434-555-1801"
+        },
+        "job_title": {
+            "position": "3rd President of the United States",
+            "role": "President, Vice President, Diplomat, Philosopher, Architect"
+        },
+        "summary": "Thomas Jefferson was the **3rd President of the United States (1801-1809)**, the **principal author of the Declaration of Independence**, and a **founding father**. He expanded the U.S. through the **Louisiana Purchase** and promoted individual liberties, democracy, and innovation in governance and education.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Legal Frameworks": {"Constitutional Law": true},
+            "Foreign Relations": {"Diplomatic Negotiation": true},
+            "Economic Policies": {"Trade and Commerce Regulation": true}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1801 - 1809",
+            "role": "President",
+            "job_description": "Doubled the size of the U.S. with the **Louisiana Purchase (1803)**, supported **agrarian democracy**, and established the **Lewis and Clark Expedition**."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1797 - 1801",
+            "role": "Vice President",
+            "job_description": "Served as **John Adams'** Vice President, actively opposing the **Alien and Sedition Acts** and promoting states' rights."
+        },
+        {
+            "org_name": "United States Department of State",
+            "location": "Washington, D.C.",
+            "employment_length": "1790 - 1793",
+            "role": "Secretary of State",
+            "job_description": "Negotiated U.S. foreign policy, strengthening relations with **France** and opposing the **Bank of the United States**."
+        },
+        {
+            "org_name": "United States Congress",
+            "location": "Philadelphia, PA",
+            "employment_length": "1776",
+            "role": "Delegate, Continental Congress",
+            "job_description": "Drafted and signed the **Declaration of Independence**, establishing the foundational principles of the U.S."
+        },
+        {
+            "org_name": "State of Virginia",
+            "location": "Richmond, VA",
+            "employment_length": "1779 - 1781",
+            "role": "Governor of Virginia",
+            "job_description": "Led Virginia during the **Revolutionary War**, advocating for **religious freedom** and **public education reforms**."
+        }
+    ],
+    "education": {
+        "degree": "Law",
+        "location": "College of William & Mary",
+        "majored_in": "Philosophy, Law, and Political Science"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "James Madison",
+        "reference_title": "Successor & 4th President",
+        "reference_contact": "jmadison@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/tjefferson",
+            "linkedin": "https://linkedin.com/in/thomasjefferson",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/thomas-jefferson/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/thomas-jefferson/",
+            "historical_writings": "https://www.monticello.org/"
+        }
+    },
+    "notes": "Jefferson was the **founder of the University of Virginia**, an **early advocate of democracy**, and a leading figure in **constitutional law**."
+}

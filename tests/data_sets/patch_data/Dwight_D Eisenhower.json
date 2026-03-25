@@ -1,0 +1,129 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Dwight",
+            "last_name": "D Eisenhower"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Kansas",
+                "city": "Abilene",
+                "zip_code": "67410",
+                "timezone": "CST (Central Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "dwight.eisenhower@example.com",
+            "phone": "+1-785-555-1953"
+        },
+        "job_title": {
+            "position": "34th President of the United States",
+            "role": "Military Leader, Diplomatic Strategist, and Infrastructure Innovator"
+        },
+        "summary": "Dwight D. Eisenhower, the 34th President of the United States and Supreme Allied Commander during World War II, led the nation through economic growth, Cold War tensions, and infrastructure development. His administration launched the Interstate Highway System and promoted peaceful foreign policy initiatives.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Expert": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Expert": true
+            },
+            "Law and Legislation": {
+                "Advanced": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1953 - 1961",
+            "role": "President",
+            "job_description": "Led the nation through economic expansion, strengthened NATO, launched the Interstate Highway System, and enforced desegregation policies in schools."
+        },
+        {
+            "org_name": "Supreme Headquarters Allied Powers Europe (SHAPE)",
+            "location": "Europe",
+            "employment_length": "1951 - 1952",
+            "role": "Supreme Allied Commander Europe",
+            "job_description": "Led NATO forces in Europe during the early Cold War, strategizing Western European defense against Soviet influence."
+        },
+        {
+            "org_name": "Columbia University",
+            "location": "New York, NY",
+            "employment_length": "1948 - 1953",
+            "role": "President",
+            "job_description": "Served as president of Columbia University, overseeing educational reforms and national security research initiatives."
+        },
+        {
+            "org_name": "United States Army",
+            "location": "Washington, D.C.",
+            "employment_length": "1945 - 1948",
+            "role": "Chief of Staff of the U.S. Army",
+            "job_description": "Managed the transition of the U.S. Army from wartime operations to peacetime structure, overseeing military demobilization after World War II."
+        },
+        {
+            "org_name": "Allied Expeditionary Forces",
+            "location": "Europe",
+            "employment_length": "1943 - 1945",
+            "role": "Supreme Allied Commander",
+            "job_description": "Led the D-Day invasion and oversaw the successful military campaign that resulted in the defeat of Nazi Germany."
+        },
+        {
+            "org_name": "Allied Forces in North Africa",
+            "location": "North Africa",
+            "employment_length": "1942 - 1943",
+            "role": "Commander of Operation Torch",
+            "job_description": "Directed the Allied invasion of North Africa, securing key strategic positions and preparing for European offensives."
+        },
+        {
+            "org_name": "War Plans Division, U.S. Army",
+            "location": "Washington, D.C.",
+            "employment_length": "1941 - 1942",
+            "role": "Deputy Chief of War Plans",
+            "job_description": "Developed strategic military plans for U.S. engagement in World War II, contributing to early coordination with Allied forces."
+        },
+        {
+            "org_name": "U.S. Army Staff",
+            "location": "United States & Philippines",
+            "employment_length": "1920 - 1940",
+            "role": "Staff Officer & Military Strategist",
+            "job_description": "Served under General Douglas MacArthur in the Philippines and contributed to military training and defense planning."
+        },
+        {
+            "org_name": "United States Military Academy",
+            "location": "West Point, NY",
+            "employment_length": "1911 - 1915",
+            "role": "Cadet",
+            "job_description": "Graduated from West Point, beginning a lifelong career in military leadership and strategic operations."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Science",
+        "location": "United States Military Academy, West Point, NY",
+        "majored_in": "Military Science & Leadership"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Richard Nixon",
+        "reference_title": "Former Vice President & U.S. President",
+        "reference_contact": "nixon.contact@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/dwight-d-eisenhower/",
+            "historical_writings": "https://www.eisenhowerinstitute.org/"
+        }
+    },
+    "notes": "Dwight D. Eisenhower's leadership in World War II and his presidency defined American economic and military strategy. His emphasis on infrastructure, diplomacy, and military preparedness shaped modern U.S. policies."
+}

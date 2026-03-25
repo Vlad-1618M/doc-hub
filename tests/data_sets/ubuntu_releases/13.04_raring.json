@@ -1,0 +1,9 @@
+{
+  "version": "13.04",
+  "codename": "Raring Ringtail",
+  "release_date": "2013-04-25",
+  "support_type": "Interim",
+  "eol_date": "2014-01-27",
+  "summary": "Ubuntu 13.04 (Raring Ringtail) was released on 25 April 2013. Interim support was reduced from 18 months to 9 months starting with this release. Features: improved Unity, Smart Scopes (online search in the Dash, later scaled back over privacy), preview of Mir display server. LibreOffice 4.0, Python 3.3. The ringtail (a small mammal) suggested speed and agility.",
+  "notes": "Unsupported since 2014-01-27. Kernel 3.8. First release with shortened 9-month interim support. Smart Scopes raised privacy concerns before being toned down."
+}

@@ -1,0 +1,9 @@
+{
+  "version": "18.10",
+  "codename": "Cosmic Cuttlefish",
+  "release_date": "2018-10-18",
+  "support_type": "Interim",
+  "eol_date": "2019-07-18",
+  "summary": "Ubuntu 18.10 (Cosmic Cuttlefish) was released on 18 October 2018. Features: GNOME 3.30, improved fractional scaling for HiDPI, Yaru theme refinements. The cuttlefish can change color and shape—symbolizing the evolving Ubuntu experience. Minor release with focus on polish.",
+  "notes": "Unsupported since 2019-07-18. Kernel 4.18. Part of the post-Unity GNOME stabilization period."
+}

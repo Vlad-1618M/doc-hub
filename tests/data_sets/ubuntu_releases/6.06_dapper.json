@@ -1,0 +1,9 @@
+{
+  "version": "6.06 LTS",
+  "codename": "Dapper Drake",
+  "release_date": "2006-06-01",
+  "support_type": "LTS",
+  "eol_date": "2009-07-14",
+  "summary": "Ubuntu 6.06 (Dapper Drake) was the first long-term support (LTS) release. It was released behind schedule—intended as 6.04—and is sometimes jokingly called the first 'Late To Ship' (LTS) release. Support ran until 14 July 2009 for desktops and June 2011 for servers. Features: Live CD and Install CD merged onto one disc, Ubiquity graphical installer, Usplash on shutdown and startup, network manager, Human theme with Tango guidelines and orange colors, GDebi for .deb packages. First release to allow installation directly onto removable USB devices.",
+  "notes": "Desktop support ended 2009-07-14; server support 2011-06-01. Kernel 2.6.15. Dapper established the LTS pattern: desktop 3 years, server 5 years (later harmonized to 5 years for both in 12.04)."
+}

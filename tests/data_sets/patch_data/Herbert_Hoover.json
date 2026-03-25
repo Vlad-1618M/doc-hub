@@ -1,0 +1,122 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Herbert",
+            "last_name": "Hoover"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Iowa",
+                "city": "West Branch",
+                "zip_code": "52358",
+                "timezone": "CST (Central Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "herbert.hoover@example.com",
+            "phone": "+1-319-555-1929"
+        },
+        "job_title": {
+            "position": "31st President of the United States",
+            "role": "Humanitarian, Economic Strategist, and Crisis Leader"
+        },
+        "summary": "Herbert Hoover, the 31st President of the United States, was a renowned humanitarian and successful engineer before leading the country through the early years of the Great Depression. His presidency focused on economic policies, infrastructure projects, and government-led relief efforts.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Advanced": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Expert": true
+            },
+            "Law and Legislation": {
+                "Advanced": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1929 - 1933",
+            "role": "President",
+            "job_description": "Led the U.S. through the onset of the Great Depression, implemented large-scale public works programs like the Hoover Dam, and established economic relief initiatives."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1921 - 1928",
+            "role": "Secretary of Commerce",
+            "job_description": "Promoted business efficiency, infrastructure development, and the use of radio and aviation technology for economic growth."
+        },
+        {
+            "org_name": "U.S. Food Administration",
+            "location": "Washington, D.C.",
+            "employment_length": "1917 - 1919",
+            "role": "Head of Food Relief Programs",
+            "job_description": "Directed food production and distribution during World War I, ensuring American troops and European allies had necessary supplies."
+        },
+        {
+            "org_name": "American Relief Administration",
+            "location": "Europe",
+            "employment_length": "1919 - 1921",
+            "role": "Director",
+            "job_description": "Organized humanitarian aid to war-torn European nations, helping to prevent mass starvation following World War I."
+        },
+        {
+            "org_name": "Hoover Engineering Consulting",
+            "location": "London, England",
+            "employment_length": "1908 - 1914",
+            "role": "Mining Engineer & Business Consultant",
+            "job_description": "Developed mining operations worldwide, improving resource extraction efficiency and economic output."
+        },
+        {
+            "org_name": "Chinese Bureau of Mines",
+            "location": "Beijing, China",
+            "employment_length": "1899 - 1902",
+            "role": "Mining Engineer",
+            "job_description": "Supervised mining projects and introduced modern engineering practices to China's mining industry."
+        },
+        {
+            "org_name": "Bewick, Moreing & Co.",
+            "location": "Australia & China",
+            "employment_length": "1897 - 1908",
+            "role": "Geologist & Engineer",
+            "job_description": "Worked in mining operations in Western Australia and China, pioneering advancements in resource management."
+        },
+        {
+            "org_name": "Stanford University",
+            "location": "Stanford, CA",
+            "employment_length": "1891 - 1895",
+            "role": "Student",
+            "job_description": "Earned a degree in geology, specializing in mining engineering, and developed leadership skills through student organizations."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Science in Geology",
+        "location": "Stanford University, Stanford, CA",
+        "majored_in": "Mining & Geological Engineering"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Andrew Mellon",
+        "reference_title": "Former U.S. Secretary of the Treasury",
+        "reference_contact": "mellon.contact@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/herbert-hoover/",
+            "historical_writings": "https://hoover.archives.gov/research"
+        }
+    },
+    "notes": "Herbert Hoover is remembered for his humanitarian efforts, engineering expertise, and leadership during the Great Depression. His policies laid the groundwork for later economic reforms."
+}

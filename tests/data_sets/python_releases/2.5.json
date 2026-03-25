@@ -1,0 +1,8 @@
+{
+  "version": "2.5",
+  "release_date": "2006-09-19",
+  "eol_date": "2011-05-26",
+  "status": "eol",
+  "summary": "Python 2.5 introduced the 'with' statement for context managers, enabling RAII-like behavior (acquire lock, open file, etc.) and replacing common try/finally idioms. Conditional expressions (x if c else y), the any() and all() builtins, and improved parsing were added. The logo used since 2.5 (the familiar blue-and-yellow snakes) dates from this era.",
+  "notes": "Unsupported since 2011-05-26. Last micro 2.5.6. The 'with' statement became essential for resource management and inspired similar constructs in other languages."
+}

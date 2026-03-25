@@ -1,0 +1,129 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Abraham",
+            "last_name": "Lincoln"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Illinois",
+                "city": "Springfield",
+                "zip_code": "62701",
+                "timezone": "CST (Central Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "abraham.lincoln@example.com",
+            "phone": "+1-217-555-0123"
+        },
+        "job_title": {
+            "position": "16th President of the United States",
+            "role": "Leader, Commander-in-Chief, and Emancipator"
+        },
+        "summary": "Abraham Lincoln, the 16th President of the United States, led the nation through the Civil War, abolished slavery, and strengthened the federal government. His leadership continues to shape American democracy.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Expert": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Advanced": true
+            },
+            "Law and Legislation": {
+                "Advanced": true
+            },
+            "Government Policy Oversight": {
+                "Advanced": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1861 - 1865",
+            "role": "President",
+            "job_description": "Led the Union through the Civil War, signed the Emancipation Proclamation, and delivered the Gettysburg Address."
+        },
+        {
+            "org_name": "United States House of Representatives",
+            "location": "Washington, D.C.",
+            "employment_length": "1847 - 1849",
+            "role": "Congressman",
+            "job_description": "Advocated for infrastructure improvements and opposed the Mexican-American War."
+        },
+        {
+            "org_name": "Illinois State Legislature",
+            "location": "Springfield, Illinois",
+            "employment_length": "1834 - 1842",
+            "role": "State Legislator",
+            "job_description": "Promoted economic development, transportation improvements, and limited slavery expansion."
+        },
+        {
+            "org_name": "Lincoln & Herndon Law Firm",
+            "location": "Springfield, Illinois",
+            "employment_length": "1837 - 1861",
+            "role": "Lawyer",
+            "job_description": "Handled civil and criminal cases, known for his skill in argumentation and legal reasoning."
+        },
+        {
+            "org_name": "Postmaster of New Salem",
+            "location": "New Salem, Illinois",
+            "employment_length": "1833 - 1836",
+            "role": "Postmaster",
+            "job_description": "Managed mail services and improved communication in the rural community."
+        },
+        {
+            "org_name": "Surveyor",
+            "location": "Illinois",
+            "employment_length": "1833 - 1836",
+            "role": "Surveyor",
+            "job_description": "Planned and mapped local roads, bridges, and land plots."
+        },
+        {
+            "org_name": "Captain in the Illinois Militia",
+            "location": "Illinois",
+            "employment_length": "1832",
+            "role": "Militia Captain",
+            "job_description": "Led a volunteer unit in the Black Hawk War, known for leadership despite seeing little combat."
+        },
+        {
+            "org_name": "Store Owner",
+            "location": "New Salem, Illinois",
+            "employment_length": "1831 - 1832",
+            "role": "Entrepreneur",
+            "job_description": "Ran a general store, developing business and customer service experience."
+        },
+        {
+            "org_name": "Rail Splitter & Farmhand",
+            "location": "Indiana and Illinois",
+            "employment_length": "1816 - 1830",
+            "role": "Laborer",
+            "job_description": "Worked on farms and split logs for fencing, gaining a reputation for hard work and resilience."
+        }
+    ],
+    "education": {
+        "degree": "Self-Educated",
+        "location": "Indiana and Illinois",
+        "majored_in": "Law, History, and Politics"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "William H. Seward",
+        "reference_title": "Former U.S. Secretary of State",
+        "reference_contact": "seward.contact@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/abraham-lincoln/",
+            "historical_writings": "https://www.nps.gov/liho/index.htm"
+        }
+    },
+    "notes": "Abraham Lincoln's leadership and moral clarity shaped the course of American history. His speeches, including the Gettysburg Address and the Second Inaugural, remain defining statements of democracy and unity."
+}

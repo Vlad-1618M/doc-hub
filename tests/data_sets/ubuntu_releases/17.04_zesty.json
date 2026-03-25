@@ -1,0 +1,9 @@
+{
+  "version": "17.04",
+  "codename": "Zesty Zapus",
+  "release_date": "2017-04-13",
+  "support_type": "Interim",
+  "eol_date": "2018-01-13",
+  "summary": "Ubuntu 17.04 (Zesty Zapus) was released on 13 April 2017. Last release with Unity as default. Features: updated Mesa for graphics, Python 3.6, improved power profiles. Canonical announced in April 2017 that 18.04 would use GNOME, ending the Unity and Mir projects. The zapus (jumping mouse) suggested energy and agility.",
+  "notes": "Unsupported since 2018-01-13. Kernel 4.10. Final Unity release before the switch to GNOME in 17.10."
+}

@@ -1,0 +1,9 @@
+{
+  "version": "22.04 LTS",
+  "codename": "Jammy Jellyfish",
+  "release_date": "2022-04-21",
+  "support_type": "LTS",
+  "eol_date": "2027-06-01",
+  "summary": "Ubuntu 22.04 LTS Jammy Jellyfish ships with Linux kernel 5.15 or 5.17 and GNOME 42. It uses Wayland by default for most configurations and includes Python 3.10 in the default install. Jammy refined the GNOME Shell experience with improved performance and accessibility. The release continued Canonical's focus on snap packages for certain applications while maintaining broad .deb support. Server editions received updated OpenStack and cloud tooling. The jellyfish theme reflects Ubuntu's semiannual release rhythm and marine-inspired naming for the J series.",
+  "notes": "ESM available until 2032; Legacy add-on extends to 2037. Jammy remains a popular choice for servers and desktops requiring long-term stability. The codename 'Jammy' suggests something agreeable and easy-going, matching the release's focus on polish and reliability over radical changes."
+}

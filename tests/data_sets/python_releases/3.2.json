@@ -1,0 +1,8 @@
+{
+  "version": "3.2",
+  "release_date": "2011-02-20",
+  "eol_date": "2016-02-20",
+  "status": "eol",
+  "summary": "Python 3.2 defined a stable ABI (PEP 384), allowing extension modules to rely on functions across different Python versions without recompilation. Added: argparse as the recommended command-line parser, unittest improvements, the faulthandler module for debugging. Security fixes continued for five years after release.",
+  "notes": "Unsupported since 2016-02-20. Last micro 3.2.6. Full support ended 2013-05-13. The stable ABI was a major boon for distribution packaging."
+}

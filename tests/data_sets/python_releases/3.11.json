@@ -1,0 +1,8 @@
+{
+  "version": "3.11",
+  "release_date": "2022-10-24",
+  "eol_date": "2027-10-31",
+  "status": "security",
+  "summary": "Python 3.11 delivered major performance gains: the interpreter is typically 10–60% faster than 3.10 depending on workload, thanks to adaptive specialization, faster function calls, and reduced overhead. Exception handling was expanded with ExceptionGroup and except* for handling multiple exceptions. Tracebacks became more informative, showing the exact expressions that caused errors. New features included the Self type for simpler annotation of methods returning the instance, and improved asyncio task groups. TypedDict now supports Required and NotRequired. The TOML library was added to the standard library for parsing TOML config files. PEP 673 introduced Self for cleaner type hints in class methods.",
+  "notes": "In security-only phase as of 2026. Full bug-fix support ended 2024. The speed improvements made 3.11 a compelling upgrade; many production systems migrated from 3.10 for the performance gains alone. Named after the 'Faster CPython' project goals."
+}

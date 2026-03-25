@@ -1,0 +1,88 @@
+services:
+  doc-hub-mongo:
+    build:
+      context: ..
+      dockerfile: build/mongodb.Dockerfile
+    container_name: doc-hub-mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ADMIN_USER}       # MongoDB root username
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ADMIN_PASS}       # MongoDB root password
+      MONGO_USER: ${MONGO_USER}                             # MongoDB application user
+      MONGO_PASS: ${MONGO_PASS}                             # MongoDB application user password
+      MONGO_DB: ${MONGO_DB}                                 # Default MongoDB database name
+    ports:
+      - "${MONGO_PORT}:27017"                               # Expose MongoDB port to host
+    volumes:
+      - mongo-data:/data/db                                 # Persist MongoDB data
+    networks:
+      - app-network
+    shm_size: "256m"                                        # Set shared memory size to help with memory constraints
+    deploy:
+      resources:
+        limits:
+          memory: 512M                                      # Set a memory limit for the container (swarm mode only)
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.runCommand('ping').ok"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+
+  doc-hub-api:
+    build:
+      context: ..
+      dockerfile: build/fastapi.Dockerfile
+    container_name: doc-hub-api
+    environment:
+      MONGO_HOST: ${MONGO_HOST:-doc-hub-mongo}            # MongoDB hostname (service name inside Compose network)
+      MONGO_PORT: ${MONGO_PORT}                           # MongoDB port (default: 27017)
+      MONGO_USER: ${MONGO_USER}                           # MongoDB application user
+      MONGO_PASS: ${MONGO_PASS}                           # MongoDB application user password
+      MONGO_DB: ${MONGO_DB}                               # MongoDB database name
+      MONGO_AUTH_DB: ${MONGO_AUTH_DB:-resume_auth}
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production-use-env-var}
+      ADMIN_SECRET: ${ADMIN_SECRET:-}
+      UVICORN_LOG_LEVEL: ${UVICORN_LOG_LEVEL:-info}
+      APP_LOG_LEVEL: ${APP_LOG_LEVEL:-INFO}
+      MONGO_LOG_COMMANDS: ${MONGO_LOG_COMMANDS:-}
+    ports:
+      - "${FASTAPI_PORT}:8000"                            # Expose FastAPI API port to host
+    depends_on:
+      doc-hub-mongo:
+        condition: service_healthy                        # Wait until MongoDB is healthy before starting
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://doc-hub-api:8000/"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+
+  tests-ci:
+    build:
+      context: ..
+      dockerfile: build/test.Dockerfile
+    container_name: tests-ci
+    environment:
+      ADMIN_SECRET: ${ADMIN_SECRET:-}
+    depends_on:
+      doc-hub-api:
+        condition: service_healthy                        # Ensure FastAPI is healthy before running tests
+    networks:
+      - app-network
+    command: >
+      sh -c "ping -c 4 -w 5 doc-hub-api &&
+             curl -v http://doc-hub-api:8000/ &&
+             ./build/sh_scripts/cicd_run.sh"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://doc-hub-api:8000/resume/status/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+
+volumes:
+  mongo-data:                                             # Persistent storage for MongoDB data
+
+networks:
+  app-network:
+    driver: bridge                                        # Use bridge network for container communication
+

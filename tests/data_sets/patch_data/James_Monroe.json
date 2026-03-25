@@ -1,0 +1,108 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "James",
+            "last_name": "Monroe"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Virginia",
+                "city": "Charlottesville",
+                "zip_code": "22902",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "james.monroe@example.com",
+            "phone": "+1-434-555-1817"
+        },
+        "job_title": {
+            "position": "5th President of the United States",
+            "role": "Diplomat, Statesman, and Architect of the Monroe Doctrine"
+        },
+        "summary": "James Monroe, the 5th President of the United States, is best known for the Monroe Doctrine, which defined U.S. foreign policy in the Western Hemisphere. His presidency was marked by national expansion, economic growth, and the 'Era of Good Feelings.'",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Advanced": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Expert": true
+            },
+            "Law and Legislation": {
+                "Expert": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1817 - 1825",
+            "role": "President",
+            "job_description": "Expanded U.S. territory through the acquisition of Florida and established the Monroe Doctrine, preventing European interference in the Western Hemisphere."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1811 - 1817",
+            "role": "Secretary of State & Secretary of War",
+            "job_description": "Served in dual roles during the War of 1812, strengthening national defenses and leading peace negotiations."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Paris, France",
+            "employment_length": "1803",
+            "role": "Diplomat & Louisiana Purchase Negotiator",
+            "job_description": "Played a key role in negotiating the Louisiana Purchase, doubling the size of the United States."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Richmond, VA",
+            "employment_length": "1799 - 1802",
+            "role": "Governor of Virginia",
+            "job_description": "Led state affairs, including military readiness and economic policy."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1790 - 1794",
+            "role": "U.S. Senator",
+            "job_description": "Advocated for states' rights and military preparedness."
+        },
+        {
+            "org_name": "Continental Army",
+            "location": "Virginia & New Jersey",
+            "employment_length": "1775 - 1778",
+            "role": "Officer",
+            "job_description": "Fought in the Revolutionary War, including the Battle of Trenton, where he was wounded."
+        }
+    ],
+    "education": {
+        "degree": "Law Studies (Did not complete)",
+        "location": "College of William & Mary, VA",
+        "majored_in": "Law & Political Science"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Thomas Jefferson",
+        "reference_title": "Former U.S. President & Political Mentor",
+        "reference_contact": "jefferson.contact@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/james-monroe/",
+            "historical_writings": "https://www.loc.gov/exhibits/monroe/"
+        }
+    },
+    "notes": "James Monroe\u2019s presidency marked a period of national unity and territorial expansion. His Monroe Doctrine remains a cornerstone of U.S. foreign policy."
+}

@@ -1,0 +1,8 @@
+{
+  "version": "3.6",
+  "release_date": "2016-12-23",
+  "eol_date": "2021-12-23",
+  "status": "eol",
+  "summary": "Python 3.6 added f-strings (formatted string literals), async generators and comprehensions, variable annotations (PEP 526), and secrets module. Dictionaries became insertion-ordered (implementation detail, later guaranteed in 3.7). Underscores in numeric literals (1_000_000) improved readability. The 3.6 branch received five years of support.",
+  "notes": "Unsupported since 2021-12-23. Last micro 3.6.15. Full support ended 2018-12-24. f-strings rapidly became the preferred string formatting method."
+}

@@ -1,0 +1,106 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "John",
+            "last_name": "F Kennedy"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Massachusetts",
+                "city": "Brookline",
+                "zip_code": "02446",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "jfk@example.com",
+            "phone": "+1-617-555-1961"
+        },
+        "job_title": {
+            "position": "35th President of the United States",
+            "role": "Commander-in-Chief, Diplomatic Leader, Visionary Statesman"
+        },
+        "summary": "John F. Kennedy, the 35th President of the United States, was known for his leadership during the Cold War, his commitment to civil rights, and his vision for space exploration. He played a key role in the Cuban Missile Crisis, founded the Peace Corps, and set the foundation for the Apollo moon landing.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Expert": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Advanced": true},
+            "Law and Legislation": {"Advanced": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1961 - 1963",
+            "role": "President",
+            "job_description": "Led the U.S. through the Cuban Missile Crisis, launched the Apollo space program, and championed civil rights legislation."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Massachusetts",
+            "employment_length": "1953 - 1960",
+            "role": "Senator",
+            "job_description": "Represented Massachusetts, focusing on foreign policy and economic development."
+        },
+        {
+            "org_name": "United States House of Representatives",
+            "location": "Massachusetts",
+            "employment_length": "1947 - 1953",
+            "role": "Congressman",
+            "job_description": "Advocated for post-war economic policies and social reform."
+        },
+        {
+            "org_name": "U.S. Navy",
+            "location": "Pacific Theater (WWII)",
+            "employment_length": "1941 - 1945",
+            "role": "Lieutenant",
+            "job_description": "Commanded PT-109, led his crew to safety after being attacked in the Pacific, earning the Navy and Marine Corps Medal."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Science",
+        "location": "Harvard University, Cambridge, MA",
+        "majored_in": "International Affairs & Government"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Robert F. Kennedy",
+        "reference_title": "Attorney General & U.S. Senator",
+        "reference_contact": "rfk@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/jfkennedy",
+            "linkedin": "https://linkedin.com/in/jfkennedy",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/john-f-kennedy/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/john-f-kennedy/",
+            "historical_writings": "https://www.jfklibrary.org/"
+        }
+    },
+    "notes": "JFK’s presidency was cut short, but his vision for civil rights, space exploration, and diplomacy left a lasting impact."
+}

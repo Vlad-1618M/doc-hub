@@ -1,0 +1,8 @@
+{
+  "version": "3.13",
+  "release_date": "2024-10-07",
+  "eol_date": "2029-10-31",
+  "status": "bugfix",
+  "summary": "Python 3.13 introduced an experimental just-in-time (JIT) compiler, built on the copy-and-patch approach, which can yield significant speedups for certain workloads. The Global Interpreter Lock (GIL) can be disabled in the free-threaded build, enabling true parallelism for CPU-bound threads. The interactive interpreter (REPL) was redesigned with syntax highlighting, better multiline support, and improved history. An incremental garbage collector reduced GC pause times. Support policy changed: 3.13 and later receive two years of full support followed by three years of security support. The experimental JIT is opt-in and continues Python's 'Faster CPython' trajectory.",
+  "notes": "Full bug-fix support until 2026-10-01; then security-only until 2029-10-31. The free-threaded build (python3.13t) is separate from the default build; adoption of free-threading is gradual. The JIT remains experimental and may evolve in 3.14 and beyond."
+}
