@@ -29,7 +29,8 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# Only repo-root lib/ (setuptools-style); bare "lib/" would ignore ui/src/lib/ etc.
+/lib/
 lib64/
 parts/
 sdist/

@@ -234,6 +234,7 @@ docker compose --env-file cfgs/.env.ci -f build/docker-compose-github.yml -p doc
 | `tsc` / Vite: missing module (e.g. `../lib/…`) | File not committed or wrong path | Add or fix source files; run `npm run build` locally. |
 | `couldn't find env file: …/cfgs/.env.ci` | File missing or not pushed | Add [cfgs/.env.ci](../cfgs/.env.ci) and ensure `.gitignore` has `!cfgs/.env.ci`. |
 | Compose CI **exit 137** | OOM on runner | Already mitigated by `docker-compose-github.yml` (lighter stack, Mongo limits). If it persists, reduce parallel work or split jobs. |
+| Mongo / `set_db_creds`: **Environment file not found** | Image expected `cfgs/.env` inside the build context; CI has no gitignored `.env` | [mongodb.Dockerfile](../build/mongodb.Dockerfile) falls back to **`cfgs/.env.ci`**; ensure that file is committed. |
 | `get_auth_key.sh` / admin routes fail in CI | `ADMIN_SECRET` mismatch | Ensure `cfgs/.env.ci` sets `ADMIN_SECRET` and Compose passes it to `doc-hub-api` and `tests-ci`. |
 | Dependency review skipped or errors | Graph disabled or plan limits | Enable dependency graph; check org settings for private repos. |
 | CodeQL fails on private repo | Advanced Security not available | Enable GHAS or accept disabling/analyzing fewer languages per org policy. |

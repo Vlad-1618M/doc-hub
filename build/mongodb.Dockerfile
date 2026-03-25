@@ -8,7 +8,8 @@ RUN chmod +x /dbapp/cfgs/set_db_creds.sh
 EXPOSE 27017
 VOLUME /data/db
 
-CMD ["/bin/bash", "-c", "/dbapp/cfgs/set_db_creds.sh /dbapp/cfgs/.env && exec mongod --bind_ip_all"]
+# Local builds usually COPY gitignored cfgs/.env; CI only has committed cfgs/.env.ci.
+CMD ["/bin/bash", "-c", "ENVF=/dbapp/cfgs/.env; [ -f \"$ENVF\" ] || ENVF=/dbapp/cfgs/.env.ci; /dbapp/cfgs/set_db_creds.sh \"$ENVF\""]
 
 
 

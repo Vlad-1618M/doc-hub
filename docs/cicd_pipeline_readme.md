@@ -82,5 +82,6 @@ Inside **`tests-ci`**, the container command already runs `ping` / `curl` agains
 ## Final notes
 
 - CI uses **`.env.ci`** so builds do not depend on a local **`cfgs/.env`** (gitignored).
+- The **MongoDB image** ([build/mongodb.Dockerfile](../build/mongodb.Dockerfile)) runs [set_db_creds.sh](../cfgs/set_db_creds.sh) with **`cfgs/.env` if present**, otherwise **`cfgs/.env.ci`**, so the image initializes correctly on GitHub runners (where `.env` is never in the build context).
 - The slimmer **`docker-compose-github.yml`** exists to **avoid SIGKILL / OOM (exit 137)** on small runners.
 - For local parity with CI, you can run the same Compose file manually with `--env-file cfgs/.env.ci`.
