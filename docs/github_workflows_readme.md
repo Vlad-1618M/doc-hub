@@ -118,7 +118,7 @@ All workflows below filter **base/target** branches to:
 | Job | Language | Notable steps |
 |-----|----------|----------------|
 | `python` | Python | `codeql-action/init` → **autobuild** → `analyze` (category `/language:python`). Ignores `ui/node_modules` and `**/node_modules/**`. |
-| `javascript` | JavaScript | Node 22 + npm cache → `init` with `paths: [ui]` → `npm ci` + `npm run build` in `ui/` → `analyze` (category `/language:javascript`). |
+| `javascript` | JavaScript | Node 22 + npm cache → `init` with **`paths` limited to `ui/src`** (plus `vite.config.ts`, `eslint.config.js`) and **`paths-ignore`** for `node_modules` / `dist` — avoids extracting all of `ui/node_modules` (e.g. core-js), which can stall the job 30+ minutes. **`timeout-minutes: 30`**. Then `npm ci` + `npm run build` → `analyze`. |
 
 **Why:** GitHub’s static analysis for security-relevant patterns; complements lint/tests.
 
@@ -237,6 +237,7 @@ docker compose --env-file cfgs/.env.ci -f build/docker-compose-github.yml -p doc
 | Mongo / `set_db_creds`: **Environment file not found** | Image expected `cfgs/.env` inside the build context; CI has no gitignored `.env` | [mongodb.Dockerfile](../build/mongodb.Dockerfile) falls back to **`cfgs/.env.ci`**; ensure that file is committed. |
 | `get_auth_key.sh` / admin routes fail in CI | `ADMIN_SECRET` mismatch | Ensure `cfgs/.env.ci` sets `ADMIN_SECRET` and Compose passes it to `doc-hub-api` and `tests-ci`. |
 | Dependency review skipped or errors | Graph disabled or plan limits | Enable dependency graph; check org settings for private repos. |
+| CodeQL **JavaScript** stuck on “Extracting … `node_modules`” | CodeQL was scanning all of `ui/` including dependencies | Workflow now scopes to `ui/src` and ignores `node_modules` / `dist`. |
 | CodeQL fails on private repo | Advanced Security not available | Enable GHAS or accept disabling/analyzing fewer languages per org policy. |
 | Gitleaks flags `cfgs/.env.ci` | Allowlist missing or wrong path | Confirm [.gitleaks.toml](../.gitleaks.toml) lists `cfgs/.env.ci`. |
 | **No workflow runs at all** | Branch not in `on:` list | Add your default branch name to `branches: […]` in each workflow YAML. |

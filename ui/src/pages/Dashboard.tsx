@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { useTheme } from '../contexts/ThemeContext'
@@ -11,10 +11,12 @@ import { fetchAuditEvents, type AuditEvent } from '../api/auditApi'
 import type { FullResume } from '../types'
 import type { UbuntuRelease, PythonRelease, RomanLeader } from '../types'
 import { isRecent, toTs } from '../lib/recentGlow'
+import { groupAuditEventsForDashboard } from '../lib/groupAuditEvents'
 
 const UPDATED_FLASH_MS = 3000
 
-const RECENT_PAGE_SIZE = 15
+/** Recent records per dashboard page (API still loads up to 100 per collection). */
+const RECENT_PAGE_SIZE = 20
 
 type RecentItem =
   | { type: 'resume'; id: string; title: string; meta: string; initials: string; ts: number; isRecent: boolean }
@@ -88,7 +90,7 @@ export function Dashboard() {
         setStats(null)
       }
       try {
-        const events = await fetchAuditEvents(token, 50)
+        const events = await fetchAuditEvents(token, 100)
         setAuditEvents(events)
         setAuditLoadError(null)
       } catch (err) {
@@ -124,14 +126,15 @@ export function Dashboard() {
     return () => document.removeEventListener('visibilitychange', onVisibilityChange)
   }, [load])
 
-  const recentItems: RecentItem[] = []
-  if (!loading && !error) {
+  const recentItems = useMemo((): RecentItem[] => {
+    const items: RecentItem[] = []
+    if (loading || error) return items
     resumes.forEach((r) => {
       const fn = r.resume?.name?.first_name || ''
       const ln = r.resume?.name?.last_name || ''
       const pos = r.resume?.job_title?.position || 'Resume'
       const ts = Math.max(toTs(r.updated_at), toTs(r.created_at))
-      recentItems.push({
+      items.push({
         type: 'resume',
         id: r._id ?? '',
         title: `${fn} ${ln}`.trim() || 'Resume',
@@ -143,7 +146,7 @@ export function Dashboard() {
     })
     ubuntu.forEach((u) => {
       const ts = Math.max(toTs(u.updated_at), toTs(u.created_at))
-      recentItems.push({
+      items.push({
         type: 'ubuntu',
         id: u._id ?? '',
         title: u.version ? `${u.version} ${u.codename || ''}`.trim() : 'Ubuntu release',
@@ -155,7 +158,7 @@ export function Dashboard() {
     })
     roman.forEach((r) => {
       const ts = Math.max(toTs(r.updated_at), toTs(r.created_at))
-      recentItems.push({
+      items.push({
         type: 'roman',
         id: r._id ?? '',
         title: r.name || 'Roman leader',
@@ -167,7 +170,7 @@ export function Dashboard() {
     })
     python.forEach((p) => {
       const ts = Math.max(toTs(p.updated_at), toTs(p.created_at))
-      recentItems.push({
+      items.push({
         type: 'python',
         id: p._id ?? '',
         title: p.version ? `Python ${p.version}` : 'Python release',
@@ -177,8 +180,41 @@ export function Dashboard() {
         isRecent: isRecent(p.created_at, p.updated_at, now),
       })
     })
-    recentItems.sort((a, b) => b.ts - a.ts)
-  }
+    items.sort((a, b) => b.ts - a.ts)
+    return items
+  }, [loading, error, resumes, ubuntu, python, roman, now])
+
+  const recentListForPagination = useMemo(
+    () => recentItems.filter((item) => item.id),
+    [recentItems],
+  )
+  const totalRecentCount = recentListForPagination.length
+  const totalRecentPages =
+    totalRecentCount === 0 ? 0 : Math.ceil(totalRecentCount / RECENT_PAGE_SIZE)
+
+  useEffect(() => {
+    if (totalRecentCount === 0) {
+      setRecentPage(0)
+      return
+    }
+    setRecentPage((p) => {
+      const maxPage = Math.ceil(totalRecentCount / RECENT_PAGE_SIZE) - 1
+      return p > maxPage ? maxPage : p
+    })
+  }, [totalRecentCount])
+
+  const paginatedRecent = useMemo(
+    () =>
+      recentListForPagination.slice(
+        recentPage * RECENT_PAGE_SIZE,
+        (recentPage + 1) * RECENT_PAGE_SIZE,
+      ),
+    [recentListForPagination, recentPage],
+  )
+  const hasPrevRecentPage = recentPage > 0
+  const hasNextRecentPage = (recentPage + 1) * RECENT_PAGE_SIZE < totalRecentCount
+  const recentRangeStart = totalRecentCount === 0 ? 0 : recentPage * RECENT_PAGE_SIZE + 1
+  const recentRangeEnd = Math.min((recentPage + 1) * RECENT_PAGE_SIZE, totalRecentCount)
 
   const getLink = (item: RecentItem) => {
     switch (item.type) {
@@ -211,15 +247,10 @@ export function Dashboard() {
     }
   }
 
-  const auditTimeMs = (iso: string): number => {
-    const ms = Date.parse(iso)
-    return Number.isNaN(ms) ? 0 : ms
-  }
-
-  const paginatedRecent = recentItems
-    .filter((item) => item.id)
-    .slice(recentPage * RECENT_PAGE_SIZE, (recentPage + 1) * RECENT_PAGE_SIZE)
-  const hasNextPage = recentItems.filter((i) => i.id).length > (recentPage + 1) * RECENT_PAGE_SIZE
+  const groupedAuditActivity = useMemo(
+    () => groupAuditEventsForDashboard(auditEvents),
+    [auditEvents],
+  )
 
   const statItems = [
     { label: 'Resumes', value: stats?.resumes ?? resumes.length, to: '/app/resumes', collection: 'resumes' as const },
@@ -264,7 +295,7 @@ export function Dashboard() {
     theme === 'terracotta' ? 'border-amber-200' : theme === 'light' ? 'border-slate-200' : 'border-slate-600'
 
   return (
-    <div className={`-m-6 min-h-[calc(100vh-8rem)] p-6 ${contentBg}`} style={contentStyle}>
+    <div className={`-m-6 flex min-h-[calc(100dvh-8rem)] flex-col p-6 ${contentBg}`} style={contentStyle}>
       <div className="mb-6">
         <div className={`mb-1 text-xs ${theme === 'dark' ? 'text-slate-400' : 'text-slate-500'}`}>
           <Link to="/" className={theme === 'terracotta' ? 'text-amber-600 hover:underline' : 'text-sky-400 hover:underline'}>Home</Link> / Dashboard
@@ -287,10 +318,10 @@ export function Dashboard() {
         ))}
       </div>
 
-      {/* Dashboard grid - flex to fill available height */}
-      <div className="grid min-h-[calc(100vh-22rem)] grid-rows-1 gap-6 lg:grid-cols-[1fr_340px]">
-        {/* Recent records - expanded to use space */}
-        <div className={`flex min-h-0 flex-col overflow-hidden rounded-[10px] border ${panelCls}`}>
+      {/* Dashboard grid — lg+: row has fixed height; Recent stretches; Activity uses align-self:start so it is not forced tall */}
+      <div className="grid min-h-0 flex-1 grid-cols-1 gap-6 lg:grid-cols-[1fr_340px] lg:grid-rows-1 lg:min-h-[max(28rem,calc(100dvh-12rem))] lg:h-[max(28rem,calc(100dvh-12rem))] min-h-[min(48vh,420px)]">
+        {/* Recent records */}
+        <div className={`flex min-h-0 h-full max-h-full flex-col overflow-hidden rounded-[10px] border ${panelCls}`}>
           <div className={`flex items-center justify-between border-b px-5 py-4 text-sm font-semibold ${panelBorderCls}`}>
             <span className={theme === 'dark' ? 'text-slate-100' : 'text-slate-800'}>Recent records</span>
             <Link to="/app/resumes" className={`text-xs font-medium hover:underline ${theme === 'terracotta' ? 'text-amber-600' : 'text-sky-400'}`}>
@@ -330,25 +361,49 @@ export function Dashboard() {
                   </li>
                 ))}
               </ul>
-              {(hasNextPage || recentPage > 0) && (
-                <div className={`flex items-center justify-center gap-4 border-t px-5 py-3 ${panelBorderCls}`}>
-                  {recentPage > 0 && (
-                    <button
-                      type="button"
-                      onClick={() => setRecentPage((p) => p - 1)}
-                      className={`text-sm font-medium hover:underline ${theme === 'terracotta' ? 'text-amber-600' : 'text-sky-400'}`}
-                    >
-                      ← Previous
-                    </button>
-                  )}
-                  {hasNextPage && (
-                    <button
-                      type="button"
-                      onClick={() => setRecentPage((p) => p + 1)}
-                      className={`text-sm font-medium hover:underline ${theme === 'terracotta' ? 'text-amber-600' : 'text-sky-400'}`}
-                    >
-                      Next →
-                    </button>
+              {totalRecentCount > 0 && (
+                <div
+                  className={`flex shrink-0 flex-col gap-2 border-t px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 ${panelBorderCls}`}
+                >
+                  <p
+                    className={`text-center text-xs sm:text-left ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}
+                    aria-live="polite"
+                  >
+                    <span className="font-medium tabular-nums">
+                      {recentRangeStart}–{recentRangeEnd}
+                    </span>
+                    <span> of </span>
+                    <span className="font-medium tabular-nums">{totalRecentCount}</span>
+                    <span> records</span>
+                    {totalRecentPages > 1 && (
+                      <>
+                        <span className="mx-1.5 text-slate-500">·</span>
+                        <span>
+                          Page <span className="tabular-nums">{recentPage + 1}</span> of{' '}
+                          <span className="tabular-nums">{totalRecentPages}</span>
+                        </span>
+                      </>
+                    )}
+                  </p>
+                  {totalRecentPages > 1 && (
+                    <div className="flex items-center justify-center gap-2 sm:justify-end">
+                      <button
+                        type="button"
+                        disabled={!hasPrevRecentPage}
+                        onClick={() => setRecentPage((p) => Math.max(0, p - 1))}
+                        className={`rounded-lg border px-3 py-1.5 text-sm font-medium transition disabled:pointer-events-none disabled:opacity-40 ${theme === 'terracotta' ? 'border-amber-200 text-amber-800 hover:bg-amber-50' : theme === 'light' ? 'border-slate-200 text-slate-800 hover:bg-slate-50' : 'border-slate-600 text-slate-200 hover:bg-white/5'}`}
+                      >
+                        ← Previous
+                      </button>
+                      <button
+                        type="button"
+                        disabled={!hasNextRecentPage}
+                        onClick={() => setRecentPage((p) => p + 1)}
+                        className={`rounded-lg border px-3 py-1.5 text-sm font-medium transition disabled:pointer-events-none disabled:opacity-40 ${theme === 'terracotta' ? 'border-amber-200 text-amber-800 hover:bg-amber-50' : theme === 'light' ? 'border-slate-200 text-slate-800 hover:bg-slate-50' : 'border-slate-600 text-slate-200 hover:bg-white/5'}`}
+                      >
+                        Next →
+                      </button>
+                    </div>
                   )}
                 </div>
               )}
@@ -356,15 +411,32 @@ export function Dashboard() {
           )}
         </div>
 
-        {/* Activity — server audit log (mutations & account events) */}
-        <div className={`flex min-h-0 flex-col overflow-hidden rounded-[10px] border ${panelCls}`}>
-          <div className={`shrink-0 border-b px-5 py-4 text-sm font-semibold ${panelBorderCls} ${theme === 'dark' ? 'text-slate-100' : 'text-slate-800'}`}>Activity</div>
+        {/* Activity — height follows content; scroll inside list if many groups */}
+        <div
+          className={`flex w-full flex-col overflow-hidden rounded-[10px] border lg:max-h-[max(28rem,calc(100dvh-12rem))] lg:self-start lg:justify-self-stretch ${panelCls}`}
+        >
+          <div className={`flex shrink-0 items-center justify-between gap-2 border-b px-5 py-4 ${panelBorderCls}`}>
+            <span className={`text-sm font-semibold ${theme === 'dark' ? 'text-slate-100' : 'text-slate-800'}`}>Activity</span>
+            {auditEvents.length > 0 && (
+              <span
+                className={`text-right text-xs ${theme === 'dark' ? 'text-slate-500' : 'text-slate-500'}`}
+                title={
+                  groupedAuditActivity.length < auditEvents.length
+                    ? 'Rows with the same type and summary in the same hour are combined'
+                    : 'Latest audit events from the server'
+                }
+              >
+                {groupedAuditActivity.length}{' '}
+                {groupedAuditActivity.length === 1 ? 'group' : 'groups'} · {auditEvents.length} events
+              </span>
+            )}
+          </div>
           {loading ? (
-            <div className="flex flex-1 items-center justify-center p-4">
+            <div className="flex items-center justify-center py-10">
               <div className="h-6 w-6 animate-spin rounded-full border-2 border-sky-400 border-t-transparent" />
             </div>
           ) : auditLoadError ? (
-            <div className="flex flex-1 flex-col justify-center gap-2 p-6 text-center text-sm">
+            <div className="flex flex-col justify-center gap-2 p-6 text-center text-sm">
               <p className="text-amber-600 dark:text-amber-400">{auditLoadError}</p>
               <p className={theme === 'dark' ? 'text-slate-500' : 'text-slate-600'}>
                 For Docker/nginx, ensure <code className="rounded bg-black/10 px-1 dark:bg-white/10">/audit</code> is proxied to the API (see{' '}
@@ -372,12 +444,13 @@ export function Dashboard() {
               </p>
             </div>
           ) : auditEvents.length === 0 ? (
-            <div className={`flex flex-1 items-center justify-center p-6 text-center text-sm ${theme === 'dark' ? 'text-slate-500' : 'text-slate-500'}`}>
+            <div className={`p-6 text-center text-sm ${theme === 'dark' ? 'text-slate-500' : 'text-slate-500'}`}>
               No audit events yet — changes will appear here as they happen
             </div>
           ) : (
-            <ul className="min-h-0 flex-1 overflow-y-auto p-2">
-              {auditEvents.map((ev) => {
+            <ul className="max-h-[min(50vh,22rem)] overflow-y-auto overscroll-contain p-2 lg:max-h-[min(28rem,calc(100dvh-15rem))]">
+              {groupedAuditActivity.map((row) => {
+                const ev = row.representative
                 const href = auditEventLink(ev)
                 const borderCls =
                   ev.action === 'delete'
@@ -386,19 +459,21 @@ export function Dashboard() {
                       ? 'border-l-4 border-emerald-500'
                       : 'border-l-4 border-sky-400'
                 const rowCls = `mb-1 flex gap-3 rounded-lg px-4 py-3 text-[13px] transition ${theme === 'dark' ? 'hover:bg-white/5' : 'hover:bg-slate-50'} ${borderCls}`
-                const timeStr = formatTimeAgo(auditTimeMs(ev.at))
+                const timeStr = formatTimeAgo(row.latestAtMs)
                 const meta = [ev.action, ev.resource.replace(/_/g, ' '), ev.actor_type].filter(Boolean).join(' · ')
+                const summaryText =
+                  row.count > 1 ? `${ev.summary} · ×${row.count}` : ev.summary
                 const body = (
                   <>
                     <span className={`shrink-0 text-xs ${theme === 'dark' ? 'text-slate-500' : 'text-slate-600'}`}>{timeStr}</span>
                     <span className="min-w-0 flex-1">
-                      <span className={`block truncate ${theme === 'dark' ? 'text-slate-200' : 'text-slate-800'}`}>{ev.summary}</span>
+                      <span className={`block truncate ${theme === 'dark' ? 'text-slate-200' : 'text-slate-800'}`}>{summaryText}</span>
                       <span className={`mt-0.5 block font-mono text-[10px] uppercase tracking-wide ${theme === 'dark' ? 'text-slate-500' : 'text-slate-500'}`}>{meta}</span>
                     </span>
                   </>
                 )
                 return (
-                  <li key={ev.id}>
+                  <li key={row.groupKey}>
                     {href ? (
                       <Link to={href} className={`${rowCls} block hover:opacity-95`}>
                         {body}

@@ -46,6 +46,7 @@ jobs:
   javascript:
     name: JavaScript (ui)
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -61,8 +62,16 @@ jobs:
         with:
           languages: javascript
           config: |
+            # Only first-party sources — scanning all of ui/ pulls in node_modules (core-js, etc.)
+            # and can run 30+ minutes or OOM on free runners.
             paths:
-              - ui
+              - ui/src
+              - ui/vite.config.ts
+              - ui/eslint.config.js
+            paths-ignore:
+              - ui/node_modules
+              - ui/dist
+              - "**/node_modules/**"
 
       - name: Install and build UI
         working-directory: ui
