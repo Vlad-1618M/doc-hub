@@ -12,10 +12,12 @@ Start here for setup, architecture, API notes, and tests.
 | [pydantic_models_readme.md](pydantic_models_readme.md) | Resume, record, and auth models |
 | [tests_readme.md](tests_readme.md) | Pytest, cURL suites, env vars, Docker cheat sheet |
 | [cicd_pipeline_readme.md](cicd_pipeline_readme.md) | GitHub Actions, `docker-compose-github.yml`, `cfgs/.env.ci` |
+| [github_workflows_readme.md](github_workflows_readme.md) | **Full CI reference:** each workflow (what/why/when/how), failures, gaps, suggestions |
 | [mongo_cli_notes.md](mongo_cli_notes.md) | `mongosh` examples against `resume_db` |
 | [mongo_logging_readme.md](mongo_logging_readme.md) | Richer Mongo logs; **`configure_dev_logs.sh`** (API + PyMongo + Mongo verbosity) |
 | [migration_plan.md](migration_plan.md) | Historical rebrand from `fastapi-to-mongodb` → **doc-hub** |
 | [dashboard_nav_customization_readme.md](dashboard_nav_customization_readme.md) | **Add/remove** dashboard tiles, sidebar sections, and record types (vs cosmetic HR/Test links) |
 | [new_feature_roadmap/](new_feature_roadmap/) | **Planned work:** org taxonomy, RBAC, dynamic nav — per-feature testing, CI/CD, and tech prerequisites ([ROADMAP.md](new_feature_roadmap/ROADMAP.md)) |
+| [TODO.md](TODO.md) | **Backlog memos:** UI unit tests, Python lint, Playwright E2E (post–UI stabilize), CI notes |
 
 **Repository root:** [README.md](../README.md)

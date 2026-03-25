@@ -4,6 +4,8 @@
 
 This document explains how automated CI is wired for **Doc Hub** (FastAPI + MongoDB + Doc Portal UI), how the **full** Compose stack differs from the **GitHub-optimized** file, and how it relates to [dev_setup_readme.md](./dev_setup_readme.md).
 
+For a **workflow-by-workflow** reference (triggers, permissions, failures, gaps, suggestions), see [github_workflows_readme.md](./github_workflows_readme.md).
+
 ---
 
 ## Why two Compose files?

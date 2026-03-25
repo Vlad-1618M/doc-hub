@@ -165,3 +165,4 @@ cfgs/.env
 .env
 .env.*
 !cfgs/.env.example
+!cfgs/.env.ci

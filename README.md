@@ -60,7 +60,7 @@ Workflows under [.github/workflows](.github/workflows):
 | [cicd-build.yml](.github/workflows/cicd-build.yml) | Docker Compose build + `tests-ci` integration (uses committed [cfgs/.env.ci](cfgs/.env.ci), not `cfgs/.env`) |
 | [codeql.yml](.github/workflows/codeql.yml) | CodeQL for Python + JavaScript (`ui/`) |
 | [dependency-review.yml](.github/workflows/dependency-review.yml) | PR dependency review (requires Dependency graph; public repos OK) |
-| [security-scan.yml](.github/workflows/dependency-review.yml) | Gitleaks secret scan ([.gitleaks.toml](.gitleaks.toml) allowlists `cfgs/.env.ci`) |
+| [security-scan.yml](.github/workflows/security-scan.yml) | Gitleaks secret scan ([.gitleaks.toml](.gitleaks.toml) allowlists `cfgs/.env.ci`) |
 | [Dependabot](.github/dependabot.yml) opens weekly PRs for GitHub Actions, pip (`deps/`), and npm (`ui/`)
 ----------
 

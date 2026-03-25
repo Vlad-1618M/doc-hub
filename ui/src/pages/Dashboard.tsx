@@ -10,11 +10,11 @@ import { fetchDashboardStats } from '../api/dashboardApi'
 import { fetchAuditEvents, type AuditEvent } from '../api/auditApi'
 import type { FullResume } from '../types'
 import type { UbuntuRelease, PythonRelease, RomanLeader } from '../types'
+import { isRecent, toTs } from '../lib/recentGlow'
 
 const UPDATED_FLASH_MS = 3000
 
 const RECENT_PAGE_SIZE = 15
-const RECENT_MS = 3 * 60 * 1000 // 3min - items added/updated within this window get glow, then stop
 
 type RecentItem =
   | { type: 'resume'; id: string; title: string; meta: string; initials: string; ts: number; isRecent: boolean }
@@ -51,7 +51,7 @@ export function Dashboard() {
   const [lastUpdatedCollection, setLastUpdatedCollection] = useState<string | null>(null)
   const updatedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  // Re-check isRecent every 5s so glow stops when records age past RECENT_MS
+  // Re-check isRecent every 5s so glow stops when records age past the recent window
   useEffect(() => {
     const id = setInterval(() => setNow(Date.now()), 5000)
     return () => clearInterval(id)
@@ -124,22 +124,6 @@ export function Dashboard() {
     return () => document.removeEventListener('visibilitychange', onVisibilityChange)
   }, [load])
 
-  const toTs = (v: unknown): number => {
-    if (v == null) return 0
-    if (typeof v === 'number' && !Number.isNaN(v)) return v
-    let s: string | undefined
-    if (typeof v === 'string') s = v
-    else if (typeof v === 'object' && v !== null) {
-      const o = v as Record<string, unknown>
-      const t = o.t as Record<string, string> | undefined
-      const d = o.$date
-      s = t?.['$date'] ?? (typeof d === 'string' ? d : undefined)
-    }
-    if (!s) return 0
-    const ms = new Date(s).getTime()
-    return Number.isNaN(ms) ? 0 : ms
-  }
-
   const recentItems: RecentItem[] = []
   if (!loading && !error) {
     resumes.forEach((r) => {
@@ -147,7 +131,6 @@ export function Dashboard() {
       const ln = r.resume?.name?.last_name || ''
       const pos = r.resume?.job_title?.position || 'Resume'
       const ts = Math.max(toTs(r.updated_at), toTs(r.created_at))
-      const ageMs = now - ts
       recentItems.push({
         type: 'resume',
         id: r._id ?? '',
@@ -155,12 +138,11 @@ export function Dashboard() {
         meta: pos,
         initials: `${(fn || '?')[0]}${(ln || '?')[0]}`.toUpperCase().slice(0, 2),
         ts,
-        isRecent: ageMs >= 0 && ageMs < RECENT_MS,
+        isRecent: isRecent(r.created_at, r.updated_at, now),
       })
     })
     ubuntu.forEach((u) => {
       const ts = Math.max(toTs(u.updated_at), toTs(u.created_at))
-      const ageMs = now - ts
       recentItems.push({
         type: 'ubuntu',
         id: u._id ?? '',
@@ -168,12 +150,11 @@ export function Dashboard() {
         meta: u.support_type || 'Release',
         initials: u.version?.split('.')[0] || 'U',
         ts,
-        isRecent: ageMs >= 0 && ageMs < RECENT_MS,
+        isRecent: isRecent(u.created_at, u.updated_at, now),
       })
     })
     roman.forEach((r) => {
       const ts = Math.max(toTs(r.updated_at), toTs(r.created_at))
-      const ageMs = now - ts
       recentItems.push({
         type: 'roman',
         id: r._id ?? '',
@@ -181,12 +162,11 @@ export function Dashboard() {
         meta: r.dynasty || 'Leader',
         initials: (r.name || '?')[0].toUpperCase(),
         ts,
-        isRecent: ageMs >= 0 && ageMs < RECENT_MS,
+        isRecent: isRecent(r.created_at, r.updated_at, now),
       })
     })
     python.forEach((p) => {
       const ts = Math.max(toTs(p.updated_at), toTs(p.created_at))
-      const ageMs = now - ts
       recentItems.push({
         type: 'python',
         id: p._id ?? '',
@@ -194,7 +174,7 @@ export function Dashboard() {
         meta: p.status || 'Release',
         initials: p.version?.split('.')[0] || 'P',
         ts,
-        isRecent: ageMs >= 0 && ageMs < RECENT_MS,
+        isRecent: isRecent(p.created_at, p.updated_at, now),
       })
     })
     recentItems.sort((a, b) => b.ts - a.ts)
