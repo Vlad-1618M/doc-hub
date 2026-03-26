@@ -21,10 +21,9 @@ def init_api_keys():
     if not api_keys_collection.find_one({"key": {"$exists": True}}):
         generated_key = api_key_generator.generate_api_key()
         api_keys_collection.insert_one({"key": generated_key, "created_at": datetime.now(timezone.utc)})
-        # print(f"\nGenerated and stored API Key: {generated_key}\n")
-        print(f"\nGenerated Key: {generated_key[-8:]} stored successfully\n")
+        print(f"\n\t[{generated_key[-11:]}] generated: successfully:")
     else:
-        print("\nAPI Key already exists.\n")
+        print("\n\t\PI Key already exists:")
 
 def init_users_collection():
     """Ensure users collection exists in auth DB, create index on email for lookups."""
@@ -32,7 +31,9 @@ def init_users_collection():
     # Create email index for fast login lookups
     users.create_index("email", unique=True)
     # Note: For compliance, consider field-level encryption for password_hash, etc.
-    print("\nUsers collection initialized (auth DB, email index).\n")
+    print("\tUsers collection initialized: (auth DB, email index)\n\t" + "_" * 50)
+    
+    
 
 def init_resume_indexes():
     """Create indexes on resume collection for search performance."""
