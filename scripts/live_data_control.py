@@ -1,34 +1,33 @@
 #!/usr/bin/env python
 """
-Live Data Control — Inject, remove, update data for manual UI testing
-
+Test Data Control — Inject, remove, update data for manual UI testing
 Use for: Dashboard glow, recent records sort, search, WebSocket updates, logs.
 
 Usage:
   # Inject
-  python -m scripts.live_data_control inject users --count 5
-  python -m scripts.live_data_control inject keys --count 10
-  python -m scripts.live_data_control inject resumes --count 3
-  python -m scripts.live_data_control inject resumes --from-json --count 5
-  python -m scripts.live_data_control inject ubuntu --from-json --count 3
-  python -m scripts.live_data_control inject python --from-json --count 2
-  python -m scripts.live_data_control inject roman --from-json --count 4
+  python -m scripts.test_data_control inject users --count 5
+  python -m scripts.test_data_control inject keys --count 10
+  python -m scripts.test_data_control inject resumes --count 3
+  python -m scripts.test_data_control inject resumes --from-json --count 5
+  python -m scripts.test_data_control inject ubuntu --from-json --count 3
+  python -m scripts.test_data_control inject python --from-json --count 2
+  python -m scripts.test_data_control inject roman --from-json --count 4
 
   # Remove
-  python -m scripts.live_data_control remove users --count 3
-  python -m scripts.live_data_control remove keys --count 5
-  python -m scripts.live_data_control remove resumes --count 2
-  python -m scripts.live_data_control remove ubuntu --all
-  python -m scripts.live_data_control remove python --all
-  python -m scripts.live_data_control remove roman --all
+  python -m scripts.test_data_control remove users --count 3
+  python -m scripts.test_data_control remove keys --count 5
+  python -m scripts.test_data_control remove resumes --count 2
+  python -m scripts.test_data_control remove ubuntu --all
+  python -m scripts.test_data_control remove python --all
+  python -m scripts.test_data_control remove roman --all
 
   # Update (touch records to refresh updated_at → triggers glow)
-  python -m scripts.live_data_control update resumes --count 2
-  python -m scripts.live_data_control update roman --count 1
+  python -m scripts.test_data_control update resumes --count 2
+  python -m scripts.test_data_control update roman --count 1
 
   # Docker
-  docker exec -it tests-manual python -m scripts.live_data_control inject resumes --count 1
-  BASE_URL=http://doc-hub-api:8000 python -m scripts.live_data_control inject keys --count 5
+  docker exec -it tests-manual python -m scripts.test_data_control inject resumes --count 1
+  BASE_URL=http://doc-hub-api:8000 python -m scripts.test_data_control inject keys --count 5
 
 Env: BASE_URL (default: http://127.0.0.1:8000), ADMIN_SECRET (for user delete)
 """
@@ -56,48 +55,36 @@ ADMIN_SECRET = os.getenv("ADMIN_SECRET", "")
 
 
 # ---------------------------------------------------------------------------
-# Auth helpers
+#                       *** Auth helpers ***
 # ---------------------------------------------------------------------------
 
 def get_token() -> str:
     """Login as dev user, return JWT."""
-    r = requests.post(
-        f"{BASE_URL}/auth/login",
-        json={"email": DEV_EMAIL, "password": DEV_PASS},
-        timeout=10,
-    )
-    if r.status_code != 200:
-        raise SystemExit(f"Login failed: {r.status_code} {r.text}")
-    return r.json()["access_token"]
+    call = requests.post(f"{BASE_URL}/auth/login", json={"email": DEV_EMAIL, "password": DEV_PASS}, timeout=10,)
+    if call.status_code != 200:
+        raise SystemExit(f"Login failed: {call.status_code} {call.text}")
+    return call.json()["access_token"]
 
 
 def get_api_key(token: str) -> str:
     """Generate or reuse API key."""
-    r = requests.post(
-        f"{BASE_URL}/auth/generate-api-key",
-        headers={"Authorization": f"Bearer {token}"},
-        timeout=10,
-    )
-    if r.status_code != 200:
-        raise SystemExit(f"API key failed: {r.status_code} {r.text}")
-    return r.json()["api_key"]
+    call = requests.post(f"{BASE_URL}/auth/generate-api-key", headers={"Authorization": f"Bearer {token}"}, timeout=10,)
+    if call.status_code != 200:
+        raise SystemExit(f"API key failed: {call.status_code} {call.text}")
+    return call.json()["api_key"]
 
 
 def ensure_dev_user():
     """Create dev user if missing."""
-    r = requests.post(
-        f"{BASE_URL}/auth/register",
-        json={"email": DEV_EMAIL, "password": DEV_PASS, "name": "Dev User"},
-        timeout=10,
-    )
-    if r.status_code == 400 and "already" in r.text.lower():
+    call = requests.post(f"{BASE_URL}/auth/register", json={"email": DEV_EMAIL, "password": DEV_PASS, "name": "Dev User"}, timeout=10,)
+    if call.status_code == 400 and "already" in call.text.lower():
         return
-    if r.status_code != 200:
-        raise SystemExit(f"Register failed: {r.status_code} {r.text}")
+    if call.status_code != 200:
+        raise SystemExit(f"Register failed: {call.status_code} {call.text}")
 
 
 # ---------------------------------------------------------------------------
-# List helpers (for remove/update)
+#                       *** List helpers (for remove/update) ***
 # ---------------------------------------------------------------------------
 
 def list_resume_ids(api_key: str) -> list[str]:
@@ -113,14 +100,9 @@ def _paginate_list_ids(api_key: str, path: str) -> list[str]:
     ids: list[str] = []
     skip = 0
     while True:
-        r = requests.get(
-            f"{BASE_URL}{path}",
-            headers={"X-API-Key": api_key},
-            params={"skip": skip, "limit": API_LIST_PAGE_MAX},
-            timeout=30,
-        )
-        r.raise_for_status()
-        batch = r.json()
+        call = requests.get(f"{BASE_URL}{path}", headers={"X-API-Key": api_key}, params={"skip": skip, "limit": API_LIST_PAGE_MAX}, timeout=30,)
+        call.raise_for_status()
+        batch = call.json()
         if not batch:
             break
         ids.extend(str(x["_id"]) for x in batch)
@@ -133,9 +115,9 @@ def _paginate_list_ids(api_key: str, path: str) -> list[str]:
 def list_user_ids() -> list[tuple[str, str]]:
     """Requires ADMIN_SECRET or we use login+me. Returns (user_id, email)."""
     token = get_token()
-    r = requests.get(f"{BASE_URL}/auth/me", headers={"Authorization": f"Bearer {token}"}, timeout=10)
-    r.raise_for_status()
-    data = r.json()
+    call = requests.get(f"{BASE_URL}/auth/me", headers={"Authorization": f"Bearer {token}"}, timeout=10)
+    call.raise_for_status()
+    data = call.json()
     uid = data.get("user_id")
     if uid:
         return [(uid, DEV_EMAIL)]
@@ -143,52 +125,46 @@ def list_user_ids() -> list[tuple[str, str]]:
 
 
 def list_api_keys(api_key: str) -> list[str]:
-    r = requests.get(
-        f"{BASE_URL}/auth/api-keys",
-        headers={"X-API-Key": api_key},
-        timeout=10,
-    )
-    if r.status_code == 404:
+    call = requests.get(f"{BASE_URL}/auth/api-keys", headers={"X-API-Key": api_key}, timeout=10,)
+    if call.status_code == 404:
         return []
-    r.raise_for_status()
-    return r.json().get("api_keys", [])
+    call.raise_for_status()
+    return call.json().get("api_keys", [])
 
 
 # ---------------------------------------------------------------------------
-# Inject
+#                       *** Inject ***
 # ---------------------------------------------------------------------------
 
 def inject_users(count: int, token: str) -> int:
     created = 0
     for i in range(count):
-        email = f"liveuser{i:04d}@live.example.com"
-        r = requests.post(
-            f"{BASE_URL}/auth/register",
-            json={"email": email, "password": "LivePass123!", "name": f"Live User {i}"},
-            timeout=10,
-        )
-        if r.status_code == 200:
+        email = f"test_user{i:04d}@dev.test.com"
+        call = requests.post(f"{BASE_URL}/auth/register", json={"email": email, "password": "Test-Pass-123!", "name": f"Test User {i}"}, timeout=10,)
+        if call.status_code == 200:
             created += 1
-            print(f"  ✓ User {email}")
+            print(f"User:\t--> {email} created successfully")
         else:
-            print(f"  ✗ {email}: {r.text[:80]}")
+            print(f"User:\t--> {email} creation failed: {call.text[:80]}")
     return created
 
 
 def inject_keys(count: int, token: str) -> int:
     created = 0
     for _ in range(count):
-        r = requests.post(
+        call = requests.post(
             f"{BASE_URL}/auth/generate-api-key",
             headers={"Authorization": f"Bearer {token}"},
             timeout=10,
         )
-        if r.status_code == 200:
-            key = r.json()["api_key"]
-            print(f"  ✓ Key ...{key[-8:]}")
+        if call.status_code == 200:
+            key = call.json()["api_key"]
+            # print(f"Key:\t--> {key[-8:]} created successfully")
+            print(f"Key:\t--> {key} created successfully")
             created += 1
         else:
-            print(f"  ✗ Key: {r.text[:80]}")
+            # print(f"Key:\t--> {key[-8:]} creation failed: {call.text[:80]}")
+            print(f"Key:\t--> {key} creation failed: {call.text}")
     return created
 
 
@@ -215,7 +191,7 @@ def make_fake_resume(i: int) -> dict:
             "name": {"first_name": f, "last_name": l},
             "job_title": {"position": f"Role {i}", "role": "Test"},
             "contact": {"email": f"{f.lower()}.{l.lower()}@test.com", "phone": ""},
-            "summary": f"Generated resume {i} for live testing.",
+            "summary": f"Generated resume {i} for test testing.",
         },
         "Work_Experience": [],
         "education": {"degree": "", "location": "", "majored_in": ""},
@@ -229,18 +205,15 @@ def inject_resumes(count: int, from_json: bool, api_key: str) -> int:
         items = [make_fake_resume(i) for i in range(count)]
     created = 0
     for payload in items:
-        r = requests.post(
-            f"{BASE_URL}/resume/",
-            headers={"Content-Type": "application/json", "X-API-Key": api_key},
-            json=payload,
-            timeout=10,
-        )
-        if r.status_code == 200:
+        call = requests.post(f"{BASE_URL}/resume/", headers={"Content-Type": "application/json", "X-API-Key": api_key}, json=payload, timeout=10,)
+        if call.status_code == 200:
             created += 1
             title = f"{payload.get('resume',{}).get('name',{}).get('first_name','')} {payload.get('resume',{}).get('name',{}).get('last_name','')}".strip()
-            print(f"  ✓ Resume: {title or 'Created'} -> {r.json().get('id','')[:8]}...")
+            # print(f"  ✓ Resume: {title or 'Created'} -> {r.json().get('id','')[:8]}...")
+            print(f"Resume: {title or 'Created'} --> injected successfully with ID: {call.json().get('id','')}")
         else:
-            print(f"  ✗ Resume: {r.text[:80]}")
+            # print(f"  ✗ Resume: {r.text[:80]}")
+            print(f"Resume: {title or 'Created'} --> injection failed: {call.text}")
     return created
 
 
@@ -260,18 +233,15 @@ def inject_records(collection: str, count: int, from_json: bool, api_key: str) -
         items = _make_fake_records(collection, count)
     created = 0
     for payload in items:
-        r = requests.post(
-            f"{BASE_URL}{path}",
-            headers={"Content-Type": "application/json", "X-API-Key": api_key},
-            json=payload,
-            timeout=10,
-        )
-        if r.status_code == 200:
+        call = requests.post(f"{BASE_URL}{path}", headers={"Content-Type": "application/json", "X-API-Key": api_key}, json=payload, timeout=10,)
+        if call.status_code == 200:
             created += 1
             title = payload.get("name") or payload.get("version") or "Created"
-            print(f"  ✓ {collection}: {str(title)[:40]} -> {r.json().get('id','')[:8]}...")
+            # print(f"  ✓ {collection}: {str(title)[:40]} -> {r.json().get('id','')[:8]}...")
+            print(f"{collection}: {str(title)} --> injected successfully with ID: {call.json().get('id','')}")
         else:
-            print(f"  ✗ {collection}: {r.text[:80]}")
+            # print(f"  ✗ {collection}: {r.text[:80]}")
+            print(f"{collection}: {str(title)} --> injection failed: {call.text}")
     return created
 
 
@@ -300,14 +270,14 @@ def _make_fake_records(collection: str, count: int) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# Remove
+#                       *** Remove ***
 # ---------------------------------------------------------------------------
 
 def remove_users(count: int, token: str) -> int:
     """Delete users. Requires login as each or ADMIN_SECRET."""
     # We only have our own user_id from /me. For multi-user delete we'd need
     # a list endpoint or ADMIN_SECRET to delete by id from DB.
-    print("  Note: User delete requires user_id. Use run_user_create_suite --no-cleanup then cleanup.")
+    print("Note:\t User delete requires user_id. Use run_user_create_suite --no-cleanup then cleanup.")
     return 0
 
 
@@ -318,13 +288,15 @@ def remove_keys(count: int, api_key: str, token: str) -> int:
     revoke_path = f"{BASE_URL}/auth/revoke-api-key"
     headers = {"Authorization": f"Bearer {token}"}
     deleted = 0
-    for k in to_revoke:
-        r = requests.delete(revoke_path, headers=headers, params={"api_key_to_revoke": k}, timeout=10)
-        if r.status_code == 200:
+    for marked_key in to_revoke:
+        call = requests.delete(revoke_path, headers=headers, params={"api_key_to_revoke": marked_key}, timeout=10)
+        if call.status_code == 200:
             deleted += 1
-            print(f"  ✓ Revoked ...{k[-8:]}")
+            # print(f"Key:\t--> {k[-8:]} revoked successfully")
+            print(f"Key:\t--> {marked_key} revoked successfully")
         else:
-            print(f"  ✗ Revoke {k[-8:]}: {r.text[:60]}")
+            # print(f"Key:\t--> {k[-8:]} revocation failed: {call.text}")
+            print(f"Key:\t--> {marked_key} revocation failed: {call.text}")
     return deleted
 
 
@@ -333,12 +305,14 @@ def remove_resumes(count: int, api_key: str) -> int:
     headers = {"X-API-Key": api_key}
     deleted = 0
     for rid in ids[:count]:
-        r = requests.delete(f"{BASE_URL}/resume/{rid}", headers=headers, timeout=10)
-        if r.status_code == 200:
+        call = requests.delete(f"{BASE_URL}/resume/{rid}", headers=headers, timeout=10)
+        if call.status_code == 200:
             deleted += 1
-            print(f"  ✓ Deleted resume {rid[:8]}...")
+            # print(f"  ✓ Deleted resume {rid[:8]}...")
+            print(f"Resume:\t--> {rid} deleted successfully")
         else:
-            print(f"  ✗ Delete {rid[:8]}: {r.text[:60]}")
+            # print(f"  ✗ Delete {rid[:8]}: {r.text[:60]}")
+            print(f"Resume:\t--> {rid} deletion failed: {call.text}")
     return deleted
 
 
@@ -353,17 +327,19 @@ def remove_records(collection: str, count: int, all_flag: bool, api_key: str) ->
     headers = {"X-API-Key": api_key}
     deleted = 0
     for rid in ids[:count]:
-        r = requests.delete(f"{BASE_URL}{path}/{rid}", headers=headers, timeout=10)
-        if r.status_code == 200:
+        call = requests.delete(f"{BASE_URL}{path}/{rid}", headers=headers, timeout=10)
+        if call.status_code == 200:
             deleted += 1
-            print(f"  ✓ Deleted {collection} {rid[:8]}...")
+            # print(f"  ✓ Deleted {collection} {rid[:8]}...")
+            print(f"{collection}: {rid} --> deleted successfully")
         else:
-            print(f"  ✗ Delete {rid[:8]}: {r.text[:60]}")
+            # print(f"  ✗ Delete {rid[:8]}: {r.text[:60]}")
+            print(f"{collection}: {rid} --> deletion failed: {call.text}")
     return deleted
 
 
 # ---------------------------------------------------------------------------
-# Update (touch for glow)
+#                       *** Update (touch for glow) ***
 # ---------------------------------------------------------------------------
 
 def update_resumes(count: int, api_key: str) -> int:
@@ -371,10 +347,10 @@ def update_resumes(count: int, api_key: str) -> int:
     headers = {"Content-Type": "application/json", "X-API-Key": api_key}
     updated = 0
     for rid in ids[:count]:
-        r = requests.get(f"{BASE_URL}/resume/{rid}", headers={"X-API-Key": api_key}, timeout=10)
-        if r.status_code != 200:
+        call = requests.get(f"{BASE_URL}/resume/{rid}", headers={"X-API-Key": api_key}, timeout=10)
+        if call.status_code != 200:
             continue
-        doc = r.json()
+        doc = call.json()
         payload = {
             "resume": doc.get("resume", {}),
             "Work_Experience": doc.get("Work_Experience", []),
@@ -384,12 +360,14 @@ def update_resumes(count: int, api_key: str) -> int:
             "links": doc.get("links", {}),
             "notes": doc.get("notes"),
         }
-        r2 = requests.put(f"{BASE_URL}/resume/{rid}", headers=headers, json=payload, timeout=10)
-        if r2.status_code == 200:
+        call2 = requests.put(f"{BASE_URL}/resume/{rid}", headers=headers, json=payload, timeout=10)
+        if call2.status_code == 200:
             updated += 1
-            print(f"  ✓ Touched resume {rid[:8]}... (glow)")
+            # print(f"  ✓ Touched resume {rid[:8]}... (glow)")
+            print(f"Resume: {rid} --> touched successfully (glow)")
         else:
-            print(f"  ✗ Touch {rid[:8]}: {r2.text[:60]}")
+            # print(f"  ✗ Touch {rid[:8]}: {r2.text[:60]}")
+            print(f"Resume: {rid} --> touch failed: {call2.text}")
     return updated
 
 
@@ -402,37 +380,31 @@ def update_records(collection: str, count: int, api_key: str) -> int:
     headers = {"Content-Type": "application/json", "X-API-Key": api_key}
     updated = 0
     for rid in ids[:count]:
-        r = requests.get(f"{BASE_URL}{path}/{rid}", headers={"X-API-Key": api_key}, timeout=10)
-        if r.status_code != 200:
+        call = requests.get(f"{BASE_URL}{path}/{rid}", headers={"X-API-Key": api_key}, timeout=10)
+        if call.status_code != 200:
             continue
-        doc = r.json()
+        doc = call.json()
         payload = {k: v for k, v in doc.items() if k != "_id"}
-        r2 = requests.put(f"{BASE_URL}{path}/{rid}", headers=headers, json=payload, timeout=10)
-        if r2.status_code == 200:
+        call2 = requests.put(f"{BASE_URL}{path}/{rid}", headers=headers, json=payload, timeout=10)
+        if call2.status_code == 200:
             updated += 1
-            print(f"  ✓ Touched {collection} {rid[:8]}... (glow)")
+            # print(f"  ✓ Touched {collection} {rid[:8]}... (glow)")
+            print(f"{collection}: {rid} --> touched successfully (glow)")
         else:
-            print(f"  ✗ Touch {rid[:8]}: {r2.text[:60]}")
+            # print(f"  ✗ Touch {rid[:8]}: {r2.text[:60]}")
+            print(f"{collection}: {rid} --> touch failed: {call2.text}")
     return updated
 
 
 # ---------------------------------------------------------------------------
-# Main
+#                            *** Main ***  
 # ---------------------------------------------------------------------------
 
 def main():
     global BASE_URL
-    ap = argparse.ArgumentParser(
-        description="Live Data Control — inject, remove, update data for UI testing",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog=__doc__,
-    )
+    ap = argparse.ArgumentParser(description="Test Data Control — inject, remove, update data for UI testing", formatter_class=argparse.RawDescriptionHelpFormatter, epilog=__doc__,)
     ap.add_argument("action", choices=["inject", "remove", "update"], help="Action")
-    ap.add_argument(
-        "type",
-        choices=["users", "keys", "resumes", "ubuntu", "python", "roman"],
-        help="Data type",
-    )
+    ap.add_argument("type", choices=["users", "keys", "resumes", "ubuntu", "python", "roman"], help="Data type",)
     ap.add_argument("--count", type=int, default=1, help="Count (default 1)")
     ap.add_argument("--all", action="store_true", help="Remove all (remove action only)")
     ap.add_argument("--from-json", action="store_true", help="Use tests/data_sets JSON templates (inject)")
@@ -445,10 +417,10 @@ def main():
 
     # Health check
     try:
-        r = requests.get(f"{BASE_URL}/resume/status/health", timeout=5)
-        r.raise_for_status()
+        call = requests.get(f"{BASE_URL}/resume/status/health", timeout=5)
+        call.raise_for_status()
     except Exception as e:
-        print(f"Error: API not reachable at {BASE_URL}: {e}")
+        print(f"Error:\t API not reachable at {BASE_URL}: {e}")
         sys.exit(1)
 
     ensure_dev_user()

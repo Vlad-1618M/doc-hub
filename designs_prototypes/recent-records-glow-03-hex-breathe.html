@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recent records — Glow prototype 3 · Hex + breathe</title>
+  <style>
+    :root {
+      --text: #e8eef4;
+      --muted: #7c8c9f;
+      --panel: #131c28;
+      --border: #243041;
+      --emerald: #10b981;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      color: var(--text);
+      background: #0a0f16;
+      position: relative;
+    }
+    /* Honeycomb / tech mesh */
+    .mesh {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.22;
+      background:
+        repeating-linear-gradient(
+          -60deg,
+          transparent,
+          transparent 21px,
+          rgba(16, 185, 129, 0.12) 21px,
+          rgba(16, 185, 129, 0.12) 22px
+        ),
+        repeating-linear-gradient(
+          60deg,
+          transparent,
+          transparent 21px,
+          rgba(56, 189, 248, 0.08) 21px,
+          rgba(56, 189, 248, 0.08) 22px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 37px,
+          rgba(148, 163, 184, 0.06) 37px,
+          rgba(148, 163, 184, 0.06) 38px
+        );
+      animation: meshDrift 48s linear infinite;
+    }
+    @keyframes meshDrift {
+      from { background-position: 0 0, 0 0, 0 0; }
+      to { background-position: 80px 40px, -60px 30px, 0 120px; }
+    }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+    .panel {
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: linear-gradient(165deg, rgba(19, 28, 40, 0.97), rgba(10, 15, 22, 0.98));
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 24px 48px rgba(0, 0, 0, 0.5);
+    }
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+    .panel-head a { color: #34d399; font-size: 0.75rem; text-decoration: none; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    li a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid rgba(36, 48, 65, 0.8);
+      color: inherit;
+      text-decoration: none;
+    }
+    li a:hover { background: rgba(16, 185, 129, 0.04); }
+    li:last-child a { border-bottom: none; }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.72rem;
+      color: #042f2e;
+      background: linear-gradient(135deg, #6ee7b7, #059669);
+    }
+    .meta { flex: 1; min-width: 0; }
+    .name {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .sub { font-size: 0.75rem; color: var(--muted); font-family: ui-monospace, monospace; margin-top: 0.2rem; }
+    /* Breathe + hue shift on recent */
+    .dot-recent {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: var(--emerald);
+      animation: breathe 2.5s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(1);
+        filter: brightness(1) drop-shadow(0 0 2px rgba(16, 185, 129, 0.4));
+      }
+      50% {
+        transform: scale(1.25);
+        filter: brightness(1.25) drop-shadow(0 0 14px rgba(52, 211, 153, 0.85));
+      }
+    }
+    .dot-stale {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3f4f5f;
+      flex-shrink: 0;
+    }
+    .pager {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .pager button {
+      border: 1px solid var(--border);
+      background: #0d141d;
+      color: var(--text);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.8125rem;
+    }
+    .pager button:hover { border-color: rgba(16, 185, 129, 0.35); }
+    .note {
+      margin-top: 1.25rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="mesh" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="panel">
+      <div class="panel-head">
+        <span>Recent records</span>
+        <a href="#">View all</a>
+      </div>
+      <ul>
+        <li><a href="#"><div class="avatar">GS</div><div class="meta"><div class="name">Grace Smith<span class="dot-recent" title="Recent"></span></div><div class="sub">Resume · Role 12</div></div></a></li>
+        <li><a href="#"><div class="avatar">AS</div><div class="meta"><div class="name">Alice Smith<span class="dot-recent"></span></div><div class="sub">Resume · Role 99</div></div></a></li>
+        <li><a href="#"><div class="avatar">HS</div><div class="meta"><div class="name">Henry Smith<span class="dot-stale"></span></div><div class="sub">Resume · Role 3</div></div></a></li>
+        <li><a href="#"><div class="avatar">MJ</div><div class="meta"><div class="name">Morgan Jones<span class="dot-recent"></span></div><div class="sub">Resume · Role 7</div></div></a></li>
+        <li><a href="#"><div class="avatar">RK</div><div class="meta"><div class="name">Riley Kim<span class="dot-stale"></span></div><div class="sub">Resume · Role 44</div></div></a></li>
+      </ul>
+      <div class="pager">
+        <span>1–5 of 248 records · Page <strong>1</strong> of 50</span>
+        <div>
+          <button type="button" disabled>← Previous</button>
+          <button type="button">Next →</button>
+        </div>
+      </div>
+    </div>
+    <p class="note">Prototype 3 · Drifting hex-line mesh · Dots: scale + drop-shadow “breathe”</p>
+  </div>
+</body>
+</html>

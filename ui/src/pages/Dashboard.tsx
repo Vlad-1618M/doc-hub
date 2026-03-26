@@ -294,6 +294,16 @@ export function Dashboard() {
   const panelBorderCls =
     theme === 'terracotta' ? 'border-amber-200' : theme === 'light' ? 'border-slate-200' : 'border-slate-600'
 
+  /** Solid line under each recent row (visible on dark / light / terracotta) */
+  const recentRowSep =
+    theme === 'terracotta'
+      ? 'border-b border-amber-200'
+      : theme === 'light'
+        ? 'border-b border-slate-200'
+        : 'border-b border-slate-600'
+
+  const recentUiTheme = theme === 'terracotta' || theme === 'light' ? theme : 'dark'
+
   return (
     <div className={`-m-6 flex min-h-[calc(100dvh-8rem)] flex-col p-6 ${contentBg}`} style={contentStyle}>
       <div className="mb-6">
@@ -321,7 +331,10 @@ export function Dashboard() {
       {/* Dashboard grid — lg+: row has fixed height; Recent stretches; Activity uses align-self:start so it is not forced tall */}
       <div className="grid min-h-0 flex-1 grid-cols-1 gap-6 lg:grid-cols-[1fr_340px] lg:grid-rows-1 lg:min-h-[max(28rem,calc(100dvh-12rem))] lg:h-[max(28rem,calc(100dvh-12rem))] min-h-[min(48vh,420px)]">
         {/* Recent records */}
-        <div className={`flex min-h-0 h-full max-h-full flex-col overflow-hidden rounded-[10px] border ${panelCls}`}>
+        <div
+          data-recent-ui={recentUiTheme}
+          className={`recent-records-panel flex min-h-0 h-full max-h-full flex-col overflow-hidden rounded-[10px] border ${panelCls}`}
+        >
           <div className={`flex items-center justify-between border-b px-5 py-4 text-sm font-semibold ${panelBorderCls}`}>
             <span className={theme === 'dark' ? 'text-slate-100' : 'text-slate-800'}>Recent records</span>
             <Link to="/app/resumes" className={`text-xs font-medium hover:underline ${theme === 'terracotta' ? 'text-amber-600' : 'text-sky-400'}`}>
@@ -340,18 +353,20 @@ export function Dashboard() {
             <>
               <ul className="min-h-0 flex-1 overflow-y-auto">
                 {paginatedRecent.map((item, i) => (
-                  <li key={`${item.type}-${item.id}-${item.isRecent}-${i}`}>
+                  <li key={`${item.type}-${item.id}-${item.isRecent}-${i}`} className={`${recentRowSep} last:border-b-0`}>
                     <Link
                       to={getLink(item) as string}
-                      className={`recent-record-link flex items-center gap-4 border-b px-5 py-4 transition last:border-b-0 ${panelBorderCls} ${theme === 'dark' ? 'hover:bg-white/5' : 'hover:bg-slate-50'} ${item.isRecent ? (theme === 'dark' ? 'recent-glow' : theme === 'terracotta' ? 'recent-glow-terracotta' : 'recent-glow-light') : ''}`}
+                      className={`recent-record-link flex items-center gap-4 px-5 py-4 transition ${theme === 'dark' ? 'hover:bg-white/5' : 'hover:bg-slate-50'}`}
                     >
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-sky-400 to-sky-600 text-sm font-bold text-slate-900">
                         {item.initials}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className={`truncate text-sm font-medium ${theme === 'dark' ? 'text-slate-100' : 'text-slate-800'}`}>
-                          {item.title}
-                          {item.isRecent && <span className="ml-2 inline-block h-2 w-2 rounded-full bg-emerald-400" title="Recently added or updated" />}
+                        <div className={`flex items-center gap-2 truncate text-sm font-medium ${theme === 'dark' ? 'text-slate-100' : 'text-slate-800'}`}>
+                          <span className="truncate">{item.title}</span>
+                          {item.isRecent && (
+                            <span className="recent-dot-recent shrink-0" title="Recently added or updated" />
+                          )}
                         </div>
                         <div className={`font-mono text-xs ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
                           {item.type === 'resume' ? 'Resume' : item.type} · {item.meta}
@@ -490,21 +505,68 @@ export function Dashboard() {
       </div>
 
       <style>{`
-        @keyframes recentGlow {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
-          50% { box-shadow: 0 0 12px 2px rgba(52, 211, 153, 0.25); }
+        .recent-dot-recent {
+          position: relative;
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          flex-shrink: 0;
+          vertical-align: middle;
         }
-        @keyframes recentGlowTerracotta {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0); }
-          50% { box-shadow: 0 0 12px 2px rgba(234, 88, 12, 0.35); }
+        .recent-dot-recent::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          animation: recentDotRingOut 2.2s ease-out infinite;
         }
-        @keyframes recentGlowLight {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(219, 39, 119, 0); }
-          50% { box-shadow: 0 0 12px 2px rgba(219, 39, 119, 0.35); }
+        .recent-dot-recent::after {
+          content: '';
+          position: absolute;
+          inset: 2px;
+          border-radius: 50%;
         }
-        .recent-glow { animation: recentGlow 2s ease-in-out infinite; }
-        .recent-glow-terracotta { animation: recentGlowTerracotta 2s ease-in-out infinite; }
-        .recent-glow-light { animation: recentGlowLight 2s ease-in-out infinite; }
+        .recent-records-panel[data-recent-ui='dark'] .recent-dot-recent::before {
+          background: #4ade80;
+          box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+        }
+        .recent-records-panel[data-recent-ui='dark'] .recent-dot-recent::after {
+          background: #22c55e;
+          box-shadow: 0 0 10px #4ade80, 0 0 20px rgba(74, 222, 128, 0.35);
+        }
+        .recent-records-panel[data-recent-ui='terracotta'] .recent-dot-recent::before {
+          background: #4ade80;
+          box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.65);
+        }
+        .recent-records-panel[data-recent-ui='terracotta'] .recent-dot-recent::after {
+          background: #22c55e;
+          box-shadow: 0 0 10px #4ade80, 0 0 20px rgba(74, 222, 128, 0.32);
+        }
+        .recent-records-panel[data-recent-ui='light'] .recent-dot-recent::before {
+          background: #16a34a;
+          box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.55);
+        }
+        .recent-records-panel[data-recent-ui='light'] .recent-dot-recent::after {
+          background: #15803d;
+          box-shadow: 0 0 10px #16a34a, 0 0 20px rgba(22, 163, 74, 0.3);
+        }
+        @keyframes recentDotRingOut {
+          0% {
+            transform: scale(1);
+            opacity: 0.9;
+          }
+          100% {
+            transform: scale(2.4);
+            opacity: 0;
+            box-shadow: 0 0 0 10px transparent;
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .recent-dot-recent::before {
+            animation: none;
+            opacity: 0.35;
+          }
+        }
       `}</style>
     </div>
   )

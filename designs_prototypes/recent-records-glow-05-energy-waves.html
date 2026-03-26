@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recent records — Prototype 5 · Shattered glass</title>
+  <style>
+    [data-theme="dark"] {
+      --bg: #0a0e18;
+      --panel: rgba(16, 22, 38, 0.94);
+      --border: rgba(148, 163, 184, 0.2);
+      --border-strong: rgba(186, 230, 253, 0.25);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --link: #7dd3fc;
+      --row-hover: rgba(125, 211, 252, 0.06);
+      --avatar-from: #38bdf8;
+      --avatar-to: #0284c7;
+      --avatar-fg: #f0f9ff;
+      --green: #4ade80;
+      --green-core: #22c55e;
+      --green-glow: rgba(74, 222, 128, 0.7);
+      --green-ring: rgba(74, 222, 128, 0.35);
+      --stale-dot: #475569;
+      --pager-btn-bg: rgba(0, 0, 0, 0.3);
+      --shard-fill: rgba(125, 211, 252, 0.09);
+      --shard-stroke: rgba(186, 230, 253, 0.55);
+      --shard-hot: rgba(224, 242, 254, 0.85);
+      --crack: rgba(125, 211, 252, 0.35);
+    }
+    [data-theme="terracotta"] {
+      --bg: #140f0d;
+      --panel: rgba(42, 28, 22, 0.95);
+      --border: rgba(251, 146, 60, 0.22);
+      --border-strong: rgba(254, 215, 170, 0.3);
+      --text: #fff7ed;
+      --muted: #b45309;
+      --link: #fb923c;
+      --row-hover: rgba(251, 146, 60, 0.08);
+      --avatar-from: #fdba74;
+      --avatar-to: #ea580c;
+      --avatar-fg: #431407;
+      --green: #4ade80;
+      --green-core: #22c55e;
+      --green-glow: rgba(74, 222, 128, 0.65);
+      --green-ring: rgba(74, 222, 128, 0.32);
+      --stale-dot: #78716c;
+      --pager-btn-bg: rgba(0, 0, 0, 0.22);
+      --shard-fill: rgba(251, 191, 36, 0.1);
+      --shard-stroke: rgba(254, 243, 199, 0.5);
+      --shard-hot: rgba(255, 251, 235, 0.8);
+      --crack: rgba(251, 146, 60, 0.32);
+    }
+    [data-theme="light"] {
+      --bg: #f0f4f8;
+      --panel: rgba(255, 255, 255, 0.95);
+      --border: rgba(15, 23, 42, 0.1);
+      --border-strong: rgba(15, 23, 42, 0.18);
+      --text: #0f172a;
+      --muted: #64748b;
+      --link: #0369a1;
+      --row-hover: rgba(3, 105, 161, 0.06);
+      --avatar-from: #0ea5e9;
+      --avatar-to: #0369a1;
+      --avatar-fg: #fff;
+      --green: #16a34a;
+      --green-core: #15803d;
+      --green-glow: rgba(22, 163, 74, 0.55);
+      --green-ring: rgba(22, 163, 74, 0.3);
+      --stale-dot: #94a3b8;
+      --pager-btn-bg: #fff;
+      --shard-fill: rgba(14, 165, 233, 0.08);
+      --shard-stroke: rgba(3, 105, 161, 0.4);
+      --shard-hot: rgba(7, 89, 133, 0.65);
+      --crack: rgba(3, 105, 161, 0.28);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .glass-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+    .glass-layer svg {
+      width: 100%;
+      height: 100%;
+    }
+    .glass-burst {
+      transform-origin: center center;
+      animation: glassBurst var(--flash-dur, 0.28s) ease-out forwards;
+    }
+    @keyframes glassBurst {
+      0% { opacity: 0; filter: brightness(0.4); }
+      14% { opacity: 1; filter: brightness(1.35); }
+      38% { opacity: 0.4; filter: brightness(0.85); }
+      58% { opacity: 0.95; filter: brightness(1.15); }
+      100% { opacity: 0; filter: brightness(0.5); }
+    }
+    .shard {
+      fill: var(--shard-fill);
+      stroke: var(--shard-stroke);
+      stroke-width: 1.1;
+      stroke-linejoin: miter;
+      vector-effect: non-scaling-stroke;
+    }
+    .shard.shard-bright {
+      fill: rgba(255, 255, 255, 0.04);
+      stroke: var(--shard-hot);
+      stroke-width: 0.65;
+      filter: url(#glassGlint);
+    }
+    .crack {
+      fill: none;
+      stroke: var(--crack);
+      stroke-width: 0.85;
+      stroke-linecap: round;
+      opacity: 0.85;
+    }
+
+    .theme-bar {
+      position: relative;
+      z-index: 3;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1rem 1.25rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.35rem;
+    }
+    .theme-bar span {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-right: 0.35rem;
+    }
+    .theme-bar button {
+      border: 1px solid var(--border);
+      background: var(--pager-btn-bg);
+      color: var(--text);
+      padding: 0.3rem 0.55rem;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      cursor: pointer;
+    }
+    .theme-bar button[aria-pressed="true"] {
+      border-color: var(--border-strong);
+      box-shadow: 0 0 0 1px var(--link);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0.5rem 1.25rem 2rem;
+    }
+    .panel {
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+    }
+    [data-theme="light"] .panel {
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 16px 40px rgba(15, 23, 42, 0.06);
+    }
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px dotted var(--border-strong);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+    .panel-head a { color: var(--link); font-size: 0.75rem; text-decoration: none; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    li a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px dotted var(--border);
+      color: inherit;
+      text-decoration: none;
+    }
+    li a:hover { background: var(--row-hover); }
+    li:last-child a { border-bottom: none; }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.7rem;
+      color: var(--avatar-fg);
+      background: linear-gradient(145deg, var(--avatar-from), var(--avatar-to));
+    }
+    .meta { flex: 1; min-width: 0; }
+    .name { font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 0.45rem; }
+    .sub { font-size: 0.75rem; color: var(--muted); font-family: ui-monospace, monospace; margin-top: 0.15rem; }
+    .dot-recent {
+      position: relative;
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+    }
+    .dot-recent::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: var(--green);
+      animation: ringOut 2.2s ease-out infinite;
+    }
+    .dot-recent::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      background: var(--green-core);
+      box-shadow: 0 0 10px var(--green), 0 0 20px var(--green-ring);
+    }
+    @keyframes ringOut {
+      0% { transform: scale(1); opacity: 0.9; box-shadow: 0 0 0 0 var(--green-glow); }
+      100% { transform: scale(2.4); opacity: 0; box-shadow: 0 0 0 10px transparent; }
+    }
+    .dot-stale { width: 8px; height: 8px; border-radius: 50%; background: var(--stale-dot); flex-shrink: 0; }
+    .pager {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      border-top: 1px dotted var(--border-strong);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .pager button {
+      border: 1px solid var(--border);
+      background: var(--pager-btn-bg);
+      color: var(--text);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.8125rem;
+    }
+    .note {
+      margin-top: 1.25rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="glass-layer" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="none">
+      <defs>
+        <filter id="glassGlint" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" result="b" />
+          <feMerge>
+            <feMergeNode in="b" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <g id="glass-root"></g>
+    </svg>
+  </div>
+
+  <div class="theme-bar">
+    <span>Theme</span>
+    <button type="button" data-set-theme="dark" aria-pressed="true">Dark</button>
+    <button type="button" data-set-theme="terracotta" aria-pressed="false">Terracotta</button>
+    <button type="button" data-set-theme="light" aria-pressed="false">Light</button>
+  </div>
+
+  <div class="wrap">
+    <div class="panel">
+      <div class="panel-head">
+        <span>Recent records</span>
+        <a href="#">View all</a>
+      </div>
+      <ul>
+        <li><a href="#"><div class="avatar">GS</div><div class="meta"><div class="name">Grace Smith<span class="dot-recent"></span></div><div class="sub">Resume · Role 12</div></div></a></li>
+        <li><a href="#"><div class="avatar">AS</div><div class="meta"><div class="name">Alice Smith<span class="dot-recent"></span></div><div class="sub">Resume · Role 99</div></div></a></li>
+        <li><a href="#"><div class="avatar">HS</div><div class="meta"><div class="name">Henry Smith<span class="dot-stale"></span></div><div class="sub">Resume · Role 3</div></div></a></li>
+        <li><a href="#"><div class="avatar">MJ</div><div class="meta"><div class="name">Morgan Jones<span class="dot-recent"></span></div><div class="sub">Resume · Role 7</div></div></a></li>
+        <li><a href="#"><div class="avatar">RK</div><div class="meta"><div class="name">Riley Kim<span class="dot-stale"></span></div><div class="sub">Resume · Role 44</div></div></a></li>
+      </ul>
+      <div class="pager">
+        <span>1–5 of 248 · Page <strong>1</strong> of 50</span>
+        <div>
+          <button type="button" disabled>← Previous</button>
+          <button type="button">Next →</button>
+        </div>
+      </div>
+    </div>
+    <p class="note">
+      Prototype 5 · <strong>Shattered glass</strong> — radial facets + hairline cracks from a random impact; burst uses the same rhythm as the lightning mock (~0.22–0.38s flash, cleared after ~320ms+, gaps ~5–18s). <code>prefers-reduced-motion</code>: one faint static shard field, no loop.
+    </p>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.documentElement
+      var buttons = document.querySelectorAll('[data-set-theme]')
+      function setTheme(name) {
+        root.setAttribute('data-theme', name)
+        buttons.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-set-theme') === name ? 'true' : 'false')
+        })
+        try { localStorage.setItem('proto05-theme', name) } catch (e) {}
+      }
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setTheme(btn.getAttribute('data-set-theme'))
+        })
+      })
+      try {
+        var s = localStorage.getItem('proto05-theme')
+        if (s === 'dark' || s === 'terracotta' || s === 'light') setTheme(s)
+      } catch (e) {}
+
+      var W = 1200
+      var H = 800
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      var rootG = document.getElementById('glass-root')
+      var ns = 'http://www.w3.org/2000/svg'
+
+      function borderHit(cx, cy, ang) {
+        var dx = Math.cos(ang)
+        var dy = Math.sin(ang)
+        var best = 1e9
+        function tryT(t) {
+          if (t > 1e-5 && t < best) best = t
+        }
+        if (Math.abs(dx) > 1e-9) {
+          tryT((0 - cx) / dx)
+          tryT((W - cx) / dx)
+        }
+        if (Math.abs(dy) > 1e-9) {
+          tryT((0 - cy) / dy)
+          tryT((H - cy) / dy)
+        }
+        if (best > 1e8) return [cx + dx * 400, cy + dy * 400]
+        return [cx + dx * best, cy + dy * best]
+      }
+
+      function wedgePoly(cx, cy, a0, a1) {
+        var p0 = borderHit(cx, cy, a0)
+        var p1 = borderHit(cx, cy, a1)
+        return (
+          cx.toFixed(2) +
+          ',' +
+          cy.toFixed(2) +
+          ' ' +
+          p0[0].toFixed(2) +
+          ',' +
+          p0[1].toFixed(2) +
+          ' ' +
+          p1[0].toFixed(2) +
+          ',' +
+          p1[1].toFixed(2)
+        )
+      }
+
+      function buildAngles(n) {
+        var base = (Math.PI * 2) / n
+        var jitter = base * 0.38
+        var angles = []
+        var t = Math.random() * Math.PI * 2
+        for (var i = 0; i < n; i++) {
+          angles.push(t + i * base + (Math.random() - 0.5) * jitter)
+        }
+        angles.sort(function (a, b) {
+          return a - b
+        })
+        return angles
+      }
+
+      function addRadialBurst(parent, cx, cy, nRays) {
+        var angles = buildAngles(nRays)
+        var i
+        for (i = 0; i < angles.length; i++) {
+          var a0 = angles[i]
+          var a1 = angles[(i + 1) % angles.length]
+          if (a1 < a0) a1 += Math.PI * 2
+          var poly = document.createElementNS(ns, 'polygon')
+          poly.setAttribute('points', wedgePoly(cx, cy, a0, a1))
+          poly.setAttribute('class', Math.random() < 0.22 ? 'shard shard-bright' : 'shard')
+          parent.appendChild(poly)
+        }
+      }
+
+      function addCracks(parent, cx, cy, hits, count) {
+        var k
+        for (k = 0; k < count; k++) {
+          var i0 = Math.floor(Math.random() * hits.length)
+          var i1 = (i0 + 2 + Math.floor(Math.random() * (hits.length - 3))) % hits.length
+          var steps = 2 + Math.floor(Math.random() * 3)
+          var d = 'M' + cx.toFixed(1) + ',' + cy.toFixed(1)
+          var px = cx
+          var py = cy
+          var t
+          for (t = 1; t <= steps; t++) {
+            var f = t / (steps + 1)
+            var tx = hits[i0][0] * (1 - f) + hits[i1][0] * f
+            var ty = hits[i0][1] * (1 - f) + hits[i1][1] * f
+            tx += (Math.random() - 0.5) * 45
+            ty += (Math.random() - 0.5) * 45
+            d += 'L' + tx.toFixed(1) + ',' + ty.toFixed(1)
+            px = tx
+            py = ty
+          }
+          d += 'L' + hits[i1][0].toFixed(1) + ',' + hits[i1][1].toFixed(1)
+          var path = document.createElementNS(ns, 'path')
+          path.setAttribute('d', d)
+          path.setAttribute('class', 'crack')
+          parent.appendChild(path)
+        }
+      }
+
+      function collectHits(cx, cy, angles) {
+        var out = []
+        var j
+        for (j = 0; j < angles.length; j++) {
+          out.push(borderHit(cx, cy, angles[j]))
+        }
+        return out
+      }
+
+      function shatter() {
+        if (!rootG) return
+        rootG.innerHTML = ''
+        var dur = 0.22 + Math.random() * 0.16
+        var cx = W * (0.12 + Math.random() * 0.76)
+        var cy = H * (0.1 + Math.random() * 0.8)
+        var n = 22 + Math.floor(Math.random() * 20)
+        var angles = buildAngles(n)
+        var hits = collectHits(cx, cy, angles)
+
+        var g = document.createElementNS(ns, 'g')
+        if (reduced) {
+          g.style.opacity = '0.32'
+          g.style.filter = 'brightness(0.95)'
+        } else {
+          g.setAttribute('class', 'glass-burst')
+          g.style.setProperty('--flash-dur', dur + 's')
+        }
+
+        addRadialBurst(g, cx, cy, n)
+        addCracks(g, cx, cy, hits, 4 + Math.floor(Math.random() * 5))
+
+        if (!reduced && Math.random() < 0.38) {
+          var cx2 = W * (0.15 + Math.random() * 0.7)
+          var cy2 = H * (0.12 + Math.random() * 0.76)
+          if (Math.hypot(cx2 - cx, cy2 - cy) > Math.min(W, H) * 0.22) {
+            addRadialBurst(g, cx2, cy2, 12 + Math.floor(Math.random() * 10))
+          }
+        }
+
+        rootG.appendChild(g)
+
+        if (!reduced) {
+          window.setTimeout(function () {
+            if (rootG.firstChild === g) rootG.innerHTML = ''
+          }, Math.max(320, dur * 1000 + 120))
+        }
+      }
+
+      function scheduleShatter() {
+        var gap = 5000 + Math.random() * 13000
+        if (Math.random() < 0.12) gap += 3000 + Math.random() * 6000
+        setTimeout(function () {
+          shatter()
+          scheduleShatter()
+        }, gap)
+      }
+
+      if (reduced) {
+        shatter()
+      } else {
+        setTimeout(function () {
+          shatter()
+          scheduleShatter()
+        }, 900 + Math.random() * 2000)
+      }
+    })()
+  </script>
+</body>
+</html>
