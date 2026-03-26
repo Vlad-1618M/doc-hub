@@ -1,0 +1,129 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Donald",
+            "last_name": "Trump"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Florida",
+                "city": "Palm Beach",
+                "zip_code": "33480",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "donald.trump@example.com",
+            "phone": "+1-561-555-2020"
+        },
+        "job_title": {
+            "position": "45th President of the United States",
+            "role": "Business Executive, Media Personality, and Political Leader"
+        },
+        "summary": "Donald Trump, the 45th President of the United States, was known for his business background, focus on economic growth, deregulation, and foreign policy shifts. Prior to politics, he built a career in real estate, branding, and media.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Expert": true
+            },
+            "Crisis Management": {
+                "Advanced": true
+            },
+            "Strategic Planning": {
+                "Expert": true
+            },
+            "Law and Legislation": {
+                "Advanced": true
+            },
+            "Government Policy Oversight": {
+                "Advanced": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "2017 - 2021",
+            "role": "President",
+            "job_description": "Focused on economic growth, deregulation, tax cuts, and reshaping foreign policy, including trade agreements and diplomatic negotiations."
+        },
+        {
+            "org_name": "The Trump Organization",
+            "location": "New York, NY",
+            "employment_length": "1971 - 2017, 2021 - Present",
+            "role": "Chairman & CEO",
+            "job_description": "Expanded a real estate empire, overseeing developments in luxury properties, golf courses, hotels, and branding initiatives."
+        },
+        {
+            "org_name": "Trump Media & Technology Group",
+            "location": "Florida",
+            "employment_length": "2021 - Present",
+            "role": "Founder",
+            "job_description": "Founded a media company focusing on digital and social media platforms, emphasizing alternative news and free speech."
+        },
+        {
+            "org_name": "The Apprentice (NBC)",
+            "location": "United States",
+            "employment_length": "2004 - 2015",
+            "role": "Executive Producer & Host",
+            "job_description": "Hosted and produced a highly successful reality television series focusing on business competition and leadership."
+        },
+        {
+            "org_name": "Trump Entertainment Resorts",
+            "location": "Atlantic City, NJ",
+            "employment_length": "1995 - 2009",
+            "role": "Founder & Owner",
+            "job_description": "Developed and managed casino and entertainment properties, including Trump Taj Mahal, Trump Plaza, and Trump Marina."
+        },
+        {
+            "org_name": "Trump Tower Development",
+            "location": "New York, NY",
+            "employment_length": "1979 - 1983",
+            "role": "Project Developer",
+            "job_description": "Led the construction of Trump Tower, a flagship skyscraper that became a symbol of luxury and branding."
+        },
+        {
+            "org_name": "Grand Hyatt New York",
+            "location": "New York, NY",
+            "employment_length": "1974 - 1980",
+            "role": "Real Estate Developer",
+            "job_description": "Oversaw negotiations and redevelopment of the Commodore Hotel into the Grand Hyatt New York."
+        },
+        {
+            "org_name": "Trump Management",
+            "location": "New York, NY",
+            "employment_length": "1968 - 1971",
+            "role": "Real Estate Manager",
+            "job_description": "Worked under his father, Fred Trump, managing residential properties and learning real estate operations."
+        },
+        {
+            "org_name": "University of Pennsylvania - Wharton School",
+            "location": "Philadelphia, PA",
+            "employment_length": "1966 - 1968",
+            "role": "Business Student",
+            "job_description": "Studied real estate and business administration, gaining insights into property development and investment strategies."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Science in Economics",
+        "location": "Wharton School, University of Pennsylvania",
+        "majored_in": "Real Estate & Finance"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Mike Pence",
+        "reference_title": "Former Vice President of the United States",
+        "reference_contact": "pence.contact@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/donald-j-trump/",
+            "historical_writings": "https://trumpwhitehouse.archives.gov/"
+        }
+    },
+    "notes": "Donald Trump\u2019s career spans real estate, media, branding, and politics. His presidency focused on economic growth, deregulation, and reshaping U.S. foreign policy."
+}

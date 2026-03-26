@@ -1,0 +1,113 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "James",
+            "last_name": "Madison"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Virginia",
+                "city": "Montpelier",
+                "zip_code": "22957",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "james.madison@example.com",
+            "phone": "+1-540-555-1809"
+        },
+        "job_title": {
+            "position": "4th President of the United States",
+            "role": "Author of the Constitution, Diplomat, and Statesman"
+        },
+        "summary": "James Madison, the 4th President of the United States, was the principal author of the U.S. Constitution and the Bill of Rights. His leadership during the War of 1812 and his contributions to the Federalist Papers shaped American governance and law.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1809 - 1817",
+            "role": "President",
+            "job_description": "Led the nation through the War of 1812, strengthened the federal government, and promoted economic and military development."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1801 - 1809",
+            "role": "U.S. Secretary of State",
+            "job_description": "Oversaw the Louisiana Purchase and navigated diplomatic challenges with Britain and France under President Thomas Jefferson."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1789 - 1797",
+            "role": "U.S. Congressman",
+            "job_description": "Drafted and introduced the Bill of Rights, helping to define fundamental American liberties."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Philadelphia, PA",
+            "employment_length": "1787",
+            "role": "Delegate, Constitutional Convention",
+            "job_description": "Played a key role in drafting the U.S. Constitution and advocating for a strong federal government."
+        },
+        {
+            "org_name": "Virginia State Government",
+            "location": "Richmond, VA",
+            "employment_length": "1784 - 1786",
+            "role": "Virginia State Legislator",
+            "job_description": "Advocated for religious freedom, stronger state governance, and economic reforms."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts",
+        "location": "College of New Jersey (now Princeton University), NJ",
+        "majored_in": "Political Science & Philosophy"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Thomas Jefferson",
+        "reference_title": "Former U.S. President & Mentor",
+        "reference_contact": "jefferson.contact@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/jamesmadison",
+            "linkedin": "https://linkedin.com/in/jamesmadison",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/james-madison/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/james-madison/",
+            "historical_writings": "https://www.loc.gov/exhibits/madison/"
+        }
+    },
+    "notes": "James Madison is known as the 'Father of the Constitution' for his central role in shaping the U.S. government. His influence on American law remains unparalleled."
+}

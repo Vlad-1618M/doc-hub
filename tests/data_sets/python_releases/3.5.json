@@ -1,0 +1,8 @@
+{
+  "version": "3.5",
+  "release_date": "2015-09-13",
+  "eol_date": "2020-09-30",
+  "status": "eol",
+  "summary": "Python 3.5 added the typing module for type hints (PEP 484), async/await syntax (PEP 492), and the @ operator for matrix multiplication. The os.scandir() function improved directory iteration performance. Coroutines became first-class with native async def and await. Type hints enabled gradual typing and tooling like mypy.",
+  "notes": "Unsupported since 2020-09-30. Last micro 3.5.10. Full support ended 2017-08-08. async/await made asyncio far more ergonomic and sparked widespread adoption."
+}

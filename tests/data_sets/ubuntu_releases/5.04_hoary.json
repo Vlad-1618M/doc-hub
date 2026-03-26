@@ -1,0 +1,9 @@
+{
+  "version": "5.04",
+  "codename": "Hoary Hedgehog",
+  "release_date": "2005-04-08",
+  "support_type": "Interim",
+  "eol_date": "2006-10-31",
+  "summary": "Ubuntu 5.04 (Hoary Hedgehog) was released on 8 April 2005. New features included installation from USB devices, the Update Manager, an upgrade notifier, readahead, suspend, hibernation and standby support, dynamic frequency scaling for processors, the Ubuntu hardware database, Kickstart installation, and APT authentication. UTF-8 became the default character encoding beginning with 5.04.",
+  "notes": "Unsupported since 2006-10-31. Kernel 2.6.10. The hedgehog reflects the 'prickly' attention to detail in this release."
+}

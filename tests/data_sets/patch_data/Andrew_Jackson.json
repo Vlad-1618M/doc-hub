@@ -1,0 +1,129 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Andrew",
+            "last_name": "Jackson"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Tennessee",
+                "city": "Nashville",
+                "zip_code": "37201",
+                "timezone": "CST (Central Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "andrew.jackson@example.com",
+            "phone": "+1-615-555-0123"
+        },
+        "job_title": {
+            "position": "7th President of the United States",
+            "role": "Commander-in-Chief, Populist Leader, and Military Strategist"
+        },
+        "summary": "Andrew Jackson, the 7th President of the United States, was a military hero and political reformer. He shaped American democracy with his advocacy for the common citizen, his fight against the national bank, and his leadership in the Indian Removal Act. His presidency remains one of the most controversial in U.S. history.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Expert": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Advanced": true
+            },
+            "Law and Legislation": {
+                "Advanced": true
+            },
+            "Government Policy Oversight": {
+                "Advanced": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1829 - 1837",
+            "role": "President",
+            "job_description": "Implemented the Indian Removal Act, opposed the national bank, expanded executive powers, and promoted populist democracy."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Washington, D.C.",
+            "employment_length": "1823 - 1825",
+            "role": "Senator",
+            "job_description": "Advocated for states' rights and opposed corruption in the federal government."
+        },
+        {
+            "org_name": "Governor of Florida",
+            "location": "Florida Territory",
+            "employment_length": "1821",
+            "role": "Governor",
+            "job_description": "Served as the first territorial governor of Florida after its acquisition from Spain."
+        },
+        {
+            "org_name": "United States House of Representatives",
+            "location": "Washington, D.C.",
+            "employment_length": "1796 - 1797",
+            "role": "Congressman",
+            "job_description": "Represented Tennessee as its first congressman and focused on western expansion."
+        },
+        {
+            "org_name": "Tennessee Supreme Court",
+            "location": "Nashville, Tennessee",
+            "employment_length": "1798 - 1804",
+            "role": "Justice",
+            "job_description": "Served as a judge, interpreting and enforcing laws in Tennessee."
+        },
+        {
+            "org_name": "Major General, U.S. Army",
+            "location": "Southern United States",
+            "employment_length": "1812 - 1815",
+            "role": "Military Commander",
+            "job_description": "Led American forces to victory in the Battle of New Orleans during the War of 1812."
+        },
+        {
+            "org_name": "Tennessee Militia",
+            "location": "Tennessee",
+            "employment_length": "1802 - 1812",
+            "role": "Commander",
+            "job_description": "Led Tennessee\u2019s militia in various conflicts, including campaigns against Native American tribes."
+        },
+        {
+            "org_name": "Land Speculator & Lawyer",
+            "location": "Tennessee",
+            "employment_length": "1788 - 1800",
+            "role": "Lawyer & Businessman",
+            "job_description": "Practiced law, bought and sold land, and helped develop Nashville."
+        },
+        {
+            "org_name": "Orphan & Self-Supporting Worker",
+            "location": "South Carolina & Tennessee",
+            "employment_length": "1767 - 1788",
+            "role": "Laborer",
+            "job_description": "Worked various jobs after being orphaned at a young age, later studying law and entering politics."
+        }
+    ],
+    "education": {
+        "degree": "Self-Educated",
+        "location": "North Carolina & Tennessee",
+        "majored_in": "Law, Military Strategy, and Politics"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "James K. Polk",
+        "reference_title": "11th President of the United States",
+        "reference_contact": "polk.contact@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/andrew-jackson/",
+            "historical_writings": "https://www.nps.gov/nr/travel/presidents/andrew_jackson_hermitage.html"
+        }
+    },
+    "notes": "Andrew Jackson's presidency marked a shift toward greater executive power and direct democracy. While known for his strong leadership, he remains controversial due to policies like the Indian Removal Act. His influence on American politics and democracy endures today."
+}

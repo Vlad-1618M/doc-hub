@@ -1,0 +1,8 @@
+{
+  "version": "3.10",
+  "release_date": "2021-10-04",
+  "eol_date": "2026-10-31",
+  "status": "security",
+  "summary": "Python 3.10 introduced structural pattern matching via match/case statements, bringing expressive control flow similar to switch statements in other languages but with powerful destructuring. Error messages were significantly improved, inspired by work in the PyPy interpreter—tracebacks now show precisely where syntax or logic errors occur. The | union type operator was added for type hints (e.g., int | None). Parameter specification syntax (ParamSpec) improved type checking for higher-order functions. Python 3.10 also removed the deprecated Py_UNICODE encoder API and added optional leading zeros in numeric literals (e.g., 0o012). Performance improvements set the stage for the larger gains in 3.11.",
+  "notes": "As of 2026, 3.10 is in security-fix-only phase. Full bug-fix support ended in 2023. The 2to3 utility continued to help migrate Python 2 code. Python 3.10 remains widely used in legacy deployments and as a minimum supported version for many libraries."
+}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume Portal — Sidebar Variant 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #fff;
+      --sidebar: #fff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+      --accent: #0369a1;
+      --success: #059669;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar {
+      width: 72px;
+      background: var(--sidebar);
+      border-right: 1px solid var(--border);
+      flex-shrink: 0;
+      transition: width 0.25s ease;
+    }
+    .sidebar.expanded {
+      width: 200px;
+    }
+    .sidebar:not(.expanded) .nav-text,
+    .sidebar:not(.expanded) .logo-text { display: none !important; }
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      min-height: 56px;
+    }
+    .logo { display: flex; align-items: center; gap: 0.5rem; overflow: hidden; }
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--accent), #0284c7);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .hamburger {
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .hamburger:hover { color: var(--accent); background: #f1f5f9; }
+    .hamburger svg { width: 18px; height: 18px; }
+    .nav { padding: 0.5rem; }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s;
+      margin-bottom: 2px;
+    }
+    .nav-item:hover { color: var(--text); background: #f1f5f9; }
+    .nav-item.active { color: var(--accent); background: #e0f2fe; }
+    .nav-item svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .main {
+      flex: 1;
+      overflow-x: hidden;
+      padding: 2rem;
+    }
+    .hero h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.375rem; }
+    .hero p { color: var(--muted); font-size: 0.875rem; }
+    .purpose {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .purpose h2 { font-size: 0.9375rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .purpose ul { list-style: none; }
+    .purpose li { padding: 0.2rem 0; padding-left: 1rem; position: relative; font-size: 0.875rem; }
+    .purpose li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+    .flow-section { margin: 1.5rem 0; }
+    .flow-section h2 { font-size: 0.9375rem; color: var(--accent); margin-bottom: 0.75rem; }
+    .flow-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 400px;
+    }
+    .flow-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-bottom: none;
+      position: relative;
+      padding-left: 3rem;
+    }
+    .flow-item:last-child { border-bottom: 1px solid var(--border); }
+    .flow-item::before {
+      content: attr(data-num);
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      width: 24px;
+      height: 24px;
+      background: var(--accent);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      border-radius: 50%;
+      line-height: 24px;
+      text-align: center;
+    }
+    .flow-item::after {
+      content: '';
+      position: absolute;
+      left: 2.1rem;
+      top: 100%;
+      width: 2px;
+      height: 12px;
+      background: var(--border);
+    }
+    .flow-item:last-child::after { display: none; }
+    .flow-item-content {}
+    .flow-item-title { font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .flow-item-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
+    .auth-dialog {
+      max-width: 360px;
+      margin: 1.5rem 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .auth-tabs { display: flex; border-bottom: 1px solid var(--border); }
+    .auth-tab {
+      flex: 1;
+      padding: 0.75rem;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .auth-tab:hover { color: var(--text); }
+    .auth-tab.active { color: var(--accent); border-bottom: 2px solid var(--accent); margin-bottom: -1px; }
+    .auth-panel { display: none; padding: 1.25rem; }
+    .auth-panel.active { display: block; }
+    .form-group { margin-bottom: 0.75rem; }
+    .form-group label { display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 0.2rem; }
+    .form-group input {
+      width: 100%;
+      padding: 0.5rem 0.625rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 0.875rem;
+    }
+    .form-group input:focus { outline: none; border-color: var(--accent); }
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      background: var(--accent);
+      color: white;
+      transition: all 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">DP</div>
+          <span class="logo-text">Resume</span>
+        </div>
+        <button type="button" class="hamburger" id="hamburger" aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <nav class="nav">
+        <a href="#" class="nav-item active">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+          <span class="nav-text">Home</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          <span class="nav-text">Resumes</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>
+          <span class="nav-text">API Keys</span>
+        </a>
+        <a href="index.html" class="nav-item" style="margin-top: 0.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l4-4-4-4" /></svg>
+          <span class="nav-text">Layouts</span>
+        </a>
+      </nav>
+    </aside>
+    <main class="main">
+      <section class="hero">
+        <h1>Internal Records & Document Hub</h1>
+        <p>HR, teams, and internal data in one place.</p>
+      </section>
+      <section class="purpose">
+        <h2>What is this for?</h2>
+        <ul>
+          <li><strong>HR & Employee Records</strong> — Resumes, profiles</li>
+          <li><strong>Team Data</strong> — Research, IT, Marketing, work logs</li>
+          <li><strong>Internal Documents</strong> — Centralized doc server</li>
+          <li><strong>Secure</strong> — Stays inside your infrastructure</li>
+        </ul>
+      </section>
+      <section class="flow-section">
+        <h2>How data flows</h2>
+        <div class="flow-vertical">
+          <div class="flow-item" data-num="1">
+            <div class="flow-item-content">
+              <div class="flow-item-title">User (Browser)</div>
+              <div class="flow-item-desc">Submits login / form data via HTTPS request</div>
+            </div>
+          </div>
+          <div class="flow-item" data-num="2">
+            <div class="flow-item-content">
+              <div class="flow-item-title">React UI + nginx</div>
+              <div class="flow-item-desc">Renders SPA, proxies /auth & /resume to FastAPI backend</div>
+            </div>
+          </div>
+          <div class="flow-item" data-num="3">
+            <div class="flow-item-content">
+              <div class="flow-item-title">FastAPI</div>
+              <div class="flow-item-desc">JWT auth, Pydantic validation, CRUD endpoints</div>
+            </div>
+          </div>
+          <div class="flow-item" data-num="4">
+            <div class="flow-item-content">
+              <div class="flow-item-title">MongoDB</div>
+              <div class="flow-item-desc">Stores users, resumes, api_keys as documents</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="auth-section">
+        <h2 style="font-size: 0.9375rem; margin-bottom: 0.5rem;">Sign in or create an account</h2>
+        <div class="auth-dialog">
+          <div class="auth-tabs">
+            <button type="button" class="auth-tab active" data-tab="login">Sign in</button>
+            <button type="button" class="auth-tab" data-tab="register">Create account</button>
+          </div>
+          <div class="auth-panel active" id="login-panel">
+            <form>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="you@company.com" />
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="••••••••" />
+              </div>
+              <button type="submit" class="btn">Sign in</button>
+            </form>
+          </div>
+          <div class="auth-panel" id="register-panel">
+            <form>
+              <div class="form-group">
+                <label>Name (optional)</label>
+                <input type="text" placeholder="Your name" />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="you@company.com" />
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="At least 8 characters" />
+              </div>
+              <div class="form-group">
+                <label>Confirm password</label>
+                <input type="password" placeholder="••••••••" />
+              </div>
+              <button type="submit" class="btn">Create account</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script>
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('sidebar').classList.toggle('expanded');
+    });
+    document.querySelectorAll('.auth-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab === 'login' ? 'login-panel' : 'register-panel';
+        document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Ulysses",
+            "last_name": "S Grant"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Ohio",
+                "city": "Point Pleasant",
+                "zip_code": "45153",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "ugrant@example.com",
+            "phone": "+1-740-555-1865"
+        },
+        "job_title": {
+            "position": "18th President of the United States",
+            "role": "President, General, Military Leader, Statesman"
+        },
+        "summary": "Ulysses S. Grant was the **18th President of the United States (1869-1877)** and a **Union Army General during the Civil War**. He led the Union to victory over the Confederacy and later worked to **reconstruct the nation**, protect civil rights, and combat corruption in government.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Intermediate": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Advanced": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Military_Strategy": {
+            "Battle Tactics": {"Advanced": true},
+            "Logistics & Supply Chains": {"Expert": true},
+            "Command & Operations": {"Expert": true}
+        },
+        "Management_Tools": {
+            "Civil Rights Policy": {"Reconstruction Era Policies": true},
+            "Economic Reform": {"Fiscal Responsibility & Industrial Growth": true},
+            "Foreign Relations": {"Diplomatic Negotiations & Peace Agreements": true}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1869 - 1877",
+            "role": "President",
+            "job_description": "Oversaw the **Reconstruction Era**, worked to enforce **civil rights laws**, and stabilized the post-war economy while battling corruption."
+        },
+        {
+            "org_name": "Union Army",
+            "location": "Washington, D.C.",
+            "employment_length": "1864 - 1869",
+            "role": "General of the Army",
+            "job_description": "Led the **Union Army** to victory in the **Civil War** by implementing **total war strategy** and overseeing major campaigns, including the **Siege of Vicksburg** and **Appomattox Campaign**."
+        },
+        {
+            "org_name": "United States Military Academy",
+            "location": "West Point, NY",
+            "employment_length": "1839 - 1843",
+            "role": "Cadet",
+            "job_description": "Graduated from **West Point** and developed military leadership and engineering skills."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Science",
+        "location": "United States Military Academy, West Point, NY",
+        "majored_in": "Engineering, Military Science"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Abraham Lincoln",
+        "reference_title": "16th President of the United States",
+        "reference_contact": "alincoln@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/usgrant",
+            "linkedin": "https://linkedin.com/in/ulyssessgrant",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/ulysses-s-grant/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/ulysses-s-grant/",
+            "historical_writings": "https://www.loc.gov/collections/ulysses-s-grant-papers/"
+        }
+    },
+    "notes": "Grant was known for his **military prowess**, **commitment to Reconstruction**, and **anti-corruption efforts** during his presidency. His memoirs are considered one of the greatest personal accounts of war."
+}

@@ -1,0 +1,141 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Benjamin",
+            "last_name": "Harrison"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Indiana",
+                "city": "Indianapolis",
+                "zip_code": "46204",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "benjamin.harrison@example.com",
+            "phone": "+1-317-555-1893"
+        },
+        "job_title": {
+            "position": "23rd President of the United States",
+            "role": "Commander-in-Chief, Tariff Reformer, and Civil Rights Advocate"
+        },
+        "summary": "Benjamin Harrison, the 23rd President of the United States, was known for strengthening the U.S. Navy, signing the Sherman Antitrust Act, and promoting civil rights legislation. His administration focused on economic modernization and expanding American influence globally.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Advanced": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1889 - 1893",
+            "role": "President",
+            "job_description": "Implemented economic policies, supported civil rights legislation, expanded the Navy, and signed the Sherman Antitrust Act to regulate monopolies."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Washington, D.C.",
+            "employment_length": "1881 - 1887",
+            "role": "Senator",
+            "job_description": "Represented Indiana in the U.S. Senate, advocating for veterans' pensions, protective tariffs, and civil rights protections."
+        },
+        {
+            "org_name": "Republican National Convention",
+            "location": "Chicago, Illinois",
+            "employment_length": "1888",
+            "role": "Presidential Candidate",
+            "job_description": "Won the Republican nomination and later the presidency, advocating for strong economic policies and national development."
+        },
+        {
+            "org_name": "U.S. Army (Union Army)",
+            "location": "United States",
+            "employment_length": "1862 - 1865",
+            "role": "Brigadier General",
+            "job_description": "Served in the Union Army during the Civil War, leading troops in key battles and earning a promotion to Brigadier General."
+        },
+        {
+            "org_name": "Harrison, Miller & Elam Law Firm",
+            "location": "Indianapolis, Indiana",
+            "employment_length": "1865 - 1881",
+            "role": "Attorney",
+            "job_description": "Practiced law, specializing in constitutional and corporate law while remaining active in Republican politics."
+        },
+        {
+            "org_name": "Indiana Supreme Court",
+            "location": "Indiana",
+            "employment_length": "1860 - 1862",
+            "role": "Reporter",
+            "job_description": "Worked as a reporter for the Indiana Supreme Court, writing detailed legal reports and interpretations of court rulings."
+        },
+        {
+            "org_name": "Harrison & Fishback Law Firm",
+            "location": "Indiana",
+            "employment_length": "1854 - 1860",
+            "role": "Law Partner",
+            "job_description": "Co-founded a law firm and gained a reputation for strong legal arguments and advocacy in state and federal cases."
+        },
+        {
+            "org_name": "Clerical Assistant",
+            "location": "Ohio",
+            "employment_length": "1850 - 1854",
+            "role": "Law Clerk",
+            "job_description": "Studied law while assisting attorneys in legal research and case preparation."
+        },
+        {
+            "org_name": "Farmer & Manual Laborer",
+            "location": "Ohio",
+            "employment_length": "1833 - 1850",
+            "role": "Farmhand",
+            "job_description": "Worked on a family farm, gaining experience in agriculture and rural economics before pursuing a legal career."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts",
+        "location": "Miami University, Oxford, Ohio",
+        "majored_in": "Law and Political Science"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "James G. Blaine",
+        "reference_title": "Former U.S. Secretary of State",
+        "reference_contact": "blaine.contact@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/benjaminharrison",
+            "linkedin": "https://linkedin.com/in/benjaminharrison",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/benjamin-harrison/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/benjamin-harrison/",
+            "historical_writings": "https://www.nps.gov/beha/index.htm"
+        }
+    },
+    "notes": "Benjamin Harrison was known for his efforts in civil rights, economic policies, and modernizing the U.S. Navy. While his presidency had mixed political success, his impact on American economic and legal structures remains significant."
+}

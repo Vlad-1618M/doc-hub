@@ -1,0 +1,8 @@
+{
+  "version": "1.6",
+  "release_date": "2000-09-05",
+  "eol_date": "2000-09-30",
+  "status": "eol",
+  "summary": "Python 1.6 was a transitional release. CNRI requested it to summarize development before the core team moved to BeOpen.com. The release included a new CNRI license that was later revised for GPL compatibility. Python 1.6.1 fixed minor bugs and adopted the new license. Release schedules for 1.6 and 2.0 overlapped; 2.0 followed shortly after.",
+  "notes": "Unsupported. Last micro 1.6.1. The development team left CNRI for BeOpen PythonLabs before 2.0 shipped."
+}

@@ -1,0 +1,113 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "John",
+            "last_name": "Quincy Adams"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Massachusetts",
+                "city": "Quincy",
+                "zip_code": "02169",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "jqadams@example.com",
+            "phone": "+1-617-555-1825"
+        },
+        "job_title": {
+            "position": "6th President of the United States",
+            "role": "Diplomat, Statesman, Legislator, Abolitionist"
+        },
+        "summary": "John Quincy Adams, the 6th President of the United States, was a prominent diplomat, congressman, and advocate for human rights. Known for negotiating the Treaty of Ghent, shaping the Monroe Doctrine, and later opposing slavery in Congress.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Advanced": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1825 - 1829",
+            "role": "President",
+            "job_description": "Advocated for federal funding of infrastructure, education, and the arts. Expanded U.S. foreign policy through diplomacy and trade agreements."
+        },
+        {
+            "org_name": "U.S. House of Representatives",
+            "location": "Massachusetts",
+            "employment_length": "1831 - 1848",
+            "role": "Congressman",
+            "job_description": "Fought against slavery and defended the right to petition, playing a key role in repealing the 'gag rule' against abolitionist debates."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Massachusetts",
+            "employment_length": "1803 - 1808",
+            "role": "Senator",
+            "job_description": "Promoted strong national policies, supported infrastructure projects, and stood against European colonial influence in the Americas."
+        },
+        {
+            "org_name": "U.S. Secretary of State",
+            "location": "Washington, D.C.",
+            "employment_length": "1817 - 1825",
+            "role": "Secretary of State",
+            "job_description": "Negotiated the Adams-Onís Treaty, acquiring Florida for the U.S., and played a key role in the Monroe Doctrine."
+        },
+        {
+            "org_name": "U.S. Ambassador to Russia",
+            "location": "St. Petersburg, Russia",
+            "employment_length": "1809 - 1814",
+            "role": "Ambassador",
+            "job_description": "Negotiated trade agreements and helped maintain U.S.-Russia relations during the Napoleonic Wars."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts",
+        "location": "Harvard University, Cambridge, MA",
+        "majored_in": "Political Science & Law"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "John Adams",
+        "reference_title": "2nd President of the United States",
+        "reference_contact": "jadams@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/jqadams",
+            "linkedin": "https://linkedin.com/in/jqadams",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/john-quincy-adams/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/john-quincy-adams/",
+            "historical_writings": "https://www.masshist.org/database/viewer.php?item_id=3270"
+        }
+    },
+    "notes": "John Quincy Adams was the first president to serve in Congress after his presidency, leading efforts against slavery and advocating for civil liberties."
+}

@@ -1,0 +1,141 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Barack",
+            "last_name": "Obama"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Illinois",
+                "city": "Chicago",
+                "zip_code": "60601",
+                "timezone": "CST (Central Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "barack.obama@example.com",
+            "phone": "+1-312-555-2023"
+        },
+        "job_title": {
+            "position": "44th President of the United States",
+            "role": "Commander-in-Chief, Diplomatic Leader, and Policy Architect"
+        },
+        "summary": "Barack Obama, the 44th President of the United States, was the first African American to hold the office. His administration focused on healthcare reform, economic recovery, climate change, and foreign diplomacy. His leadership inspired a new generation of civic engagement and progressive policies.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Expert": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "2009 - 2017",
+            "role": "President",
+            "job_description": "Led the country through economic recovery, implemented the Affordable Care Act, conducted diplomatic initiatives such as the Iran Nuclear Deal, and advocated for climate change action."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Washington, D.C.",
+            "employment_length": "2005 - 2008",
+            "role": "Senator",
+            "job_description": "Represented Illinois in the U.S. Senate, working on ethics reform, nuclear nonproliferation, and veterans' affairs."
+        },
+        {
+            "org_name": "Illinois State Senate",
+            "location": "Springfield, Illinois",
+            "employment_length": "1997 - 2004",
+            "role": "State Senator",
+            "job_description": "Served as an Illinois State Senator, focusing on education reform, healthcare expansion, and criminal justice reform."
+        },
+        {
+            "org_name": "University of Chicago Law School",
+            "location": "Chicago, Illinois",
+            "employment_length": "1992 - 2004",
+            "role": "Lecturer & Senior Lecturer",
+            "job_description": "Taught constitutional law, focusing on civil rights, voting rights, and the structure of government."
+        },
+        {
+            "org_name": "Davis, Miner, Barnhill & Galland",
+            "location": "Chicago, Illinois",
+            "employment_length": "1993 - 2004",
+            "role": "Civil Rights Attorney",
+            "job_description": "Practiced civil rights law, specializing in voting rights and affordable housing advocacy."
+        },
+        {
+            "org_name": "Project Vote",
+            "location": "Chicago, Illinois",
+            "employment_length": "1992",
+            "role": "Director",
+            "job_description": "Led a voter registration drive that registered over 100,000 new voters in Illinois."
+        },
+        {
+            "org_name": "Harvard Law Review",
+            "location": "Cambridge, Massachusetts",
+            "employment_length": "1989 - 1991",
+            "role": "President",
+            "job_description": "Became the first African American president of the Harvard Law Review, managing legal scholarship and publications."
+        },
+        {
+            "org_name": "Business International Corporation",
+            "location": "New York, New York",
+            "employment_length": "1983 - 1984",
+            "role": "Research Associate",
+            "job_description": "Worked in international business research, focusing on global markets and economic policy."
+        },
+        {
+            "org_name": "New York Public Interest Research Group",
+            "location": "New York, New York",
+            "employment_length": "1983",
+            "role": "Community Organizer",
+            "job_description": "Advocated for public policy reforms on environmental issues and consumer protection."
+        }
+    ],
+    "education": {
+        "degree": "Juris Doctor (J.D.)",
+        "location": "Harvard Law School, Cambridge, Massachusetts",
+        "majored_in": "Constitutional Law and Civil Rights"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Joe Biden",
+        "reference_title": "46th President of the United States",
+        "reference_contact": "biden.contact@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/barackobama",
+            "linkedin": "https://linkedin.com/in/barackobama",
+            "webapp": "https://barackobama.com/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/barack-obama/",
+            "historical_writings": "https://www.obamalibrary.gov/"
+        }
+    },
+    "notes": "Barack Obama's presidency was characterized by landmark healthcare reforms, climate initiatives, and diplomatic achievements. His leadership style emphasized hope, unity, and progressive policy changes."
+}

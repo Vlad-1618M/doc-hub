@@ -1,0 +1,8 @@
+{
+  "version": "2.2",
+  "release_date": "2001-12-21",
+  "eol_date": "2003-05-30",
+  "status": "eol",
+  "summary": "Python 2.2 unified Python's types (C extensions) and classes (Python types) into one hierarchy, making the object model purely and consistently object-oriented. Generators were added, inspired by Icon. Nested scopes from 2.1 were enabled by default. This release was a major step toward modern Python.",
+  "notes": "Unsupported since 2003-05-30. Last micro 2.2.3. Generators would later enable iterator-based programming and async patterns."
+}

@@ -1,0 +1,8 @@
+{
+  "version": "2.0",
+  "release_date": "2000-10-16",
+  "eol_date": "2001-06-22",
+  "status": "eol",
+  "summary": "Python 2.0 introduced list comprehensions (borrowed from SETL and Haskell), a cycle-detecting garbage collector, reference counting, and Unicode support. It marked a shift to a more transparent, community-backed development process. Python 2.0 was the only release from BeOpen.com; after its release, Van Rossum and PythonLabs joined Digital Creations (Zope).",
+  "notes": "Unsupported since 2001-06-22. Last micro 2.0.1. Python 2.0 established patterns that would define Python for two decades."
+}

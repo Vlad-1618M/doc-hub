@@ -1,0 +1,8 @@
+{
+  "version": "3.7",
+  "release_date": "2018-06-27",
+  "eol_date": "2023-06-27",
+  "status": "eol",
+  "summary": "Python 3.7 added the breakpoint() builtin, context variables (contextvars), postponed evaluation of type annotations (PEP 563), data classes (PEP 557), and guaranteed dict insertion order. The asyncio module was improved with asyncio.run(). Performance gains came from the Faster CPython project. This release was widely adopted for production.",
+  "notes": "Unsupported since 2023-06-27. Last micro 3.7.17. Full support ended 2020-06-27. breakpoint() replaced the import pdb; pdb.set_trace() idiom."
+}

@@ -1,0 +1,8 @@
+{
+  "version": "3.1",
+  "release_date": "2009-06-27",
+  "eol_date": "2012-04-09",
+  "status": "eol",
+  "summary": "Python 3.1 stabilized the 3.x line after the disruptive 3.0 release. New features included ordered dictionaries (collections.OrderedDict), format specifiers for thousands separator, and performance improvements. Some 3.1 features were backported to 2.7. Full support ended in 2011; security fixes continued until April 2012.",
+  "notes": "Unsupported since 2012-04-09. Last micro 3.1.5. Full support ended 2011-06-12. 3.1 and 2.7 were the last parallel 2.x/3.x releases before the community focused on 3.x."
+}

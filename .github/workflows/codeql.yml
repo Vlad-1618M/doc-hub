@@ -1,0 +1,85 @@
+# Static analysis (CodeQL). Python uses autobuild; UI is built explicitly under ui/.
+
+name: CodeQL
+
+on:
+  push:
+    branches: [main, master, repo_init, v.tools_main]
+  pull_request:
+    branches: [main, master, repo_init, v.tools_main]
+  schedule:
+    - cron: "39 5 * * 1"
+
+permissions:
+  contents: read
+  security-events: write
+
+concurrency:
+  group: codeql-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    name: Python
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: python
+          config: |
+            paths-ignore:
+              - ui/node_modules
+              - "**/node_modules/**"
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Analyze
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:python"
+
+  javascript:
+    name: JavaScript (ui)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: ui/package-lock.json
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript
+          config: |
+            # Only first-party sources — scanning all of ui/ pulls in node_modules (core-js, etc.)
+            # and can run 30+ minutes or OOM on free runners.
+            paths:
+              - ui/src
+              - ui/vite.config.ts
+              - ui/eslint.config.js
+            paths-ignore:
+              - ui/node_modules
+              - ui/dist
+              - "**/node_modules/**"
+
+      - name: Install and build UI
+        working-directory: ui
+        run: |
+          npm ci
+          npm run build
+
+      - name: Analyze
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:javascript"

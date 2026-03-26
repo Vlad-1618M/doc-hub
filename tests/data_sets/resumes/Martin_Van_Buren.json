@@ -1,0 +1,113 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Martin",
+            "last_name": "Van Buren"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "New York",
+                "city": "Kinderhook",
+                "zip_code": "12106",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "mvburen@example.com",
+            "phone": "+1-518-555-1837"
+        },
+        "job_title": {
+            "position": "8th President of the United States",
+            "role": "Statesman, Vice President, President, Diplomat, Lawyer"
+        },
+        "summary": "Martin Van Buren, the 8th President of the United States, was a key architect of the Democratic Party and served as Vice President under Andrew Jackson. His presidency was defined by the Panic of 1837 and economic struggles. He was known for his political acumen and ability to build strong party alliances.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Advanced": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Intermediate": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1837 - 1841",
+            "role": "President",
+            "job_description": "Led the nation through the Panic of 1837, a major economic downturn. Advocated for an independent treasury system to stabilize the economy."
+        },
+        {
+            "org_name": "Executive Branch",
+            "location": "Washington, D.C.",
+            "employment_length": "1833 - 1837",
+            "role": "Vice President",
+            "job_description": "Served under Andrew Jackson, supporting the dismantling of the Second Bank of the United States and strengthening the Democratic Party."
+        },
+        {
+            "org_name": "United States Department of State",
+            "location": "Washington, D.C.",
+            "employment_length": "1829 - 1831",
+            "role": "Secretary of State",
+            "job_description": "Played a key role in foreign diplomacy and domestic political strategy during Jackson's first term."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Washington, D.C.",
+            "employment_length": "1821 - 1828",
+            "role": "Senator",
+            "job_description": "Strong advocate for states' rights and a major force in the Democratic-Republican Party’s transformation into the Democratic Party."
+        },
+        {
+            "org_name": "Governor of New York",
+            "location": "Albany, NY",
+            "employment_length": "1829",
+            "role": "Governor",
+            "job_description": "Briefly served as Governor of New York before joining the Jackson administration as Secretary of State."
+        }
+    ],
+    "education": {
+        "degree": "Law Apprenticeship",
+        "location": "Kinderhook, NY",
+        "majored_in": "Law"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Andrew Jackson",
+        "reference_title": "7th President of the United States",
+        "reference_contact": "ajackson@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/mvanburen",
+            "linkedin": "https://linkedin.com/in/martinvanburen",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/martin-van-buren/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/martin-van-buren/",
+            "historical_writings": "https://www.loc.gov/item/martin-van-buren-papers/"
+        }
+    },
+    "notes": "Van Buren was the first U.S. president **born after the American Revolution** and **spoke Dutch as his first language**. His presidency was overshadowed by the economic crisis of 1837, which led to his defeat in the 1840 election."
+}

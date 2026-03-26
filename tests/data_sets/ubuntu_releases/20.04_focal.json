@@ -1,0 +1,9 @@
+{
+  "version": "20.04 LTS",
+  "codename": "Focal Fossa",
+  "release_date": "2020-04-23",
+  "support_type": "LTS",
+  "eol_date": "2025-05-29",
+  "summary": "Ubuntu 20.04 LTS Focal Fossa was released during the COVID-19 pandemic and became one of the most widely adopted LTS releases. It ships Linux kernel 5.4 and GNOME 3.36. The fossa is a Madagascan carnivore; 'Focal' indicates a sharp, clear focus. Key improvements included fractional scaling for HiDPI displays, lock screen refinements, and updated default applications. ZFS was offered as an experimental root filesystem option in the installer. Focal also improved Raspberry Pi support and ARM64 server images. The release stabilized Ubuntu's move toward GNOME as the default desktop after the end of Unity.",
+  "notes": "ESM until 2030; Legacy add-on to 2035. Still widely used in enterprise and cloud environments. Focal's five-year standard support made it a cornerstone for many organizations during 2020-2025."
+}

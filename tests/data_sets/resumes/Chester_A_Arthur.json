@@ -1,0 +1,141 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Chester",
+            "last_name": "A. Arthur"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "New York",
+                "city": "New York City",
+                "zip_code": "10001",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "chester.arthur@example.com",
+            "phone": "+1-212-555-1881"
+        },
+        "job_title": {
+            "position": "21st President of the United States",
+            "role": "Civil Service Reformer and Advocate for Government Integrity"
+        },
+        "summary": "Chester A. Arthur, the 21st President of the United States, assumed office after the assassination of President James Garfield. He was known for his efforts in civil service reform, modernization of the Navy, and enforcing government transparency.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Advanced": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1881 - 1885",
+            "role": "President",
+            "job_description": "Led the country through civil service reform, signed the Pendleton Act, and worked to reduce corruption in government institutions."
+        },
+        {
+            "org_name": "Vice President of the United States",
+            "location": "Washington, D.C.",
+            "employment_length": "1881",
+            "role": "Vice President",
+            "job_description": "Served under President James A. Garfield and assumed office upon Garfield’s assassination."
+        },
+        {
+            "org_name": "Collector of the Port of New York",
+            "location": "New York City, New York",
+            "employment_length": "1871 - 1878",
+            "role": "Customs Collector",
+            "job_description": "Managed the largest customs house in the country, enforcing tariff regulations and overseeing trade operations."
+        },
+        {
+            "org_name": "Republican Party Organization",
+            "location": "New York",
+            "employment_length": "1860s - 1870s",
+            "role": "Political Organizer",
+            "job_description": "Helped strengthen the Republican political machine in New York, playing a key role in state politics."
+        },
+        {
+            "org_name": "Law Firm: Arthur & Gardiner",
+            "location": "New York City, New York",
+            "employment_length": "1865 - 1871",
+            "role": "Attorney",
+            "job_description": "Specialized in constitutional law, civil rights cases, and defended African Americans’ rights under Reconstruction policies."
+        },
+        {
+            "org_name": "Quartermaster General of New York",
+            "location": "Albany, New York",
+            "employment_length": "1861 - 1863",
+            "role": "Military Logistics Officer",
+            "job_description": "Oversaw military supply operations for New York troops during the Civil War."
+        },
+        {
+            "org_name": "Law Firm: Culver, Parker & Arthur",
+            "location": "New York City, New York",
+            "employment_length": "1854 - 1861",
+            "role": "Attorney",
+            "job_description": "Practiced law, focusing on civil rights and government contract cases."
+        },
+        {
+            "org_name": "New York State Militia",
+            "location": "New York",
+            "employment_length": "1858 - 1860",
+            "role": "Judge Advocate General",
+            "job_description": "Served as a legal advisor to the state militia, handling court-martial cases."
+        },
+        {
+            "org_name": "Teaching & Legal Studies",
+            "location": "Vermont & New York",
+            "employment_length": "1851 - 1854",
+            "role": "Teacher & Law Clerk",
+            "job_description": "Taught school while studying law before being admitted to the New York Bar."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts",
+        "location": "Union College, Schenectady, New York",
+        "majored_in": "Law and Political Science"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "James G. Blaine",
+        "reference_title": "Former U.S. Secretary of State",
+        "reference_contact": "blaine.contact@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/chesterarthur",
+            "linkedin": "https://linkedin.com/in/chesterarthur",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/chester-a-arthur/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/chester-a-arthur/",
+            "historical_writings": "https://www.nps.gov/chva/index.htm"
+        }
+    },
+    "notes": "Chester A. Arthur's presidency was marked by civil service reform, strong leadership, and modernization of government operations. His dedication to honesty and transparency reshaped federal institutions."
+}

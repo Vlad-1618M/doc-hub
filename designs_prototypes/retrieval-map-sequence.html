@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data retrieval map — sequence diagram</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f172a; --surface: #1e293b; --border: #334155; --text: #f8fafc; --muted: #94a3b8;
+      --accent: #38bdf8; --success: #34d399; --violet: #a78bfa; --radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'JetBrains Mono', monospace; background: var(--bg); color: var(--text); min-height: 100vh; padding: 2rem; }
+    .nav { margin-bottom: 2rem; }
+    .nav a { color: var(--muted); text-decoration: none; margin-right: 1rem; }
+    .nav a:hover { color: var(--accent); }
+    .nav a.active { color: var(--accent); }
+    h1 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--accent); }
+    .map-variants { font-size: 0.75rem; margin-bottom: 1.5rem; }
+    .map-variants a { margin-right: 0.75rem; }
+    .retrieval-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .retrieval-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .retrieval-card h3 { font-size: 0.8125rem; color: var(--accent); margin-bottom: 0.75rem; font-weight: 500; }
+    /* Sequence diagram: swimlanes + messages */
+    .seq-diagram {
+      position: relative;
+      min-height: 140px;
+      font-size: 0.65rem;
+    }
+    .seq-actors {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      padding: 0 0.5rem;
+    }
+    .seq-actor {
+      width: 22%;
+      text-align: center;
+      padding: 0.25rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .seq-actors .seq-actor:nth-child(1) { border-color: var(--accent); }
+    .seq-actors .seq-actor:nth-child(3) { border-color: var(--success); }
+    .seq-actors .seq-actor:nth-child(4) { border-color: var(--violet); }
+    .seq-messages {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .seq-msg {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin: 0.35rem 0;
+      min-height: 20px;
+    }
+    .seq-msg-num {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 0.55rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .seq-msg-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), var(--border));
+      position: relative;
+      overflow: hidden;
+    }
+    .seq-msg-line.rev { background: linear-gradient(90deg, var(--border), var(--success)); }
+    .seq-msg-line .dot {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: seqDot 2s ease-in-out infinite;
+    }
+    .seq-msg-line.rev .dot {
+      left: 100%;
+      background: var(--success);
+      animation: seqDotRev 2s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+    @keyframes seqDot { 0% { left: 0; } 100% { left: 100%; } }
+    @keyframes seqDotRev { 0% { left: 100%; } 100% { left: 0; } }
+    .seq-msg-label {
+      min-width: 85px;
+      color: var(--muted);
+      font-size: 0.6rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav"><a href="index.html">← Home</a></nav>
+  <h1>Data retrieval — sequence diagram</h1>
+  <p style="color: var(--muted); font-size: 0.8125rem; margin-bottom: 0.5rem;">
+    Swimlanes: User | UI | API | DB. Messages flow left→right (request) and right→left (response).
+  </p>
+  <div class="map-variants">
+    <a href="retrieval-map.html">Vertical</a>
+    <a href="retrieval-map-horizontal.html">Horizontal</a>
+    <a href="retrieval-map-sequence.html" class="active">Sequence</a>
+    <a href="retrieval-map-pills.html">Pills</a>
+  </div>
+
+  <div class="retrieval-grid">
+    <div class="retrieval-card">
+      <h3>GET /resume</h3>
+      <div class="seq-diagram">
+        <div class="seq-actors">
+          <span class="seq-actor">User</span>
+          <span class="seq-actor">React UI</span>
+          <span class="seq-actor">FastAPI</span>
+          <span class="seq-actor">MongoDB</span>
+        </div>
+        <div class="seq-messages">
+          <div class="seq-msg"><span class="seq-msg-num">1</span><span class="seq-msg-line"><span class="dot"></span></span><span class="seq-msg-label">Clicks Dashboard</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">2</span><span class="seq-msg-line"><span class="dot"></span></span><span class="seq-msg-label">GET /resume</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">3</span><span class="seq-msg-line"><span class="dot"></span></span><span class="seq-msg-label">→ MongoDB</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">4</span><span class="seq-msg-line rev"><span class="dot"></span></span><span class="seq-msg-label">5 docs →</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">5</span><span class="seq-msg-line rev"><span class="dot"></span></span><span class="seq-msg-label">Render list</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="retrieval-card">
+      <h3>GET /ubuntu-releases</h3>
+      <div class="seq-diagram">
+        <div class="seq-actors">
+          <span class="seq-actor">User</span>
+          <span class="seq-actor">React UI</span>
+          <span class="seq-actor">FastAPI</span>
+          <span class="seq-actor">MongoDB</span>
+        </div>
+        <div class="seq-messages">
+          <div class="seq-msg"><span class="seq-msg-num">1</span><span class="seq-msg-line"><span class="dot"></span></span><span class="seq-msg-label">Opens list</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">2</span><span class="seq-msg-line"><span class="dot"></span></span><span class="seq-msg-label">GET releases</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">3</span><span class="seq-msg-line"><span class="dot"></span></span><span class="seq-msg-label">Auth + query</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">4</span><span class="seq-msg-line rev"><span class="dot"></span></span><span class="seq-msg-label">Data → API</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">5</span><span class="seq-msg-line rev"><span class="dot"></span></span><span class="seq-msg-label">Sees table</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="retrieval-card">
+      <h3>POST /auth/login</h3>
+      <div class="seq-diagram">
+        <div class="seq-actors">
+          <span class="seq-actor">User</span>
+          <span class="seq-actor">React UI</span>
+          <span class="seq-actor">FastAPI</span>
+          <span class="seq-actor">MongoDB</span>
+        </div>
+        <div class="seq-messages">
+          <div class="seq-msg"><span class="seq-msg-num">1</span><span class="seq-msg-line"><span class="dot"></span></span><span class="seq-msg-label">Signs in</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">2</span><span class="seq-msg-line"><span class="dot"></span></span><span class="seq-msg-label">POST /auth</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">3</span><span class="seq-msg-line"><span class="dot"></span></span><span class="seq-msg-label">Verify → DB</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">4</span><span class="seq-msg-line rev"><span class="dot"></span></span><span class="seq-msg-label">User + JWT</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">5</span><span class="seq-msg-line rev"><span class="dot"></span></span><span class="seq-msg-label">Token</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="retrieval-card">
+      <h3>GET /search (index)</h3>
+      <div class="seq-diagram">
+        <div class="seq-actors">
+          <span class="seq-actor">User</span>
+          <span class="seq-actor">React UI</span>
+          <span class="seq-actor">FastAPI</span>
+          <span class="seq-actor">MongoDB</span>
+        </div>
+        <div class="seq-messages">
+          <div class="seq-msg"><span class="seq-msg-num">1</span><span class="seq-msg-line"><span class="dot"></span></span><span class="seq-msg-label">Types query</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">2</span><span class="seq-msg-line"><span class="dot"></span></span><span class="seq-msg-label">GET /search</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">3</span><span class="seq-msg-line"><span class="dot"></span></span><span class="seq-msg-label">Text index</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">4</span><span class="seq-msg-line rev"><span class="dot"></span></span><span class="seq-msg-label">Index lookup</span></div>
+          <div class="seq-msg"><span class="seq-msg-num">5</span><span class="seq-msg-line rev"><span class="dot"></span></span><span class="seq-msg-label">Sees matches</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

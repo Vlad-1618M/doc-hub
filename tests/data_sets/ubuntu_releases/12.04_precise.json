@@ -1,0 +1,9 @@
+{
+  "version": "12.04 LTS",
+  "codename": "Precise Pangolin",
+  "release_date": "2012-04-26",
+  "support_type": "LTS",
+  "eol_date": "2017-04-28",
+  "summary": "Ubuntu 12.04 (Precise Pangolin) was the fourth LTS release. Desktop and server support both received 5 years, harmonized for the first time, until 28 April 2017. Features: HUD (Head-Up Display) for menu search, improved Unity, Python 3 in archive but Python 2 still default. First LTS with five-year support for desktops. The pangolin (scaly anteater) embodied precision and armor.",
+  "notes": "Standard support ended 2017-04-28. ESM available until 2019-04-26. Kernel 3.2. Precise was a milestone for LTS parity and long-term stability."
+}

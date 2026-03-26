@@ -1,0 +1,106 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Ronald",
+            "last_name": "Reagan"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "California",
+                "city": "Los Angeles",
+                "zip_code": "90001",
+                "timezone": "PST (Pacific Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "rreagan@example.com",
+            "phone": "+1-310-555-1981"
+        },
+        "job_title": {
+            "position": "40th President of the United States",
+            "role": "President, Governor, Actor, Spokesperson"
+        },
+        "summary": "Ronald Reagan was the **40th President of the United States (1981-1989)**, known for **Reaganomics**, the **end of the Cold War**, and the **Iran-Contra affair**. Prior to his presidency, he served as the **Governor of California** and had a career in **Hollywood as an actor** and **president of the Screen Actors Guild**.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Expert": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Advanced": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1981 - 1989",
+            "role": "President",
+            "job_description": "Led the U.S. during the **final years of the Cold War**, advocating for **Reaganomics**, which emphasized **tax cuts, deregulation, and defense spending**. Famously called for the **fall of the Berlin Wall ('Mr. Gorbachev, tear down this wall!')**."
+        },
+        {
+            "org_name": "California State Government",
+            "location": "Sacramento, California",
+            "employment_length": "1967 - 1975",
+            "role": "Governor of California",
+            "job_description": "Focused on **reducing government spending, tax reform, and crime legislation**. Gained national recognition for conservative policies."
+        },
+        {
+            "org_name": "Hollywood Film Industry",
+            "location": "Los Angeles, California",
+            "employment_length": "1937 - 1964",
+            "role": "Actor",
+            "job_description": "Appeared in **over 50 films**, including *Knute Rockne, All American* and *Kings Row*. Served as **President of the Screen Actors Guild**, advocating for actors' rights."
+        },
+        {
+            "org_name": "General Electric",
+            "location": "USA",
+            "employment_length": "1954 - 1962",
+            "role": "Corporate Spokesperson",
+            "job_description": "Hosted *General Electric Theater* and delivered corporate speeches promoting **free-market capitalism**."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts (B.A.)",
+        "location": "Eureka College, Illinois",
+        "majored_in": "Economics and Sociology"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Margaret Thatcher",
+        "reference_title": "Former Prime Minister of the United Kingdom",
+        "reference_contact": "mthatcher@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/rreagan",
+            "linkedin": "https://linkedin.com/in/ronaldreagan",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/ronald-reagan/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/ronald-reagan/",
+            "historical_writings": "https://www.reaganlibrary.gov/"
+        }
+    },
+    "notes": "Known for his **conservative policies, Cold War strategy, and the economic impact of Reaganomics**. Faced the **Iran-Contra scandal**, yet left office with high approval ratings."
+}

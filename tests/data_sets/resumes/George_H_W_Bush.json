@@ -1,0 +1,141 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "George",
+            "last_name": "H. W. Bush"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Texas",
+                "city": "Houston",
+                "zip_code": "77002",
+                "timezone": "CST (Central Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "george.bush@example.com",
+            "phone": "+1-713-555-1989"
+        },
+        "job_title": {
+            "position": "41st President of the United States",
+            "role": "Foreign Policy Expert, Cold War Strategist, and Economic Leader"
+        },
+        "summary": "George H. W. Bush, the 41st President of the United States, was known for his diplomatic leadership in ending the Cold War, overseeing Operation Desert Storm, and guiding the country through economic challenges. His legacy includes international coalition-building and public service.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Advanced": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1989 - 1993",
+            "role": "President",
+            "job_description": "Managed the end of the Cold War, oversaw the Gulf War, signed the Americans with Disabilities Act, and worked on economic policy reforms."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1981 - 1989",
+            "role": "Vice President",
+            "job_description": "Served under President Ronald Reagan, playing a key role in national security, economic policy, and diplomatic relations."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1976 - 1977",
+            "role": "Director of the CIA",
+            "job_description": "Led the Central Intelligence Agency, overseeing intelligence operations during a critical period of Cold War tensions."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "United Nations Headquarters, New York",
+            "employment_length": "1971 - 1973",
+            "role": "U.S. Ambassador to the United Nations",
+            "job_description": "Represented the United States at the UN, focusing on international relations and diplomacy during the Cold War."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "China",
+            "employment_length": "1974 - 1975",
+            "role": "Chief U.S. Liaison to China",
+            "job_description": "Served as a key diplomat to China before official diplomatic relations were established, strengthening U.S.-China ties."
+        },
+        {
+            "org_name": "United States House of Representatives",
+            "location": "Washington, D.C.",
+            "employment_length": "1967 - 1971",
+            "role": "Congressman",
+            "job_description": "Represented Texas in Congress, advocating for conservative economic policies and military readiness."
+        },
+        {
+            "org_name": "Zapata Petroleum Corporation",
+            "location": "Texas",
+            "employment_length": "1954 - 1966",
+            "role": "Founder & CEO",
+            "job_description": "Established and managed an oil and gas exploration company, gaining experience in business and energy policy."
+        },
+        {
+            "org_name": "United States Navy",
+            "location": "Pacific Theater",
+            "employment_length": "1942 - 1945",
+            "role": "Naval Aviator",
+            "job_description": "Served as a naval pilot during World War II, flying combat missions and earning the Distinguished Flying Cross."
+        },
+        {
+            "org_name": "Yale University",
+            "location": "New Haven, Connecticut",
+            "employment_length": "1945 - 1948",
+            "role": "Student & Baseball Team Captain",
+            "job_description": "Studied economics and played baseball, leading the Yale team to the College World Series finals."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts in Economics",
+        "location": "Yale University, New Haven, CT",
+        "majored_in": "Economics & Business"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "James Baker",
+        "reference_title": "Former U.S. Secretary of State",
+        "reference_contact": "james.baker@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/georgehwbush",
+            "linkedin": "https://linkedin.com/in/georgehwbush",
+            "webapp": "https://www.bush41.org/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/george-h-w-bush/",
+            "historical_writings": "https://www.archives.gov/presidential-libraries/bush"
+        }
+    },
+    "notes": "George H. W. Bush’s legacy includes his leadership in foreign policy, the Gulf War, and his lifelong commitment to public service. His administration focused on global diplomacy and economic stability."
+}

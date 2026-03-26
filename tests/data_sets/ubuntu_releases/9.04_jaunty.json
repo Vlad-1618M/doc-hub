@@ -1,0 +1,9 @@
+{
+  "version": "9.04",
+  "codename": "Jaunty Jackalope",
+  "release_date": "2009-04-23",
+  "support_type": "Interim",
+  "eol_date": "2010-10-23",
+  "summary": "Ubuntu 9.04 (Jaunty Jackalope) was released on 23 April 2009. It introduced ext4 as the default filesystem. Notable additions: faster boot, Notify OSD for notifications, Empathy as default IM client, new themes (New Humanity icons, Dust Sand theme), Brasero improvements, and support for ARM architecture. Canonical targeted a 25-second boot time.",
+  "notes": "Unsupported since 2010-10-23. Kernel 2.6.28. The jackalope (rabbit with antlers) was chosen as a playful mythical mascot."
+}

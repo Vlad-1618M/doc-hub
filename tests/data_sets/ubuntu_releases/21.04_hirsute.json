@@ -1,0 +1,9 @@
+{
+  "version": "21.04",
+  "codename": "Hirsute Hippo",
+  "release_date": "2021-04-22",
+  "support_type": "Interim",
+  "eol_date": "2022-01-20",
+  "summary": "Ubuntu 21.04 (Hirsute Hippo) was released on 22 April 2021. Features: GNOME 3.38 with Wayland default on most systems, kernel 5.11, Firefox as snap by default (replacing .deb). The hippo is hefty and distinctive; 'hirsute' means hairy. Privacy improvements and desktop polish.",
+  "notes": "Unsupported since 2022-01-20. Kernel 5.11. Firefox snap default caused some debate; performance and theme issues were reported."
+}

@@ -1,0 +1,9 @@
+{
+  "version": "10.10",
+  "codename": "Maverick Meerkat",
+  "release_date": "2010-10-10",
+  "support_type": "Interim",
+  "eol_date": "2012-04-10",
+  "summary": "Ubuntu 10.10 (Maverick Meerkat) was released on 10 October 2010. Features: improved Software Center, Shotwell as default photo manager, Ubuntu Software Center for purchasing commercial apps. Music Store was added for buying music. Ubuntu One improved. First release to fully embrace the '10.10' playful marketing.",
+  "notes": "Unsupported since 2012-04-10. Kernel 2.6.35. The Meerkat symbolized alertness and community—standing tall and watching."
+}

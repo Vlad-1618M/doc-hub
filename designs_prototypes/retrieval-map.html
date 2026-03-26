@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data retrieval map — mock</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --success: #34d399;
+      --violet: #a78bfa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .nav { margin-bottom: 2rem; }
+    .nav a { color: var(--muted); text-decoration: none; margin-right: 1rem; }
+    .nav a:hover { color: var(--accent); }
+    h1 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent); }
+    .retrieval-mocks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .retrieval-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .retrieval-card h3 {
+      font-size: 0.875rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+    .retrieval-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0;
+    }
+    .flow-step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .flow-step-line {
+      flex: 1;
+      height: 2px;
+      background: var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .flow-step-line .moving-dot {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: moveAlong 2.5s ease-in-out infinite;
+    }
+    .flow-step-line.rev .moving-dot { left: auto; right: 0; animation: moveBack 2.5s ease-in-out infinite; animation-delay: 1.2s; }
+    @keyframes moveAlong {
+      0% { left: 0; opacity: 1; }
+      100% { left: 100%; opacity: 1; }
+    }
+    @keyframes moveBack {
+      0% { right: 0; opacity: 1; }
+      100% { right: 100%; opacity: 1; }
+    }
+    .flow-step-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      min-width: 90px;
+    }
+    .flow-step-action {
+      font-size: 0.7rem;
+      color: var(--text);
+    }
+    .flow-arrow-down {
+      width: 20px;
+      height: 20px;
+      margin-left: 22px;
+      position: relative;
+    }
+    .flow-arrow-down::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 2px;
+      height: 12px;
+      background: linear-gradient(180deg, var(--border), var(--accent));
+      transform: translateX(-50%);
+    }
+    .flow-arrow-down::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -2px;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: var(--accent);
+    }
+    .map-variants { font-size: 0.75rem; margin-bottom: 1.5rem; }
+    .map-variants a { color: var(--muted); text-decoration: none; margin-right: 0.75rem; }
+    .map-variants a:hover { color: var(--accent); }
+    .map-variants a.active { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <nav class="nav"><a href="index.html">← Home</a></nav>
+  <h1>Data retrieval map — vertical flow</h1>
+  <p style="color: var(--muted); font-size: 0.8125rem; margin-bottom: 0.5rem;">
+    <!-- <strong>Request</strong> (steps 1–3): User → UI → API → DB. <strong>Response</strong> (steps 4–5): DB → User. Moving dots show direction. -->
+    <strong>Request</strong> (steps 1–3): User → UI → API → DB. <strong>Response</strong> (steps 4–5): DB → User.
+  </p>
+  <div class="map-variants">
+    <a href="retrieval-map.html" class="active">Vertical</a>
+    <a href="retrieval-map-horizontal.html">Horizontal</a>
+    <a href="retrieval-map-sequence.html">Sequence</a>
+    <a href="retrieval-map-pills.html">Pills</a>
+  </div>
+
+  <div class="retrieval-mocks">
+    <div class="retrieval-card">
+      <h3>1. GET /resume</h3>
+      <div class="retrieval-flow">
+        <div class="flow-step">
+          <span class="flow-phase request">Request</span>
+          <span class="flow-step-num">1</span>
+          <span class="flow-step-label">User</span>
+          <span class="flow-step-action">Clicks Dashboard</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase-spacer"></span>
+          <span class="flow-step-num">2</span>
+          <div class="flow-step-line"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">React UI</span>
+          <span class="flow-step-action">GET /resume?limit=100</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase-spacer"></span>
+          <span class="flow-step-num">3</span>
+          <div class="flow-step-line"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">FastAPI</span>
+          <span class="flow-step-action">→ MongoDB query</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase response">Response</span>
+          <span class="flow-step-num">4</span>
+          <div class="flow-step-line rev"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">MongoDB</span>
+          <span class="flow-step-action">5 docs → FastAPI</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase-spacer"></span>
+          <span class="flow-step-num">5</span>
+          <div class="flow-step-line rev"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">React UI</span>
+          <span class="flow-step-action">200 OK, render</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="retrieval-card">
+      <h3>2. GET /ubuntu-releases</h3>
+      <div class="retrieval-flow">
+        <div class="flow-step">
+          <span class="flow-phase request">Request</span>
+          <span class="flow-step-num">1</span>
+          <span class="flow-step-label">User</span>
+          <span class="flow-step-action">Opens Ubuntu list</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase-spacer"></span>
+          <span class="flow-step-num">2</span>
+          <div class="flow-step-line"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">React UI</span>
+          <span class="flow-step-action">GET /ubuntu-releases</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase-spacer"></span>
+          <span class="flow-step-num">3</span>
+          <div class="flow-step-line"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">FastAPI</span>
+          <span class="flow-step-action">Auth + query</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase response">Response</span>
+          <span class="flow-step-num">4</span>
+          <div class="flow-step-line rev"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">MongoDB</span>
+          <span class="flow-step-action">Releases → API</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase-spacer"></span>
+          <span class="flow-step-num">5</span>
+          <div class="flow-step-line rev"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">User</span>
+          <span class="flow-step-action">Sees table</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="retrieval-card">
+      <h3>3. POST /auth/login → API key</h3>
+      <div class="retrieval-flow">
+        <div class="flow-step">
+          <span class="flow-phase request">Request</span>
+          <span class="flow-step-num">1</span>
+          <span class="flow-step-label">User</span>
+          <span class="flow-step-action">Signs in</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase-spacer"></span>
+          <span class="flow-step-num">2</span>
+          <div class="flow-step-line"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">React UI</span>
+          <span class="flow-step-action">POST /auth/login</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase-spacer"></span>
+          <span class="flow-step-num">3</span>
+          <div class="flow-step-line"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">FastAPI</span>
+          <span class="flow-step-action">Verify → MongoDB</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase response">Response</span>
+          <span class="flow-step-num">4</span>
+          <div class="flow-step-line rev"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">MongoDB</span>
+          <span class="flow-step-action">User + JWT</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase-spacer"></span>
+          <span class="flow-step-num">5</span>
+          <div class="flow-step-line rev"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">User</span>
+          <span class="flow-step-action">Token, redirect</span>
+        </div>
+      </div>
+    </div>
+    <div class="retrieval-card">
+      <h3>4. GET /search (index)</h3>
+      <div class="retrieval-flow">
+        <div class="flow-step">
+          <span class="flow-phase request">Request</span>
+          <span class="flow-step-num">1</span>
+          <span class="flow-step-label">User</span>
+          <span class="flow-step-action">Types query</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase-spacer"></span>
+          <span class="flow-step-num">2</span>
+          <div class="flow-step-line"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">React UI</span>
+          <span class="flow-step-action">GET /search?q=…</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase-spacer"></span>
+          <span class="flow-step-num">3</span>
+          <div class="flow-step-line"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">FastAPI</span>
+          <span class="flow-step-action">Text index query</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase response">Response</span>
+          <span class="flow-step-num">4</span>
+          <div class="flow-step-line rev"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">MongoDB</span>
+          <span class="flow-step-action">Index lookup →</span>
+        </div>
+        <div class="flow-arrow-down"></div>
+        <div class="flow-step">
+          <span class="flow-phase-spacer"></span>
+          <span class="flow-step-num">5</span>
+          <div class="flow-step-line rev"><span class="moving-dot"></span></div>
+          <span class="flow-step-label">User</span>
+          <span class="flow-step-action">Sees matches</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

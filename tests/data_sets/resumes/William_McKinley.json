@@ -1,0 +1,106 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "William",
+            "last_name": "McKinley"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Ohio",
+                "city": "Canton",
+                "zip_code": "44702",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "wmckinley@example.com",
+            "phone": "+1-330-555-1897"
+        },
+        "job_title": {
+            "position": "25th President of the United States",
+            "role": "Congressman, Governor, President"
+        },
+        "summary": "William McKinley was the **25th President of the United States (1897-1901)**, known for leading the country to **economic growth, victory in the Spanish-American War (1898), and territorial expansion**. His presidency marked the **rise of American imperialism**, and he played a key role in annexing **Hawaii, Guam, Puerto Rico, and the Philippines**. He was **assassinated in 1901**, leading to **Theodore Roosevelt's succession**.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Advanced": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "March 4, 1897 - September 14, 1901",
+            "role": "President",
+            "job_description": "Led the **U.S. through rapid economic expansion**, implemented the **Gold Standard Act (1900)**, and guided **victory in the Spanish-American War (1898)**, securing control of **Puerto Rico, Guam, and the Philippines**."
+        },
+        {
+            "org_name": "Governor of Ohio",
+            "location": "Columbus, Ohio",
+            "employment_length": "1892 - 1896",
+            "role": "Governor",
+            "job_description": "Focused on **industrial regulation, veterans' welfare, and economic reform**, setting the stage for his **pro-business policies as President**."
+        },
+        {
+            "org_name": "United States House of Representatives",
+            "location": "Washington, D.C.",
+            "employment_length": "1877 - 1891",
+            "role": "Congressman",
+            "job_description": "Served **seven terms** in the House, best known for authoring the **McKinley Tariff Act (1890)**, which increased **protective tariffs to boost American industry**."
+        },
+        {
+            "org_name": "Union Army",
+            "location": "United States",
+            "employment_length": "1861 - 1865",
+            "role": "Major",
+            "job_description": "Served in the **23rd Ohio Infantry** during the **American Civil War**, rising to the rank of **Major** under **Rutherford B. Hayes**, earning commendations for bravery at the **Battle of Antietam**."
+        }
+    ],
+    "education": {
+        "degree": "Law",
+        "location": "Albany Law School, New York",
+        "majored_in": "Law and Government"
+    },
+    "work_authorization": "U.S. Citizen",
+    "reference": {
+        "reference_name": "Mark Hanna",
+        "reference_title": "U.S. Senator, Political Advisor",
+        "reference_contact": "mhanna@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/williammckinley",
+            "linkedin": "https://linkedin.com/in/williammckinley",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/william-mckinley/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/william-mckinley/",
+            "historical_writings": "https://www.loc.gov/collections/william-mckinley-papers/"
+        }
+    },
+    "notes": "McKinley’s presidency shaped **modern American foreign policy**, leading to **territorial expansion and economic prosperity**. His assassination in **1901** by **anarchist Leon Czolgosz** shocked the nation and led to **Theodore Roosevelt's presidency**."
+}

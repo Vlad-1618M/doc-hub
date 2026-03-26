@@ -1,0 +1,94 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Lyndon",
+            "last_name": "B Johnson"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Texas",
+                "city": "Stonewall",
+                "zip_code": "78671",
+                "timezone": "CST (Central Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "lbjohnson@example.com",
+            "phone": "+1-512-555-1963"
+        },
+        "job_title": {
+            "position": "36th President of the United States",
+            "role": "Statesman, Vice President, President, Legislator"
+        },
+        "summary": "Lyndon B. Johnson, the 36th President of the United States, assumed office following the assassination of John F. Kennedy. Known for his 'Great Society' programs, he championed civil rights, Medicare, and the War on Poverty while overseeing U.S. escalation in Vietnam.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Advanced": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Expert": true
+            },
+            "Law and Legislation": {
+                "Expert": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1963 - 1969",
+            "role": "President",
+            "job_description": "Launched the 'Great Society' programs, signing landmark civil rights legislation and expanding federal healthcare and education initiatives."
+        },
+        {
+            "org_name": "Executive Branch",
+            "location": "Washington, D.C.",
+            "employment_length": "1961 - 1963",
+            "role": "Vice President",
+            "job_description": "Served under John F. Kennedy, advocating for space exploration, education, and civil rights before assuming the presidency after Kennedy\u2019s assassination."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Washington, D.C.",
+            "employment_length": "1949 - 1961",
+            "role": "Senator & Senate Majority Leader",
+            "job_description": "Became one of the most powerful Majority Leaders, advancing key legislative agendas and civil rights bills."
+        },
+        {
+            "org_name": "U.S. House of Representatives",
+            "location": "Texas",
+            "employment_length": "1937 - 1949",
+            "role": "Congressman",
+            "job_description": "Focused on New Deal policies, infrastructure projects, and rural electrification efforts in Texas."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Science & Education",
+        "location": "Texas State University, San Marcos, TX",
+        "majored_in": "Education & Public Administration"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "John F. Kennedy",
+        "reference_title": "35th President of the United States",
+        "reference_contact": "jfkennedy@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/lyndon-b-johnson/",
+            "historical_writings": "https://www.archives.gov/presidential-libraries/visit/lyndon-b-johnson-library-museum"
+        }
+    },
+    "notes": "Johnson was responsible for passing the Civil Rights Act of 1964 and launching the 'War on Poverty'. He also increased U.S. involvement in Vietnam, which later led to anti-war protests."
+}

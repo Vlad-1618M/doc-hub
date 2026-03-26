@@ -1,0 +1,9 @@
+{
+  "version": "15.04",
+  "codename": "Vivid Vervet",
+  "release_date": "2015-04-23",
+  "support_type": "Interim",
+  "eol_date": "2016-02-04",
+  "summary": "Ubuntu 15.04 (Vivid Vervet) was released on 23 April 2015. Features: systemd as default init system (replacing Upstart), DDoS mitigation in the kernel, improved power management, newer graphics stack. The vervet monkey suggested liveliness and sociability.",
+  "notes": "Unsupported since 2016-02-04. Kernel 4.2. Major change: systemd replaced Upstart. This aligned Ubuntu with most other Linux distros."
+}

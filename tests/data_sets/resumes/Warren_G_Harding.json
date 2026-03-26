@@ -1,0 +1,91 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Warren",
+            "last_name": "G Harding"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Ohio",
+                "city": "Marion",
+                "zip_code": "43302",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "wharding@example.com",
+            "phone": "+1-740-555-1921"
+        },
+        "job_title": {
+            "position": "29th President of the United States",
+            "role": "President, Senator, Journalist, Businessman"
+        },
+        "summary": "Warren G. Harding served as the **29th President of the United States (1921-1923)**. He focused on **returning the nation to normalcy after World War I**, supported **pro-business policies**, and promoted **civil rights for African Americans**. His presidency, however, was marred by corruption scandals such as the **Teapot Dome Scandal**.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Intermediate": true},
+            "Strategic Planning": {"Advanced": true},
+            "Law and Legislation": {"Advanced": true},
+            "Project_Management": {"Intermediate": true},
+            "Government Policy Oversight": {"Advanced": true}
+        },
+        "Economic_Policies": {
+            "Fiscal Policy": {"Pro-Business, Tax Cuts": true},
+            "Government Reform": {"Bureau of the Budget Creation": true},
+            "Foreign Relations": {"Washington Naval Conference": true}
+        },
+        "Management_Tools": {
+            "Economic Growth": {"Industrial Boom & Pro-Business Policies": true},
+            "Civil Rights": {"Advocated for Anti-Lynching Laws": true},
+            "Infrastructure": {"Federal Highway Act of 1921": true}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1921 - 1923",
+            "role": "President",
+            "job_description": "Led the country through **post-World War I economic recovery**, promoted **pro-business policies**, and introduced **progressive civil rights initiatives**. Faced corruption issues such as the **Teapot Dome Scandal**."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Ohio / Washington, D.C.",
+            "employment_length": "1915 - 1921",
+            "role": "Senator",
+            "job_description": "Served as **U.S. Senator from Ohio**, advocating for **economic deregulation, infrastructure development, and civil rights policies**."
+        },
+        {
+            "org_name": "The Marion Star",
+            "location": "Marion, Ohio",
+            "employment_length": "1884 - 1921",
+            "role": "Newspaper Publisher & Editor",
+            "job_description": "Owned and operated **The Marion Star**, a successful newspaper business that became **one of Ohio's leading publications**."
+        }
+    ],
+    "education": {
+        "degree": "Journalism & Business",
+        "location": "Ohio Central College",
+        "majored_in": "Literature, Business Management"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Calvin Coolidge",
+        "reference_title": "30th President of the United States",
+        "reference_contact": "ccoolidge@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/wgharding",
+            "linkedin": "https://linkedin.com/in/warrengharding",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/warren-g-harding/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/warren-g-harding/",
+            "historical_writings": "https://www.loc.gov/collections/warren-g-harding-papers/"
+        }
+    },
+    "notes": "Harding is known for his **pro-business policies**, **efforts to promote racial equality**, and **his administration's corruption scandals**. His sudden death in **1923** left much of his agenda unfinished."
+}

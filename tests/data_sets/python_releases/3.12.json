@@ -1,0 +1,8 @@
+{
+  "version": "3.12",
+  "release_date": "2023-10-02",
+  "eol_date": "2028-10-31",
+  "status": "security",
+  "summary": "Python 3.12 added the new 'type' keyword for cleaner type alias syntax (e.g., type Point = tuple[float, float]) and continued the performance improvements from 3.11, gaining an additional 5% or more in many benchmarks. Error messages were further refined. The f-string grammar was enhanced to support nested quotes and more complex expressions. The deprecated distutils module was removed. Improvements to asyncio included asyncio.TaskGroup. Low-level changes improved interoperability with the free-threaded (no-GIL) builds that would follow in 3.13. The copy module gained a copy.replace() function. Unstable C API was documented as such to prepare for future changes.",
+  "notes": "Receives full bug-fix and security support. Python 3.12 is the recommended version for new projects in 2025-2026. Part of the 'Faster CPython' initiative; 3.12 builds on 3.11's JIT-like optimizations with continued interpreter tuning."
+}

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recent records — Glow prototype 2 · Sparkline mesh (themed)</title>
+  <style>
+    /* ─── Themes: mesh + UI (less static blue in dark; warm / paper in others) ─── */
+    [data-theme="dark"] {
+      --bg: #0c1222;
+      --panel: rgba(18, 26, 42, 0.92);
+      --border: rgba(148, 163, 184, 0.18);
+      --border-strong: rgba(148, 163, 184, 0.28);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --link: #5eead4;
+      --row-hover: rgba(148, 163, 184, 0.06);
+      --avatar-from: #5eead4;
+      --avatar-to: #0d9488;
+      --avatar-fg: #022c22;
+      --green: #4ade80;
+      --green-core: #22c55e;
+      --green-glow: rgba(74, 222, 128, 0.7);
+      --green-ring: rgba(74, 222, 128, 0.35);
+      --stale-dot: #475569;
+      --pager-btn-bg: rgba(0, 0, 0, 0.25);
+      --graph-opacity: 0.34;
+      /* SVG mesh: slate-forward, minimal cyan */
+      --mesh-stop-a: #64748b;
+      --mesh-stop-b: #475569;
+      --mesh-stop-c: #334155;
+      --mesh-accent-a: #0f766e;
+      --mesh-accent-b: #115e59;
+      --mesh-accent-mid: rgba(45, 212, 191, 0.35);
+      --mesh-dim-white: rgba(255, 255, 255, 0.16);
+      --mesh-dim-white-soft: rgba(255, 255, 255, 0.09);
+    }
+    [data-theme="terracotta"] {
+      --bg: #1a1210;
+      --panel: rgba(40, 28, 22, 0.94);
+      --border: rgba(217, 119, 6, 0.22);
+      --border-strong: rgba(234, 88, 12, 0.35);
+      --text: #fff7ed;
+      --muted: #b45309;
+      --link: #fb923c;
+      --row-hover: rgba(251, 146, 60, 0.08);
+      --avatar-from: #fdba74;
+      --avatar-to: #ea580c;
+      --avatar-fg: #431407;
+      --green: #4ade80;
+      --green-core: #22c55e;
+      --green-glow: rgba(74, 222, 128, 0.65);
+      --green-ring: rgba(74, 222, 128, 0.32);
+      --stale-dot: #78716c;
+      --pager-btn-bg: rgba(0, 0, 0, 0.2);
+      --graph-opacity: 0.38;
+      --mesh-stop-a: #a16207;
+      --mesh-stop-b: #92400e;
+      --mesh-stop-c: #78350f;
+      --mesh-accent-a: #c2410c;
+      --mesh-accent-b: #9a3412;
+      --mesh-accent-mid: rgba(251, 146, 60, 0.45);
+      --mesh-dim-white: rgba(255, 247, 237, 0.14);
+      --mesh-dim-white-soft: rgba(255, 247, 237, 0.07);
+    }
+    [data-theme="light"] {
+      --bg: #f1f5f9;
+      --panel: rgba(255, 255, 255, 0.92);
+      --border: rgba(15, 23, 42, 0.1);
+      --border-strong: rgba(15, 23, 42, 0.16);
+      --text: #0f172a;
+      --muted: #64748b;
+      --link: #0284c7;
+      --row-hover: rgba(2, 132, 199, 0.06);
+      --avatar-from: #38bdf8;
+      --avatar-to: #0284c7;
+      --avatar-fg: #f8fafc;
+      --green: #16a34a;
+      --green-core: #15803d;
+      --green-glow: rgba(22, 163, 74, 0.55);
+      --green-ring: rgba(22, 163, 74, 0.3);
+      --stale-dot: #94a3b8;
+      --pager-btn-bg: #fff;
+      --graph-opacity: 0.28;
+      --mesh-stop-a: #94a3b8;
+      --mesh-stop-b: #cbd5e1;
+      --mesh-stop-c: #e2e8f0;
+      --mesh-accent-a: #0369a1;
+      --mesh-accent-b: #0c4a6e;
+      --mesh-accent-mid: rgba(14, 165, 233, 0.35);
+      /* “White” reads as soft ink on paper */
+      --mesh-dim-white: rgba(15, 23, 42, 0.11);
+      --mesh-dim-white-soft: rgba(15, 23, 42, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      position: relative;
+      overflow-x: hidden;
+      transition: background 0.25s ease, color 0.2s ease;
+    }
+
+    .theme-bar {
+      position: relative;
+      z-index: 3;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1rem 1.25rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.35rem;
+    }
+    .theme-bar span {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-right: 0.35rem;
+    }
+    .theme-bar button {
+      border: 1px solid var(--border);
+      background: var(--pager-btn-bg);
+      color: var(--text);
+      padding: 0.3rem 0.55rem;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      cursor: pointer;
+    }
+    .theme-bar button[aria-pressed="true"] {
+      border-color: var(--border-strong);
+      box-shadow: 0 0 0 1px var(--link);
+    }
+
+    /* Dotted curves: round caps + dasharray = bead chain; dim white layers for depth */
+    .graph-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: var(--graph-opacity);
+    }
+    .graph-layer svg {
+      width: 100%;
+      height: 100%;
+    }
+    .graph-layer path {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    /* Primary colored mesh — chunkier dots, closer spacing = more “read” */
+    .graph-layer path.mesh-main {
+      stroke: url(#lineGrad);
+      stroke-width: 1.45;
+      stroke-dasharray: 3 5;
+      animation: meshDrift 85s linear infinite;
+    }
+    .graph-layer path.mesh-alt {
+      stroke: url(#lineGrad2);
+      stroke-width: 1.15;
+      stroke-dasharray: 2.5 8;
+      animation: meshDrift 120s linear infinite reverse;
+      opacity: 0.92;
+    }
+    .graph-layer path.mesh-fine {
+      stroke: url(#lineGrad2);
+      stroke-width: 0.75;
+      stroke-dasharray: 1.5 11;
+      animation: meshDrift 155s linear infinite;
+      opacity: 0.65;
+    }
+    /* Dim white / ink — obscured motion, different speeds */
+    .graph-layer path.mesh-ghost {
+      stroke: var(--mesh-dim-white);
+      stroke-width: 1.2;
+      stroke-dasharray: 2 7;
+      animation: meshDrift 72s linear infinite reverse;
+      opacity: 0.95;
+    }
+    .graph-layer path.mesh-ghost-soft {
+      stroke: var(--mesh-dim-white-soft);
+      stroke-width: 0.9;
+      stroke-dasharray: 1.2 14;
+      animation: meshDrift 100s linear infinite;
+      opacity: 0.85;
+    }
+    .graph-layer path.mesh-ghost-wide {
+      stroke: var(--mesh-dim-white);
+      stroke-width: 1.35;
+      stroke-dasharray: 4 9;
+      animation: meshDrift 130s linear infinite;
+      opacity: 0.55;
+    }
+    @keyframes meshDrift {
+      to {
+        stroke-dashoffset: -320;
+      }
+    }
+
+    /* Occasional “shooting star” / rocket tail — own layer so parent mesh opacity doesn’t dull it */
+    .meteor-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .meteor-layer svg {
+      width: 100%;
+      height: 100%;
+    }
+    #meteor-streak {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0;
+      filter: drop-shadow(0 0 5px currentColor);
+    }
+    #meteor-streak.running {
+      animation: meteorFly var(--m-dur, 1.05s) cubic-bezier(0.2, 0.85, 0.35, 1) forwards;
+    }
+    @keyframes meteorFly {
+      0% {
+        stroke-dashoffset: var(--m-from);
+        opacity: 0;
+      }
+      12% {
+        opacity: 1;
+      }
+      78% {
+        opacity: 1;
+      }
+      100% {
+        stroke-dashoffset: var(--m-to);
+        opacity: 0;
+      }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0.5rem 1.25rem 2rem;
+    }
+    .panel {
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      backdrop-filter: blur(12px);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.03),
+        0 32px 64px rgba(0, 0, 0, 0.45);
+    }
+    [data-theme="light"] .panel {
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 16px 40px rgba(15, 23, 42, 0.06);
+    }
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px dotted var(--border-strong);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+    .panel-head a {
+      color: var(--link);
+      font-size: 0.75rem;
+      text-decoration: none;
+    }
+    ul { list-style: none; margin: 0; padding: 0; }
+    li a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      /* Dotted row rules — no solid “pulse line” under names */
+      border-bottom: 1px dotted var(--border);
+      color: inherit;
+      text-decoration: none;
+    }
+    li a:hover { background: var(--row-hover); }
+    li:last-child a { border-bottom: none; }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.7rem;
+      color: var(--avatar-fg);
+      background: linear-gradient(145deg, var(--avatar-from), var(--avatar-to));
+    }
+    .meta { flex: 1; min-width: 0; }
+    .name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: ui-monospace, monospace;
+      margin-top: 0.15rem;
+    }
+
+    /* Ring pulse dots — unchanged behavior, theme-tuned colors */
+    .dot-recent {
+      position: relative;
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+    }
+    .dot-recent::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: var(--green);
+      animation: ringOut 2.2s ease-out infinite;
+    }
+    .dot-recent::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      background: var(--green-core);
+      box-shadow: 0 0 10px var(--green), 0 0 20px var(--green-ring);
+    }
+    @keyframes ringOut {
+      0% {
+        transform: scale(1);
+        opacity: 0.9;
+        box-shadow: 0 0 0 0 var(--green-glow);
+      }
+      100% {
+        transform: scale(2.4);
+        opacity: 0;
+        box-shadow: 0 0 0 10px transparent;
+      }
+    }
+    .dot-stale {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--stale-dot);
+      flex-shrink: 0;
+    }
+    .pager {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      border-top: 1px dotted var(--border-strong);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .pager button {
+      border: 1px solid var(--border);
+      background: var(--pager-btn-bg);
+      color: var(--text);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.8125rem;
+    }
+    .note {
+      margin-top: 1.25rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="graph-layer" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="var(--mesh-stop-c)" stop-opacity="0" />
+          <stop offset="35%" stop-color="var(--mesh-stop-b)" stop-opacity="0.85" />
+          <stop offset="50%" stop-color="var(--mesh-accent-mid)" stop-opacity="1" />
+          <stop offset="65%" stop-color="var(--mesh-stop-b)" stop-opacity="0.85" />
+          <stop offset="100%" stop-color="var(--mesh-stop-c)" stop-opacity="0" />
+        </linearGradient>
+        <linearGradient id="lineGrad2" x1="100%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="var(--mesh-stop-a)" stop-opacity="0" />
+          <stop offset="45%" stop-color="var(--mesh-accent-a)" stop-opacity="0.55" />
+          <stop offset="100%" stop-color="var(--mesh-accent-b)" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <!-- L → R, rising -->
+      <path class="mesh-main" d="M0,520 Q200,480 400,400 T800,320 T1200,200" />
+      <path class="mesh-alt" d="M0,600 Q300,450 600,380 T1200,280" />
+      <path class="mesh-fine" d="M0,680 Q250,620 500,500 T1200,420" />
+      <!-- R → L, varied depth -->
+      <path class="mesh-main" d="M1200,120 Q900,220 600,300 T0,420" />
+      <path class="mesh-alt" d="M1200,640 Q850,520 500,480 T0,360" />
+      <path class="mesh-fine" d="M1300,380 Q950,450 550,400 T100,520" />
+      <!-- Top band, shallow (partly off-screen for “obscured” feel) -->
+      <path class="mesh-ghost" d="M-80,90 Q300,160 700,110 T1280,40" />
+      <path class="mesh-ghost-soft" d="M200,-40 Q500,120 900,80 T1220,200" />
+      <!-- Vertical-ish sweeps (ambiguous direction) -->
+      <path class="mesh-ghost-wide" d="M300,820 C380,500 520,280 680,80" />
+      <path class="mesh-ghost-soft" d="M950,880 Q820,520 680,200 T520,-60" />
+      <!-- Diagonal opposing cubics -->
+      <path class="mesh-main" d="M0,320 C280,80 620,720 1200,480" />
+      <path class="mesh-alt" d="M1200,720 C820,880 420,120 0,260" />
+      <!-- Low crossing under panel zone -->
+      <path class="mesh-fine" d="M-40,740 Q400,660 800,700 T1240,640" />
+      <path class="mesh-ghost" d="M1100,780 Q700,820 300,760 T-100,700" />
+    </svg>
+  </div>
+
+  <div class="meteor-layer" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="none">
+      <path id="meteor-streak" />
+    </svg>
+  </div>
+
+  <div class="theme-bar">
+    <span>Theme</span>
+    <button type="button" data-set-theme="dark" aria-pressed="true">Dark</button>
+    <button type="button" data-set-theme="terracotta" aria-pressed="false">Terracotta</button>
+    <button type="button" data-set-theme="light" aria-pressed="false">Light</button>
+  </div>
+
+  <div class="wrap">
+    <div class="panel">
+      <div class="panel-head">
+        <span>Recent records</span>
+        <a href="#">View all</a>
+      </div>
+      <ul>
+        <li><a href="#"><div class="avatar">GS</div><div class="meta"><div class="name">Grace Smith<span class="dot-recent"></span></div><div class="sub">Resume · Role 12</div></div></a></li>
+        <li><a href="#"><div class="avatar">AS</div><div class="meta"><div class="name">Alice Smith<span class="dot-recent"></span></div><div class="sub">Resume · Role 99</div></div></a></li>
+        <li><a href="#"><div class="avatar">HS</div><div class="meta"><div class="name">Henry Smith<span class="dot-stale"></span></div><div class="sub">Resume · Role 3</div></div></a></li>
+        <li><a href="#"><div class="avatar">MJ</div><div class="meta"><div class="name">Morgan Jones<span class="dot-recent"></span></div><div class="sub">Resume · Role 7</div></div></a></li>
+        <li><a href="#"><div class="avatar">RK</div><div class="meta"><div class="name">Riley Kim<span class="dot-stale"></span></div><div class="sub">Resume · Role 44</div></div></a></li>
+      </ul>
+      <div class="pager">
+        <span>1–5 of 248 · Page <strong>1</strong> of 50</span>
+        <div>
+          <button type="button" disabled>← Previous</button>
+          <button type="button">Next →</button>
+        </div>
+      </div>
+    </div>
+    <p class="note">
+      Prototype 2 · Mesh as above · Occasional fast “meteor” streak (random path, color, timing ~8–26s apart)
+    </p>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.documentElement
+      var buttons = document.querySelectorAll('[data-set-theme]')
+      function setTheme(name) {
+        root.setAttribute('data-theme', name)
+        buttons.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-set-theme') === name ? 'true' : 'false')
+        })
+        try {
+          localStorage.setItem('proto02-theme', name)
+        } catch (e) {}
+      }
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setTheme(btn.getAttribute('data-set-theme'))
+        })
+      })
+      try {
+        var saved = localStorage.getItem('proto02-theme')
+        if (saved === 'dark' || saved === 'terracotta' || saved === 'light') setTheme(saved)
+      } catch (e) {}
+
+      /* Random rare “falling star” / comet tail along a Bézier — faster than mesh drift */
+      var meteor = document.getElementById('meteor-streak')
+      var METEOR_PATHS = [
+        'M80,-40 Q420,280 1100,720',
+        'M1180,-30 Q600,400 40,820',
+        'M-20,180 Q500,120 1220,60',
+        'M1300,520 Q700,380 100,640',
+        'M200,900 C500,500 750,200 1050,-80',
+        'M1000,850 C650,450 350,200 -60,100',
+        'M-60,650 Q400,400 1280,200',
+        'M1280,320 Q600,500 80,780',
+        'M400,-100 L900,880',
+        'M750,-80 C500,300 300,600 150,900',
+        'M1100,900 C800,500 400,200 -100,50',
+      ]
+      var METEOR_COLORS = {
+        dark: ['#7dd3fc', '#fef08a', '#e9d5ff', '#fda4af', '#86efac', '#f0abfc', '#ffffff'],
+        terracotta: ['#fef9c3', '#fde047', '#a7f3d0', '#fecaca', '#fde68a', '#ffffff', '#fbcfe8'],
+        light: ['#0284c7', '#6366f1', '#db2777', '#059669', '#c026d3', '#0d9488'],
+      }
+      function meteorTheme() {
+        var t = root.getAttribute('data-theme')
+        return t === 'terracotta' || t === 'light' ? t : 'dark'
+      }
+      function pick(arr) {
+        return arr[Math.floor(Math.random() * arr.length)]
+      }
+      function fireMeteor() {
+        if (!meteor) return
+        meteor.classList.remove('running')
+        meteor.setAttribute('d', pick(METEOR_PATHS))
+        var cols = METEOR_COLORS[meteorTheme()]
+        meteor.style.stroke = pick(cols)
+        meteor.style.strokeWidth = String(1.8 + Math.random() * 1.4)
+        var L = meteor.getTotalLength()
+        if (!L || !isFinite(L)) L = 1200
+        var tail = Math.max(24, Math.min(140, L * (0.06 + Math.random() * 0.12)))
+        /* One bright segment + gap ≥ path so it reads as a single streak */
+        meteor.style.strokeDasharray = tail + ' ' + (L + tail + 8)
+        var from = L + tail
+        var to = -tail * 0.5
+        meteor.style.setProperty('--m-from', String(from))
+        meteor.style.setProperty('--m-to', String(to))
+        meteor.style.strokeDashoffset = String(from)
+        var dur = 0.65 + Math.random() * 0.55
+        meteor.style.setProperty('--m-dur', dur + 's')
+        void meteor.getBoundingClientRect()
+        meteor.classList.add('running')
+      }
+      function scheduleMeteor() {
+        var gap = 8000 + Math.random() * 18000
+        if (Math.random() < 0.18) gap += 4000 + Math.random() * 9000
+        setTimeout(function () {
+          fireMeteor()
+          scheduleMeteor()
+        }, gap)
+      }
+      if (meteor && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setTimeout(function () {
+          fireMeteor()
+          scheduleMeteor()
+        }, 2000 + Math.random() * 4000)
+      }
+    })()
+  </script>
+</body>
+</html>

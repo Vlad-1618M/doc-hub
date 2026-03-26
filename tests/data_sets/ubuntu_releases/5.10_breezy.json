@@ -1,0 +1,9 @@
+{
+  "version": "5.10",
+  "codename": "Breezy Badger",
+  "release_date": "2005-10-12",
+  "support_type": "Interim",
+  "eol_date": "2007-04-13",
+  "summary": "Ubuntu 5.10 (Breezy Badger) was released on 12 October 2005. New features included a graphical bootloader (Usplash), Add/Remove Applications tool, Alacarte menu editor, easy language selector, logical volume management support, full HP printer support, OEM installer support, a new Ubuntu logo in the top-left, and Launchpad integration for bug reporting and software development.",
+  "notes": "Unsupported since 2007-04-13. Kernel 2.6.12. Support period was 18 months for interim releases until 13.04 when it was reduced to 9 months."
+}

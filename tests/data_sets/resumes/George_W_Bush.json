@@ -1,0 +1,141 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "George",
+            "last_name": "W. Bush"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Texas",
+                "city": "Dallas",
+                "zip_code": "75201",
+                "timezone": "CST (Central Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "george.w.bush@example.com",
+            "phone": "+1-214-555-2001"
+        },
+        "job_title": {
+            "position": "43rd President of the United States",
+            "role": "Commander-in-Chief, Policy Reformer, and Economic Strategist"
+        },
+        "summary": "George W. Bush, the 43rd President of the United States, led the country through the events of September 11, 2001, initiated the War on Terror, enacted major economic and education reforms, and guided the country through financial challenges. His administration prioritized national security, tax cuts, and international diplomacy.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Advanced": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "2001 - 2009",
+            "role": "President",
+            "job_description": "Led the U.S. through post-9/11 security policies, launched the War on Terror, signed the Patriot Act, enacted Medicare Part D, and initiated No Child Left Behind education reforms."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "2000",
+            "role": "Presidential Candidate",
+            "job_description": "Won the presidency in a tightly contested election, advocating for tax cuts, education reform, and a strong national defense."
+        },
+        {
+            "org_name": "State of Texas",
+            "location": "Austin, TX",
+            "employment_length": "1995 - 2000",
+            "role": "Governor",
+            "job_description": "Served as Governor of Texas, implementing education reforms, tax cuts, and criminal justice policies, positioning himself as a national political leader."
+        },
+        {
+            "org_name": "Texas Rangers Baseball Club",
+            "location": "Arlington, TX",
+            "employment_length": "1989 - 1998",
+            "role": "Managing General Partner",
+            "job_description": "Co-owned and managed the Texas Rangers baseball team, overseeing operations and business strategy while increasing the team's profitability."
+        },
+        {
+            "org_name": "Bush Exploration Oil Company",
+            "location": "Midland, TX",
+            "employment_length": "1977 - 1986",
+            "role": "Founder & CEO",
+            "job_description": "Founded and operated an oil and gas exploration company, leading business operations before merging with HKN, Inc."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1975 - 1976",
+            "role": "White House Aide",
+            "job_description": "Worked as an adviser in the White House under his father’s administration, gaining experience in government operations."
+        },
+        {
+            "org_name": "Harvard Business School",
+            "location": "Boston, MA",
+            "employment_length": "1973 - 1975",
+            "role": "MBA Student",
+            "job_description": "Earned a Master of Business Administration (MBA), specializing in management, finance, and business strategy."
+        },
+        {
+            "org_name": "United States Air National Guard",
+            "location": "Texas & Alabama",
+            "employment_length": "1968 - 1973",
+            "role": "Pilot",
+            "job_description": "Served as a fighter pilot in the Texas Air National Guard, flying F-102 Delta Daggers during the Vietnam War era."
+        },
+        {
+            "org_name": "Yale University",
+            "location": "New Haven, CT",
+            "employment_length": "1964 - 1968",
+            "role": "Student",
+            "job_description": "Studied history and political science while serving as head cheerleader and participating in Skull and Bones society."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts in History",
+        "location": "Yale University, New Haven, CT",
+        "majored_in": "History & Political Science"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Dick Cheney",
+        "reference_title": "Former Vice President of the United States",
+        "reference_contact": "cheney.contact@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/georgewbush",
+            "linkedin": "https://linkedin.com/in/georgewbush",
+            "webapp": "https://www.georgewbushlibrary.smu.edu/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/george-w-bush/",
+            "historical_writings": "https://www.georgewbushlibrary.smu.edu/research"
+        }
+    },
+    "notes": "George W. Bush’s presidency focused on national security, economic policy, education reform, and international relations. His leadership during crises defined his administration’s legacy."
+}

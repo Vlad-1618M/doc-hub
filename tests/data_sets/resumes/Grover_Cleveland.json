@@ -1,0 +1,134 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Grover",
+            "last_name": "Cleveland"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "New Jersey",
+                "city": "Princeton",
+                "zip_code": "08540",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "grover.cleveland@example.com",
+            "phone": "+1-609-555-1893"
+        },
+        "job_title": {
+            "position": "22nd & 24th President of the United States",
+            "role": "Reformer, Economic Conservative, and Anti-Corruption Advocate"
+        },
+        "summary": "Grover Cleveland, the only U.S. president to serve two non-consecutive terms, was known for his commitment to fiscal conservatism, civil service reform, and fighting political corruption. His administration prioritized economic stability, limited government intervention, and adherence to the gold standard.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Advanced": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1893 - 1897",
+            "role": "President",
+            "job_description": "Led the nation through the Panic of 1893, defended the gold standard, repealed the Sherman Silver Purchase Act, and opposed high tariffs."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1885 - 1889",
+            "role": "President",
+            "job_description": "Focused on civil service reform, vetoed wasteful spending bills, and reduced government corruption while maintaining economic stability."
+        },
+        {
+            "org_name": "Democratic Party",
+            "location": "United States",
+            "employment_length": "1884, 1892",
+            "role": "Presidential Candidate",
+            "job_description": "Won two non-consecutive terms as president, advocating for honest government, fiscal conservatism, and limited federal intervention."
+        },
+        {
+            "org_name": "State of New York",
+            "location": "Albany, NY",
+            "employment_length": "1883 - 1885",
+            "role": "Governor of New York",
+            "job_description": "Implemented civil service reforms, balanced the state budget, and fought corruption within New York’s government."
+        },
+        {
+            "org_name": "City of Buffalo",
+            "location": "Buffalo, NY",
+            "employment_length": "1882 - 1883",
+            "role": "Mayor of Buffalo",
+            "job_description": "Eliminated municipal corruption, reduced city debt, and improved government transparency."
+        },
+        {
+            "org_name": "Erie County",
+            "location": "Buffalo, NY",
+            "employment_length": "1871 - 1873",
+            "role": "Sheriff of Erie County",
+            "job_description": "Oversaw law enforcement operations and personally carried out executions, demonstrating his hands-on approach to justice."
+        },
+        {
+            "org_name": "Private Law Practice",
+            "location": "Buffalo, NY",
+            "employment_length": "1859 - 1881",
+            "role": "Lawyer",
+            "job_description": "Worked as a defense attorney, handling civil and criminal cases, and building a reputation for honesty and integrity."
+        },
+        {
+            "org_name": "Clerk of Erie County",
+            "location": "Buffalo, NY",
+            "employment_length": "1863 - 1865",
+            "role": "Public Administrator",
+            "job_description": "Managed county records and legal filings, gaining experience in government administration."
+        }
+    ],
+    "education": {
+        "degree": "Self-Educated",
+        "location": "New York",
+        "majored_in": "Law & Public Administration"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Richard Olney",
+        "reference_title": "Former U.S. Attorney General",
+        "reference_contact": "olney.contact@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/grovercleveland",
+            "linkedin": "https://linkedin.com/in/grovercleveland",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/grover-cleveland/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/grover-cleveland/",
+            "historical_writings": "https://www.loc.gov/exhibits/treasures/trr001.html"
+        }
+    },
+    "notes": "Grover Cleveland was known for his honesty, fiscal responsibility, and efforts to fight government corruption. He remains the only U.S. president to serve two non-consecutive terms."
+}

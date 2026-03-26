@@ -1,0 +1,9 @@
+{
+  "version": "7.04",
+  "codename": "Feisty Fawn",
+  "release_date": "2007-04-19",
+  "support_type": "Interim",
+  "eol_date": "2008-10-19",
+  "summary": "Ubuntu 7.04 (Feisty Fawn) was released on 19 April 2007. It included a migration assistant for Windows users, KVM support, assisted codec and restricted drivers installation (Flash, Java, MP3), easier Nvidia and ATI driver installation, Compiz desktop effects, WPA support, Sudoku and chess, baobab disk usage analyzer, zeroconf for devices. GNOME Control Center was updated.",
+  "notes": "Unsupported since 2008-10-19. Kernel 2.6.20. Compiz brought eye candy that helped Ubuntu's desktop appeal."
+}

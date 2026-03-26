@@ -1,0 +1,9 @@
+{
+  "version": "24.10",
+  "codename": "Oracular Oriole",
+  "release_date": "2024-10-10",
+  "support_type": "Interim",
+  "eol_date": "2025-07-10",
+  "summary": "Ubuntu 24.10 (Oracular Oriole) was released on 10 October 2024. Features: GNOME 47, kernel 6.11, further App Center and snap/deb refinements. The oriole is a striking bird; 'oracular' suggests wisdom and foresight. Interim release with 9-month support.",
+  "notes": "Standard support until 2025-07-10. Kernel 6.11. Part of the O series leading to 26.04 LTS Resolute Raccoon."
+}

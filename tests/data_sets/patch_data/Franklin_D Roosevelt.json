@@ -1,0 +1,129 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Franklin",
+            "last_name": "D Roosevelt"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "New York",
+                "city": "Hyde Park",
+                "zip_code": "12538",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "franklin.roosevelt@example.com",
+            "phone": "+1-845-555-1933"
+        },
+        "job_title": {
+            "position": "32nd President of the United States",
+            "role": "New Deal Architect, Wartime Leader, and Economic Reformer"
+        },
+        "summary": "Franklin D. Roosevelt, the 32nd President of the United States, led the country through the Great Depression and World War II. His New Deal policies reshaped the economy, while his leadership during the war helped defeat the Axis Powers.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Expert": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Expert": true
+            },
+            "Law and Legislation": {
+                "Expert": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1933 - 1945",
+            "role": "President",
+            "job_description": "Led the nation through the Great Depression with the New Deal, established Social Security, and guided the U.S. through World War II."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1933 - 1945",
+            "role": "Commander-in-Chief of U.S. Armed Forces",
+            "job_description": "Directed U.S. military strategy during World War II, coordinating Allied efforts in the European and Pacific theaters."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1932",
+            "role": "Presidential Candidate",
+            "job_description": "Won the presidency in a landslide, advocating for economic reform, financial recovery, and government intervention to help struggling Americans."
+        },
+        {
+            "org_name": "State of New York",
+            "location": "Albany, NY",
+            "employment_length": "1929 - 1932",
+            "role": "Governor",
+            "job_description": "Implemented social welfare programs, economic relief policies, and infrastructure projects in response to the Great Depression."
+        },
+        {
+            "org_name": "Democratic National Convention",
+            "location": "United States",
+            "employment_length": "1928",
+            "role": "Keynote Speaker",
+            "job_description": "Delivered a major speech supporting Al Smith for president, gaining national recognition as a rising political leader."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1920",
+            "role": "Vice Presidential Candidate",
+            "job_description": "Ran for Vice President on the Democratic ticket with James Cox but lost to Warren G. Harding."
+        },
+        {
+            "org_name": "United States Navy",
+            "location": "Washington, D.C.",
+            "employment_length": "1913 - 1920",
+            "role": "Assistant Secretary of the Navy",
+            "job_description": "Oversaw naval expansion and logistics during World War I, promoting modernization of the U.S. Navy."
+        },
+        {
+            "org_name": "New York State Senate",
+            "location": "Albany, NY",
+            "employment_length": "1911 - 1913",
+            "role": "State Senator",
+            "job_description": "Advocated for progressive policies, government reform, and transparency in state governance."
+        },
+        {
+            "org_name": "Harvard University & Columbia Law School",
+            "location": "Massachusetts & New York",
+            "employment_length": "1900 - 1907",
+            "role": "Student & Law Clerk",
+            "job_description": "Earned a degree from Harvard, attended Columbia Law School, and briefly worked in legal practice."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts",
+        "location": "Harvard University, Cambridge, MA",
+        "majored_in": "History & Political Science"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Harry S. Truman",
+        "reference_title": "33rd President of the United States",
+        "reference_contact": "truman.contact@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/franklin-d-roosevelt/",
+            "historical_writings": "https://www.archives.gov/founding-docs/new-deal"
+        }
+    },
+    "notes": "Franklin D. Roosevelt\u2019s presidency transformed American governance, focusing on economic recovery, military leadership, and international diplomacy. His four terms shaped modern U.S. history."
+}

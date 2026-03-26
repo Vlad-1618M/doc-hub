@@ -1,0 +1,141 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Andrew",
+            "last_name": "Johnson"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Tennessee",
+                "city": "Greeneville",
+                "zip_code": "37743",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "andrew.johnson@example.com",
+            "phone": "+1-423-555-0199"
+        },
+        "job_title": {
+            "position": "17th President of the United States",
+            "role": "Reconstruction Leader and Constitutional Defender"
+        },
+        "summary": "Andrew Johnson, the 17th President of the United States, assumed office following Abraham Lincoln's assassination. He led the nation during Reconstruction, often clashing with Congress over policies regarding the South and civil rights. He became the first U.S. president to be impeached but was acquitted in the Senate.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Advanced": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1865 - 1869",
+            "role": "President",
+            "job_description": "Assumed presidency after Lincoln's assassination; oversaw Reconstruction; first U.S. president to be impeached but was acquitted."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Washington, D.C.",
+            "employment_length": "1875",
+            "role": "Senator",
+            "job_description": "Returned to the Senate, the only former president to do so, advocating for states' rights."
+        },
+        {
+            "org_name": "Vice President of the United States",
+            "location": "Washington, D.C.",
+            "employment_length": "1865",
+            "role": "Vice President",
+            "job_description": "Served under Abraham Lincoln before his assassination; took office as President upon Lincoln’s death."
+        },
+        {
+            "org_name": "Governor of Tennessee",
+            "location": "Tennessee",
+            "employment_length": "1862 - 1865",
+            "role": "Military Governor",
+            "job_description": "Appointed by Lincoln to oversee Tennessee’s transition during the Civil War."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Washington, D.C.",
+            "employment_length": "1857 - 1862",
+            "role": "Senator",
+            "job_description": "Advocated for the Union and opposed secession despite being from a Southern state."
+        },
+        {
+            "org_name": "Governor of Tennessee",
+            "location": "Tennessee",
+            "employment_length": "1853 - 1857",
+            "role": "Governor",
+            "job_description": "Focused on education and infrastructure improvements in Tennessee."
+        },
+        {
+            "org_name": "United States House of Representatives",
+            "location": "Washington, D.C.",
+            "employment_length": "1843 - 1853",
+            "role": "Congressman",
+            "job_description": "Represented Tennessee, supporting policies that benefited small farmers and working-class citizens."
+        },
+        {
+            "org_name": "Tennessee State Legislature",
+            "location": "Tennessee",
+            "employment_length": "1835 - 1843",
+            "role": "State Legislator",
+            "job_description": "Served in the state legislature advocating for economic development and working-class interests."
+        },
+        {
+            "org_name": "Tailor & Small Business Owner",
+            "location": "Greeneville, Tennessee",
+            "employment_length": "1827 - 1835",
+            "role": "Tailor",
+            "job_description": "Owned and operated a successful tailor shop before entering politics."
+        }
+    ],
+    "education": {
+        "degree": "Self-Educated",
+        "location": "Tennessee",
+        "majored_in": "Law, Government, and Political Theory"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Edwin M. Stanton",
+        "reference_title": "Former U.S. Secretary of War",
+        "reference_contact": "stanton.contact@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/johnson",
+            "linkedin": "https://linkedin.com/in/andrewjohnson",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/andrew-johnson/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/andrew-johnson/",
+            "historical_writings": "https://www.nps.gov/anjo/index.htm"
+        }
+    },
+    "notes": "Andrew Johnson’s presidency was marked by his clashes with Congress over Reconstruction policies. While his impeachment was politically charged, his legacy remains a complex chapter in American history."
+}

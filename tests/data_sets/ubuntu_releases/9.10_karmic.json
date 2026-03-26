@@ -1,0 +1,9 @@
+{
+  "version": "9.10",
+  "codename": "Karmic Koala",
+  "release_date": "2009-10-29",
+  "support_type": "Interim",
+  "eol_date": "2011-04-30",
+  "summary": "Ubuntu 9.10 (Karmic Koala) was released on 29 October 2009. Features: Ubuntu One cloud sync (later discontinued), Software Center replacing Add/Remove, GRUB 2 as default bootloader, Ubuntu Enterprise Cloud based on Eucalyptus, ARM port for netbooks. Ubuntu Server focused on cloud deployment. First Ubuntu release with a software store.",
+  "notes": "Unsupported since 2011-04-30. Kernel 2.6.31. Ubuntu One was Canonical's early cloud storage bet; later shut down in favor of third-party options."
+}

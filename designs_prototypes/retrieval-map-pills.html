@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data retrieval map — compact pills</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f172a; --surface: #1e293b; --border: #334155; --text: #f8fafc; --muted: #94a3b8;
+      --accent: #38bdf8; --success: #34d399; --violet: #a78bfa; --radius: 999px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'JetBrains Mono', monospace; background: var(--bg); color: var(--text); min-height: 100vh; padding: 2rem; }
+    .nav { margin-bottom: 2rem; }
+    .nav a { color: var(--muted); text-decoration: none; margin-right: 1rem; }
+    .nav a:hover { color: var(--accent); }
+    .nav a.active { color: var(--accent); }
+    h1 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--accent); }
+    .map-variants { font-size: 0.75rem; margin-bottom: 1.5rem; }
+    .map-variants a { margin-right: 0.75rem; }
+    .retrieval-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .retrieval-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+    }
+    .retrieval-card h3 { font-size: 0.8125rem; color: var(--accent); margin-bottom: 0.75rem; font-weight: 500; }
+    /* Pills: compact horizontal badges with arrows */
+    .pills-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      font-size: 0.65rem;
+    }
+    .pill {
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .pill.user { border-color: var(--accent); color: var(--accent); background: rgba(56,189,248,0.1); }
+    .pill.ui { border-color: var(--muted); color: var(--muted); }
+    .pill.api { border-color: var(--success); color: var(--success); background: rgba(52,211,153,0.08); }
+    .pill.db { border-color: var(--violet); color: var(--violet); background: rgba(167,139,250,0.08); }
+    .pill-arrow {
+      width: 12px;
+      height: 12px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .pill-arrow::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 0;
+      border: 3px solid transparent;
+      border-left-color: var(--accent);
+    }
+    .pill-arrow.rev::after {
+      border-left-color: transparent;
+      border-right-color: var(--success);
+      transform: translate(-50%, -50%) scaleX(-1);
+    }
+    .pill-arrow .pulse {
+      position: absolute;
+      left: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pillPulse 1.5s ease-in-out infinite;
+    }
+    .pill-arrow.rev .pulse {
+      left: auto;
+      right: 2px;
+      background: var(--success);
+      animation: pillPulseRev 1.5s ease-in-out infinite;
+    }
+    @keyframes pillPulse { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
+    @keyframes pillPulseRev { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
+    .pills-row { display: flex; align-items: center; gap: 0.25rem; margin-bottom: 0.5rem; }
+    .pills-row:last-child { margin-bottom: 0; }
+    .pills-row-label { font-size: 0.55rem; color: var(--muted); width: 42px; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+  <nav class="nav"><a href="index.html">← Home</a></nav>
+  <h1>Data retrieval — compact pills</h1>
+  <p style="color: var(--muted); font-size: 0.8125rem; margin-bottom: 0.5rem;">
+    Minimal horizontal flow. Request (blue →) and response (green ←) in separate rows.
+  </p>
+  <div class="map-variants">
+    <a href="retrieval-map.html">Vertical</a>
+    <a href="retrieval-map-horizontal.html">Horizontal</a>
+    <a href="retrieval-map-sequence.html">Sequence</a>
+    <a href="retrieval-map-pills.html" class="active">Pills</a>
+  </div>
+
+  <div class="retrieval-grid">
+    <div class="retrieval-card">
+      <h3>GET /resume</h3>
+      <div class="pills-flow">
+        <div class="pills-row">
+          <span class="pills-row-label">→ req</span>
+          <span class="pill user">User</span>
+          <div class="pill-arrow"><span class="pulse"></span></div>
+          <span class="pill ui">UI</span>
+          <div class="pill-arrow"><span class="pulse"></span></div>
+          <span class="pill api">API</span>
+          <div class="pill-arrow"><span class="pulse"></span></div>
+          <span class="pill db">MongoDB</span>
+        </div>
+        <div class="pills-row">
+          <span class="pills-row-label">← res</span>
+          <span class="pill db">MongoDB</span>
+          <div class="pill-arrow rev"><span class="pulse"></span></div>
+          <span class="pill api">API</span>
+          <div class="pill-arrow rev"><span class="pulse"></span></div>
+          <span class="pill ui">UI</span>
+          <div class="pill-arrow rev"><span class="pulse"></span></div>
+          <span class="pill user">User</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="retrieval-card">
+      <h3>GET /ubuntu-releases</h3>
+      <div class="pills-flow">
+        <div class="pills-row">
+          <span class="pills-row-label">→ req</span>
+          <span class="pill user">User</span>
+          <div class="pill-arrow"><span class="pulse"></span></div>
+          <span class="pill ui">UI</span>
+          <div class="pill-arrow"><span class="pulse"></span></div>
+          <span class="pill api">API</span>
+          <div class="pill-arrow"><span class="pulse"></span></div>
+          <span class="pill db">MongoDB</span>
+        </div>
+        <div class="pills-row">
+          <span class="pills-row-label">← res</span>
+          <span class="pill db">MongoDB</span>
+          <div class="pill-arrow rev"><span class="pulse"></span></div>
+          <span class="pill user">User</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="retrieval-card">
+      <h3>POST /auth/login</h3>
+      <div class="pills-flow">
+        <div class="pills-row">
+          <span class="pills-row-label">→ req</span>
+          <span class="pill user">User</span>
+          <div class="pill-arrow"><span class="pulse"></span></div>
+          <span class="pill ui">UI</span>
+          <div class="pill-arrow"><span class="pulse"></span></div>
+          <span class="pill api">API</span>
+          <div class="pill-arrow"><span class="pulse"></span></div>
+          <span class="pill db">MongoDB</span>
+        </div>
+        <div class="pills-row">
+          <span class="pills-row-label">← res</span>
+          <span class="pill db">MongoDB</span>
+          <div class="pill-arrow rev"><span class="pulse"></span></div>
+          <span class="pill user">User</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="retrieval-card">
+      <h3>GET /search (index)</h3>
+      <div class="pills-flow">
+        <div class="pills-row">
+          <span class="pills-row-label">→ req</span>
+          <span class="pill user">User</span>
+          <div class="pill-arrow"><span class="pulse"></span></div>
+          <span class="pill ui">UI</span>
+          <div class="pill-arrow"><span class="pulse"></span></div>
+          <span class="pill api">API</span>
+          <div class="pill-arrow"><span class="pulse"></span></div>
+          <span class="pill db">MongoDB</span>
+        </div>
+        <div class="pills-row">
+          <span class="pills-row-label">← res</span>
+          <span class="pill db">MongoDB</span>
+          <div class="pill-arrow rev"><span class="pulse"></span></div>
+          <span class="pill user">User</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "version": "8.04 LTS",
+  "codename": "Hardy Heron",
+  "release_date": "2008-04-24",
+  "support_type": "LTS",
+  "eol_date": "2011-05-12",
+  "summary": "Ubuntu 8.04 (Hardy Heron) was the second LTS release. Desktop support ended 12 May 2011; server support 9 May 2013. Features: Tracker desktop search, Brasero for burning, Transmission for BitTorrent, Vinagre VNC client, PulseAudio for sound, Active Directory via Likewise Open. Wubi installer allowed installing Ubuntu as a folder within Windows without partitioning. First Ubuntu Netbook Remix. Improved Tango compliance and Compiz usability.",
+  "notes": "Desktop EOL 2011-05-12; server EOL 2013-05-09. Kernel 2.6.24. Wubi was controversial but popular with Windows users. PulseAudio had early stability issues."
+}

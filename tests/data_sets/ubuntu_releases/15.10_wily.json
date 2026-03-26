@@ -1,0 +1,9 @@
+{
+  "version": "15.10",
+  "codename": "Wily Werewolf",
+  "release_date": "2015-10-22",
+  "support_type": "Interim",
+  "eol_date": "2016-07-28",
+  "summary": "Ubuntu 15.10 (Wily Werewolf) was released on 22 October 2015. Features: LibreOffice 5.0, Python 3.5, improved snap package format (snapd). First release where Canonical began serious push for snaps as universal packages. The werewolf evoked cunning and transformation.",
+  "notes": "Unsupported since 2016-07-28. Kernel 4.2. Early snap support; Flatpak later became more widely adopted outside Ubuntu."
+}

@@ -1,0 +1,8 @@
+{
+  "version": "3.9",
+  "release_date": "2020-10-05",
+  "eol_date": "2025-10-31",
+  "status": "eol",
+  "summary": "Python 3.9 added dictionary merge (|) and update (|=) operators, str.removeprefix() and str.removesuffix(), type hinting enhancements (PEP 585: list[str] instead of List[str]), and improved parser. The zoneinfo and graphlib modules were added. Annotations could be accessed at runtime without __future__ annotations. Python 3.9 established the annual October release schedule.",
+  "notes": "Unsupported since 2025-10-31. Last micro 3.9.25. Full support ended 2022-05-17. The | operator for dict merge replaced dict(**a, **b) for common merge patterns."
+}

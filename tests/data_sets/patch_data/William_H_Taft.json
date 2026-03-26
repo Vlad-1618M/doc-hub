@@ -1,0 +1,113 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "William",
+            "last_name": "H Taft"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Ohio",
+                "city": "Cincinnati",
+                "zip_code": "45202",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "whtaft@example.com",
+            "phone": "+1-513-555-1909"
+        },
+        "job_title": {
+            "position": "27th President of the United States & 10th Chief Justice of the U.S.",
+            "role": "President, Chief Justice, Secretary of War, Governor-General of the Philippines"
+        },
+        "summary": "William H. Taft was the **27th President of the United States (1909-1913)** and later became the **10th Chief Justice of the U.S. Supreme Court (1921-1930)**, the only person to hold both offices. His presidency focused on **trust-busting, civil service reform, and economic conservatism**, but he struggled politically due to his break with Theodore Roosevelt, leading to the split of the Republican Party.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Intermediate": true
+            },
+            "Crisis Management": {
+                "Advanced": true
+            },
+            "Strategic Planning": {
+                "Expert": true
+            },
+            "Law and Legislation": {
+                "Expert": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        },
+        "Economic_Policies": {
+            "Trust-Busting": {
+                "Continued Antitrust Actions": true
+            },
+            "Tariff Reform": {
+                "Payne-Aldrich Tariff Act": true
+            },
+            "Foreign Policy": {
+                "Dollar Diplomacy": true
+            }
+        },
+        "Judicial_Reform": {
+            "Supreme Court Leadership": {
+                "Modernized the Court": true
+            },
+            "Judiciary Oversight": {
+                "Expanded Federal Court System": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1909 - 1913",
+            "role": "President",
+            "job_description": "Led **progressive-era policies** focusing on **trust-busting, economic reform, and civil service expansion**. Advocated for **judicial independence**, though his presidency saw the Republican Party divide."
+        },
+        {
+            "org_name": "U.S. Supreme Court",
+            "location": "Washington, D.C.",
+            "employment_length": "1921 - 1930",
+            "role": "Chief Justice",
+            "job_description": "The **only former U.S. President to serve as Chief Justice**. Worked on **modernizing the federal judiciary** and improved Supreme Court efficiency."
+        },
+        {
+            "org_name": "U.S. Department of War",
+            "location": "Washington, D.C.",
+            "employment_length": "1904 - 1908",
+            "role": "Secretary of War",
+            "job_description": "Oversaw **military infrastructure**, led **Panama Canal administration**, and managed **diplomatic efforts in East Asia**."
+        },
+        {
+            "org_name": "U.S. Government (Philippines)",
+            "location": "Manila, Philippines",
+            "employment_length": "1901 - 1904",
+            "role": "Governor-General of the Philippines",
+            "job_description": "Led **post-Spanish-American War governance**, implemented **civil reforms**, and promoted **economic development** in the Philippines."
+        }
+    ],
+    "education": {
+        "degree": "Law",
+        "location": "Yale University & Cincinnati Law School",
+        "majored_in": "Legal Studies"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Theodore Roosevelt",
+        "reference_title": "26th President of the United States",
+        "reference_contact": "troosevelt@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/william-howard-taft/",
+            "historical_writings": "https://www.loc.gov/collections/william-howard-taft-papers/"
+        }
+    },
+    "notes": "Taft's **legal expertise and judicial temperament** shaped his presidency, but his **rift with Theodore Roosevelt** led to the **Republican Party's split** in 1912. His post-presidential career as **Chief Justice** was his **true passion**, where he **left a lasting mark on the U.S. legal system**."
+}

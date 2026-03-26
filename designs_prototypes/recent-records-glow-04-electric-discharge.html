@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recent records — Prototype 4 · Electric discharge</title>
+  <style>
+    [data-theme="dark"] {
+      --bg: #0a0e18;
+      --panel: rgba(16, 22, 38, 0.94);
+      --border: rgba(148, 163, 184, 0.2);
+      --border-strong: rgba(186, 230, 253, 0.25);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --link: #7dd3fc;
+      --row-hover: rgba(125, 211, 252, 0.06);
+      --avatar-from: #38bdf8;
+      --avatar-to: #0284c7;
+      --avatar-fg: #f0f9ff;
+      --green: #4ade80;
+      --green-core: #22c55e;
+      --green-glow: rgba(74, 222, 128, 0.7);
+      --green-ring: rgba(74, 222, 128, 0.35);
+      --stale-dot: #475569;
+      --pager-btn-bg: rgba(0, 0, 0, 0.3);
+      --bolt-core: #e0f2fe;
+      --bolt-hot: #ffffff;
+      --bolt-fork: #7dd3fc;
+    }
+    [data-theme="terracotta"] {
+      --bg: #140f0d;
+      --panel: rgba(42, 28, 22, 0.95);
+      --border: rgba(251, 146, 60, 0.22);
+      --border-strong: rgba(254, 215, 170, 0.3);
+      --text: #fff7ed;
+      --muted: #b45309;
+      --link: #fb923c;
+      --row-hover: rgba(251, 146, 60, 0.08);
+      --avatar-from: #fdba74;
+      --avatar-to: #ea580c;
+      --avatar-fg: #431407;
+      --green: #4ade80;
+      --green-core: #22c55e;
+      --green-glow: rgba(74, 222, 128, 0.65);
+      --green-ring: rgba(74, 222, 128, 0.32);
+      --stale-dot: #78716c;
+      --pager-btn-bg: rgba(0, 0, 0, 0.22);
+      --bolt-core: #fff7ed;
+      --bolt-hot: #ffffff;
+      --bolt-fork: #fcd34d;
+    }
+    [data-theme="light"] {
+      --bg: #f0f4f8;
+      --panel: rgba(255, 255, 255, 0.95);
+      --border: rgba(15, 23, 42, 0.1);
+      --border-strong: rgba(15, 23, 42, 0.18);
+      --text: #0f172a;
+      --muted: #64748b;
+      --link: #0369a1;
+      --row-hover: rgba(3, 105, 161, 0.06);
+      --avatar-from: #0ea5e9;
+      --avatar-to: #0369a1;
+      --avatar-fg: #fff;
+      --green: #16a34a;
+      --green-core: #15803d;
+      --green-glow: rgba(22, 163, 74, 0.55);
+      --green-ring: rgba(22, 163, 74, 0.3);
+      --stale-dot: #94a3b8;
+      --pager-btn-bg: #fff;
+      --bolt-core: #0369a1;
+      --bolt-hot: #0c4a6e;
+      --bolt-fork: #38bdf8;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .electric-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.85;
+    }
+    .electric-layer svg {
+      width: 100%;
+      height: 100%;
+    }
+    .bolt {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0;
+      filter: url(#boltGlow);
+    }
+    .bolt.bolt-main {
+      stroke: var(--bolt-core);
+      stroke-width: 2.2;
+    }
+    .bolt.bolt-hot {
+      stroke: var(--bolt-hot);
+      stroke-width: 1;
+      filter: url(#boltCore);
+    }
+    .bolt.bolt-fork {
+      stroke: var(--bolt-fork);
+      stroke-width: 1.4;
+      opacity: 0;
+      filter: url(#boltGlowSoft);
+    }
+    .bolt.flash {
+      animation: dischargeFlicker var(--flash-dur, 0.28s) ease-out forwards;
+    }
+    .bolt.bolt-fork.flash {
+      animation: dischargeFlickerFork calc(var(--flash-dur, 0.28s) * 1.1) ease-out 0.04s forwards;
+    }
+    @keyframes dischargeFlicker {
+      0% { opacity: 0; stroke-width: 0.5; }
+      15% { opacity: 1; stroke-width: 3.2; }
+      35% { opacity: 0.35; stroke-width: 1.8; }
+      50% { opacity: 1; stroke-width: 2.6; }
+      72% { opacity: 0.5; stroke-width: 1.4; }
+      100% { opacity: 0; stroke-width: 0.8; }
+    }
+    @keyframes dischargeFlickerFork {
+      0% { opacity: 0; }
+      20% { opacity: 0.85; }
+      45% { opacity: 0.2; }
+      60% { opacity: 0.7; }
+      100% { opacity: 0; }
+    }
+
+    .theme-bar {
+      position: relative;
+      z-index: 3;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1rem 1.25rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.35rem;
+    }
+    .theme-bar span {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-right: 0.35rem;
+    }
+    .theme-bar button {
+      border: 1px solid var(--border);
+      background: var(--pager-btn-bg);
+      color: var(--text);
+      padding: 0.3rem 0.55rem;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      cursor: pointer;
+    }
+    .theme-bar button[aria-pressed="true"] {
+      border-color: var(--border-strong);
+      box-shadow: 0 0 0 1px var(--link);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0.5rem 1.25rem 2rem;
+    }
+    .panel {
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+    }
+    [data-theme="light"] .panel {
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 16px 40px rgba(15, 23, 42, 0.06);
+    }
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px dotted var(--border-strong);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+    .panel-head a { color: var(--link); font-size: 0.75rem; text-decoration: none; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    li a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px dotted var(--border);
+      color: inherit;
+      text-decoration: none;
+    }
+    li a:hover { background: var(--row-hover); }
+    li:last-child a { border-bottom: none; }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.7rem;
+      color: var(--avatar-fg);
+      background: linear-gradient(145deg, var(--avatar-from), var(--avatar-to));
+    }
+    .meta { flex: 1; min-width: 0; }
+    .name { font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 0.45rem; }
+    .sub { font-size: 0.75rem; color: var(--muted); font-family: ui-monospace, monospace; margin-top: 0.15rem; }
+    .dot-recent {
+      position: relative;
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+    }
+    .dot-recent::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: var(--green);
+      animation: ringOut 2.2s ease-out infinite;
+    }
+    .dot-recent::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      background: var(--green-core);
+      box-shadow: 0 0 10px var(--green), 0 0 20px var(--green-ring);
+    }
+    @keyframes ringOut {
+      0% { transform: scale(1); opacity: 0.9; box-shadow: 0 0 0 0 var(--green-glow); }
+      100% { transform: scale(2.4); opacity: 0; box-shadow: 0 0 0 10px transparent; }
+    }
+    .dot-stale { width: 8px; height: 8px; border-radius: 50%; background: var(--stale-dot); flex-shrink: 0; }
+    .pager {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      border-top: 1px dotted var(--border-strong);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .pager button {
+      border: 1px solid var(--border);
+      background: var(--pager-btn-bg);
+      color: var(--text);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.8125rem;
+    }
+    .note {
+      margin-top: 1.25rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="electric-layer" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="none">
+      <defs>
+        <filter id="boltGlow" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="b" />
+          <feMerge>
+            <feMergeNode in="b" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <filter id="boltGlowSoft" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b" />
+          <feMerge>
+            <feMergeNode in="b" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <filter id="boltCore" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" />
+        </filter>
+      </defs>
+      <g id="bolt-root"></g>
+    </svg>
+  </div>
+
+  <div class="theme-bar">
+    <span>Theme</span>
+    <button type="button" data-set-theme="dark" aria-pressed="true">Dark</button>
+    <button type="button" data-set-theme="terracotta" aria-pressed="false">Terracotta</button>
+    <button type="button" data-set-theme="light" aria-pressed="false">Light</button>
+  </div>
+
+  <div class="wrap">
+    <div class="panel">
+      <div class="panel-head">
+        <span>Recent records</span>
+        <a href="#">View all</a>
+      </div>
+      <ul>
+        <li><a href="#"><div class="avatar">GS</div><div class="meta"><div class="name">Grace Smith<span class="dot-recent"></span></div><div class="sub">Resume · Role 12</div></div></a></li>
+        <li><a href="#"><div class="avatar">AS</div><div class="meta"><div class="name">Alice Smith<span class="dot-recent"></span></div><div class="sub">Resume · Role 99</div></div></a></li>
+        <li><a href="#"><div class="avatar">HS</div><div class="meta"><div class="name">Henry Smith<span class="dot-stale"></span></div><div class="sub">Resume · Role 3</div></div></a></li>
+        <li><a href="#"><div class="avatar">MJ</div><div class="meta"><div class="name">Morgan Jones<span class="dot-recent"></span></div><div class="sub">Resume · Role 7</div></div></a></li>
+        <li><a href="#"><div class="avatar">RK</div><div class="meta"><div class="name">Riley Kim<span class="dot-stale"></span></div><div class="sub">Resume · Role 44</div></div></a></li>
+      </ul>
+      <div class="pager">
+        <span>1–5 of 248 · Page <strong>1</strong> of 50</span>
+        <div>
+          <button type="button" disabled>← Previous</button>
+          <button type="button">Next →</button>
+        </div>
+      </div>
+    </div>
+    <p class="note">
+      Prototype 4 · <strong>Electric discharge</strong> — jagged paths from midpoint displacement; animation is opacity + stroke-width flicker (no stroke-dasharray). Random strikes every ~5–18s. Thanks for iterating on these mocks with care.
+    </p>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.documentElement
+      var buttons = document.querySelectorAll('[data-set-theme]')
+      function setTheme(name) {
+        root.setAttribute('data-theme', name)
+        buttons.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-set-theme') === name ? 'true' : 'false')
+        })
+        try { localStorage.setItem('proto04-theme', name) } catch (e) {}
+      }
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setTheme(btn.getAttribute('data-set-theme'))
+        })
+      })
+      try {
+        var s = localStorage.getItem('proto04-theme')
+        if (s === 'dark' || s === 'terracotta' || s === 'light') setTheme(s)
+      } catch (e) {}
+
+      function subdivideBolt(x1, y1, x2, y2, iterations) {
+        var pts = [[x1, y1], [x2, y2]]
+        for (var iter = 0; iter < iterations; iter++) {
+          var disp = 140 * Math.pow(0.52, iter + 1)
+          var next = []
+          for (var i = 0; i < pts.length - 1; i++) {
+            var a = pts[i],
+              b = pts[i + 1]
+            next.push(a)
+            next.push([
+              (a[0] + b[0]) / 2 + (Math.random() - 0.5) * disp,
+              (a[1] + b[1]) / 2 + (Math.random() - 0.5) * disp,
+            ])
+          }
+          next.push(pts[pts.length - 1])
+          pts = next
+        }
+        var d = ''
+        for (var j = 0; j < pts.length; j++) {
+          d += (j === 0 ? 'M' : 'L') + pts[j][0].toFixed(1) + ',' + pts[j][1].toFixed(1)
+        }
+        return { d: d, pts: pts }
+      }
+
+      function forkFrom(mainPts, t) {
+        var i = Math.floor(mainPts.length * t)
+        i = Math.max(1, Math.min(mainPts.length - 2, i))
+        var a = mainPts[i],
+          b = mainPts[i + 1]
+        var mx = (a[0] + b[0]) / 2,
+          my = (a[1] + b[1]) / 2
+        var ang = Math.atan2(b[1] - a[1], b[0] - a[0]) + (Math.random() < 0.5 ? -1 : 1) * (0.7 + Math.random() * 0.6)
+        var len = 80 + Math.random() * 160
+        var ex = mx + Math.cos(ang) * len,
+          ey = my + Math.sin(ang) * len
+        return subdivideBolt(mx, my, ex, ey, 4).d
+      }
+
+      function mainBolt() {
+        var pairs = [
+          [100, -20, 900, 780],
+          [1180, 100, 80, 720],
+          [-40, 400, 1220, 200],
+          [600, -60, 400, 860],
+          [1280, 500, 200, 300],
+        ]
+        var p = pairs[Math.floor(Math.random() * pairs.length)]
+        return subdivideBolt(p[0], p[1], p[2], p[3], 7 + Math.floor(Math.random() * 2))
+      }
+
+      var rootG = document.getElementById('bolt-root')
+      function strike() {
+        if (!rootG || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+        rootG.innerHTML = ''
+        var bolt = mainBolt()
+        var d = bolt.d
+        var pts = bolt.pts
+        var pMain = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+        pMain.setAttribute('class', 'bolt bolt-main flash')
+        pMain.setAttribute('d', d)
+        var dur = 0.22 + Math.random() * 0.16
+        pMain.style.setProperty('--flash-dur', dur + 's')
+        var pHot = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+        pHot.setAttribute('class', 'bolt bolt-hot flash')
+        pHot.setAttribute('d', d)
+        pHot.style.setProperty('--flash-dur', dur + 's')
+        rootG.appendChild(pMain)
+        rootG.appendChild(pHot)
+        if (Math.random() < 0.55 && pts.length > 4) {
+          var fd = forkFrom(pts, 0.35 + Math.random() * 0.35)
+          var pFork = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+          pFork.setAttribute('class', 'bolt bolt-fork flash')
+          pFork.setAttribute('d', fd)
+          pFork.style.setProperty('--flash-dur', dur + 's')
+          rootG.appendChild(pFork)
+        }
+        window.setTimeout(function () {
+          rootG.innerHTML = ''
+        }, Math.max(320, dur * 1000 + 120))
+      }
+
+      function scheduleStrike() {
+        var gap = 5000 + Math.random() * 13000
+        if (Math.random() < 0.12) gap += 3000 + Math.random() * 6000
+        setTimeout(function () {
+          strike()
+          scheduleStrike()
+        }, gap)
+      }
+      setTimeout(function () {
+        strike()
+        scheduleStrike()
+      }, 900 + Math.random() * 2000)
+    })()
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Woodrow",
+            "last_name": "Wilson"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "New Jersey",
+                "city": "Princeton",
+                "zip_code": "08544",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "woodrow.wilson@example.com",
+            "phone": "+1-609-555-1913"
+        },
+        "job_title": {
+            "position": "28th President of the United States",
+            "role": "Governor, Academic, President"
+        },
+        "summary": "Woodrow Wilson was the **28th President of the United States (1913-1921)**, known for **leading the country through World War I, establishing the League of Nations, and implementing progressive domestic reforms**. His presidency saw major achievements in **banking reform (Federal Reserve Act), antitrust legislation, and labor rights**.",
+        "skills": {
+            "Leadership": {
+                "Expert": true
+            },
+            "Public Speaking": {
+                "Advanced": true
+            },
+            "Crisis Management": {
+                "Expert": true
+            },
+            "Strategic Planning": {
+                "Expert": true
+            },
+            "Law and Legislation": {
+                "Advanced": true
+            },
+            "Government Policy Oversight": {
+                "Expert": true
+            }
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "March 4, 1913 - March 4, 1921",
+            "role": "President",
+            "job_description": "Led the U.S. through **World War I (1914-1918)**, helped negotiate the **Treaty of Versailles (1919)**, and advocated for the **League of Nations**. Implemented **progressive domestic policies** like the **Federal Reserve Act (1913)** and **Clayton Antitrust Act (1914)**."
+        },
+        {
+            "org_name": "State of New Jersey",
+            "location": "Trenton, New Jersey",
+            "employment_length": "1911 - 1913",
+            "role": "Governor",
+            "job_description": "Enacted **progressive reforms**, including **election law changes, corporate regulation, and labor protections**, gaining national attention as a reformist leader."
+        },
+        {
+            "org_name": "Princeton University",
+            "location": "Princeton, New Jersey",
+            "employment_length": "1902 - 1910",
+            "role": "President of Princeton University",
+            "job_description": "Modernized **higher education curriculum** and emphasized **merit-based admissions**, pushing for **academic reforms and faculty governance**."
+        },
+        {
+            "org_name": "Johns Hopkins University",
+            "location": "Baltimore, Maryland",
+            "employment_length": "1883 - 1886",
+            "role": "Ph.D. Student, Political Science",
+            "job_description": "Researched **government institutions** and wrote his dissertation on **Congressional government**, shaping his future political philosophy."
+        }
+    ],
+    "education": {
+        "degree": "Doctor of Philosophy (Ph.D.) in Political Science",
+        "location": "Johns Hopkins University, Maryland",
+        "majored_in": "Government and Political Science"
+    },
+    "work_authorization": "U.S. Citizen",
+    "reference": {
+        "reference_name": "Colonel Edward M. House",
+        "reference_title": "Diplomatic Advisor",
+        "reference_contact": "ehouse@example.com"
+    },
+    "links": {
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/woodrow-wilson/",
+            "historical_writings": "https://www.loc.gov/collections/woodrow-wilson-papers/"
+        }
+    },
+    "notes": "Wilson's presidency saw **major progressive reforms**, the **Federal Reserve's creation**, and his failed push for U.S. involvement in the **League of Nations** after **World War I**."
+}

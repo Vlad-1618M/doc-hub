@@ -1,0 +1,9 @@
+{
+  "version": "10.04 LTS",
+  "codename": "Lucid Lynx",
+  "release_date": "2010-04-29",
+  "support_type": "LTS",
+  "eol_date": "2013-05-09",
+  "summary": "Ubuntu 10.04 (Lucid Lynx) was the third LTS release. Desktop support ended 9 May 2013; server 9 May 2015. It introduced a new light theme (Ambiance and Radiance), Me Menu for social/status, PiTiVi video editor, and a purple theme that persisted for many years. Included Shotwell photo manager and a simplified software center. Focus on visual refresh while preserving usability.",
+  "notes": "Desktop EOL 2013-05-09; server EOL 2015-05-09. Kernel 2.6.32. Lucid marked a shift toward a more polished, consistent look that became Ubuntu's signature."
+}

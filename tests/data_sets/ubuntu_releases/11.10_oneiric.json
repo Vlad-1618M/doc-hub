@@ -1,0 +1,9 @@
+{
+  "version": "11.10",
+  "codename": "Oneiric Ocelot",
+  "release_date": "2011-10-13",
+  "support_type": "Interim",
+  "eol_date": "2013-05-09",
+  "summary": "Ubuntu 11.10 (Oneiric Ocelot) was released on 13 October 2011. Unity 2D for systems without 3D acceleration, Thunderbird as default email client (replacing Evolution), Deja Dup backup tool, LightDM as default display manager replacing GDM. Rhythmbox returned in 12.04. 'Oneiric' means dream-like; the ocelot suggested elegance and focus.",
+  "notes": "Unsupported since 2013-05-09. Kernel 3.0. This release refined Unity after the rough 11.04 debut."
+}

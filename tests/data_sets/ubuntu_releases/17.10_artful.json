@@ -1,0 +1,9 @@
+{
+  "version": "17.10",
+  "codename": "Artful Aardvark",
+  "release_date": "2017-10-19",
+  "support_type": "Interim",
+  "eol_date": "2018-07-19",
+  "summary": "Ubuntu 17.10 (Artful Aardvark) was the first release to use GNOME Shell instead of Unity. Default session was Wayland. Features: GNOME 3.26, minimal customizations (a few extensions), switch from Xorg to Wayland by default on supported hardware. LibreOffice 5.4. The aardvark symbolized adaptability—Ubuntu 'dug in' to a new direction.",
+  "notes": "Unsupported since 2018-07-19. Kernel 4.13. Major transition: Unity → GNOME, Xorg → Wayland. Some users had Wayland compatibility issues and switched back to Xorg."
+}

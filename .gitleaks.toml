@@ -1,0 +1,8 @@
+# Gitleaks allowlist — cfgs/.env.ci holds intentional non-production CI placeholders.
+
+title = "doc-hub gitleaks config"
+
+[allowlist]
+paths = [
+  "cfgs/.env.ci",
+]

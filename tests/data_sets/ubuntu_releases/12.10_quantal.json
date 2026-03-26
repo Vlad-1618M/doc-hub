@@ -1,0 +1,9 @@
+{
+  "version": "12.10",
+  "codename": "Quantal Quetzal",
+  "release_date": "2012-10-18",
+  "support_type": "Interim",
+  "eol_date": "2014-05-16",
+  "summary": "Ubuntu 12.10 (Quantal Quetzal) was released on 18 October 2012. Features: Web Apps integration (launch web services from the desktop), improvements to Unity, Python 3 as default on the desktop (Python 2 still in archive). Preview of Ubuntu for Phones announced. 'Quetzal' is a colorful Central American bird; 'Quantal' evoked quantum leap.",
+  "notes": "Unsupported since 2014-05-16. Kernel 3.5. First release where Python 3 became the default Python on desktop images."
+}

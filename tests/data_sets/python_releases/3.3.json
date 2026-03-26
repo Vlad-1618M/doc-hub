@@ -1,0 +1,8 @@
+{
+  "version": "3.3",
+  "release_date": "2012-09-29",
+  "eol_date": "2017-09-29",
+  "status": "eol",
+  "summary": "Python 3.3 introduced yield from for generator delegation, the venv module (replacing virtualenv for basic use), PEP 380 (delegating to subgenerators), improved exception chaining, and the faulthandler module. Unicode support improved with flexible string representation (PEP 393). The language support policy became more predictable.",
+  "notes": "Unsupported since 2017-09-29. Last micro 3.3.7. Full support ended 2014-03-08. venv became the standard way to create virtual environments."
+}

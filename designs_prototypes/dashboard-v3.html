@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume Portal — Dashboard (Compact)</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fef7ed;
+      --surface: #fff;
+      --sidebar: #fff7ed;
+      --border: #fed7aa;
+      --text: #431407;
+      --muted: #9a3412;
+      --accent: #ea580c;
+      --accent-dim: #c2410c;
+      --success: #16a34a;
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'IBM Plex Sans', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; }
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar {
+      width: 56px;
+      background: var(--sidebar);
+      border-right: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .sidebar-header { padding: 0.75rem; border-bottom: 1px solid var(--border); }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 700; font-size: 0.875rem;
+    }
+    .nav { padding: 0.5rem; }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.2s;
+      margin-bottom: 2px;
+    }
+    .nav-item:hover { color: var(--accent); background: rgba(234,88,12,0.1); }
+    .nav-item.active { color: var(--accent); background: rgba(234,88,12,0.12); }
+    .nav-item svg { width: 20px; height: 20px; }
+    .main {
+      flex: 1;
+      overflow-x: hidden;
+      padding: 1.25rem 1.5rem;
+      max-width: 1000px;
+    }
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .top-bar h1 { font-size: 1.125rem; font-weight: 700; }
+    .inline-stats {
+      display: flex;
+      gap: 1.5rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+    .inline-stats span strong { color: var(--text); }
+    .compact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 600px) { .compact-grid { grid-template-columns: repeat(2, 1fr); } }
+    .stat-mini {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      text-align: center;
+    }
+    .stat-mini .num { font-size: 1.25rem; font-weight: 700; font-family: 'IBM Plex Mono', monospace; }
+    .stat-mini .label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+    .quick-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .btn-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.4rem 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-sm:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-sm.primary { background: var(--accent); border-color: var(--accent); color: white; }
+    .btn-sm.primary:hover { background: var(--accent-dim); }
+    .table-compact {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      font-size: 0.8125rem;
+    }
+    .table-compact table { width: 100%; border-collapse: collapse; }
+    .table-compact th {
+      background: #fffbeb;
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .table-compact td {
+      padding: 0.5rem 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+    .table-compact tr:hover { background: #fffbeb; }
+    .table-compact .type {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .table-compact a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .table-compact a:hover { text-decoration: underline; }
+    .table-compact .actions { display: flex; gap: 0.5rem; }
+    .table-compact .actions a { font-size: 0.7rem; }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .panel h3 { font-size: 0.8125rem; color: var(--muted); font-weight: 600; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .panel ul { list-style: none; }
+    .panel li {
+      padding: 0.35rem 0;
+      border-bottom: 1px solid #fef3c7;
+      font-size: 0.8125rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .panel li:last-child { border-bottom: none; }
+    .panel a { color: var(--accent); }
+    .prototype-links {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      font-size: 0.75rem;
+    }
+    .prototype-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .prototype-links a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-icon">DP</div>
+      </div>
+      <nav class="nav">
+        <a href="dashboard-v3.html" class="nav-item active" title="Dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+        </a>
+        <a href="#" class="nav-item" title="Resumes">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+        </a>
+        <a href="#" class="nav-item" title="Records">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+        </a>
+        <a href="#" class="nav-item" title="API Keys">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>
+        </a>
+        <a href="index.html" class="nav-item" style="margin-top: 0.5rem;" title="Prototypes">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l4-4-4-4" /></svg>
+        </a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="top-bar">
+        <h1>Dashboard</h1>
+        <div class="inline-stats">
+          <span>Resumes <strong>127</strong></span>
+          <span>Ubuntu <strong>24</strong></span>
+          <span>Python <strong>18</strong></span>
+          <span>Roman <strong>47</strong></span>
+        </div>
+      </div>
+
+      <div class="quick-row">
+        <a href="#" class="btn-sm primary">+ Resume</a>
+        <a href="#" class="btn-sm">+ Ubuntu</a>
+        <a href="#" class="btn-sm">+ Python</a>
+        <a href="#" class="btn-sm">+ Roman</a>
+        <a href="#" class="btn-sm">+ API Key</a>
+      </div>
+
+      <div class="compact-grid">
+        <div class="stat-mini"><div class="num">127</div><div class="label">Resumes</div></div>
+        <div class="stat-mini"><div class="num">24</div><div class="label">Ubuntu</div></div>
+        <div class="stat-mini"><div class="num">18</div><div class="label">Python</div></div>
+        <div class="stat-mini"><div class="num">47</div><div class="label">Roman</div></div>
+      </div>
+
+      <div class="table-compact">
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Record</th>
+              <th>Updated</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="type">resume</td>
+              <td><a href="#">Abraham Lincoln</a></td>
+              <td style="color: var(--muted);">2h ago</td>
+              <td class="actions"><a href="#">Edit</a><a href="#">View</a></td>
+            </tr>
+            <tr>
+              <td class="type">ubuntu</td>
+              <td><a href="#">24.04 Noble Numbat</a></td>
+              <td style="color: var(--muted);">1d ago</td>
+              <td class="actions"><a href="#">Edit</a><a href="#">View</a></td>
+            </tr>
+            <tr>
+              <td class="type">python</td>
+              <td><a href="#">Python 3.12</a></td>
+              <td style="color: var(--muted);">2d ago</td>
+              <td class="actions"><a href="#">Edit</a><a href="#">View</a></td>
+            </tr>
+            <tr>
+              <td class="type">roman</td>
+              <td><a href="#">Augustus Caesar</a></td>
+              <td style="color: var(--muted);">3d ago</td>
+              <td class="actions"><a href="#">Edit</a><a href="#">View</a></td>
+            </tr>
+            <tr>
+              <td class="type">resume</td>
+              <td><a href="#">Eleanor K. Williams</a></td>
+              <td style="color: var(--muted);">5d ago</td>
+              <td class="actions"><a href="#">Edit</a><a href="#">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="two-col">
+        <div class="panel">
+          <h3>Recent activity</h3>
+          <ul>
+            <li><a href="#">Resume created</a> <span style="color: var(--muted);">2h</span></li>
+            <li><a href="#">Ubuntu 24.04 updated</a> <span style="color: var(--muted);">1d</span></li>
+            <li><a href="#">API key revoked</a> <span style="color: var(--muted);">2h</span></li>
+            <li><a href="#">Roman leader added</a> <span style="color: var(--muted);">3d</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Quick links</h3>
+          <ul>
+            <li><a href="#">All resumes</a></li>
+            <li><a href="#">Ubuntu releases</a></li>
+            <li><a href="#">Python releases</a></li>
+            <li><a href="#">Roman leaders</a></li>
+            <li><a href="#">API keys</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prototype-links">
+        Dashboards: <a href="dashboard-v1.html">v1 Dark</a> <a href="dashboard-v2.html">v2 Light</a> <a href="dashboard-v3.html">v3 Compact</a>
+        | <a href="index.html">Home</a> <a href="theme-terracotta.html">Terracotta</a>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

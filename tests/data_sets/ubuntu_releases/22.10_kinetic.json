@@ -1,0 +1,9 @@
+{
+  "version": "22.10",
+  "codename": "Kinetic Kudu",
+  "release_date": "2022-10-20",
+  "support_type": "Interim",
+  "eol_date": "2023-07-20",
+  "summary": "Ubuntu 22.10 (Kinetic Kudu) was released on 20 October 2022. Features: GNOME 43, kernel 5.19, Mesa 22.2. The kudu is an African antelope; 'kinetic' evoked motion and energy. Focus on graphics and desktop refinements.",
+  "notes": "Unsupported since 2023-07-20. Kernel 5.19. Interim release with standard 9-month support."
+}

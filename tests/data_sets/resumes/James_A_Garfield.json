@@ -1,0 +1,120 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "James",
+            "last_name": "A. Garfield"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Ohio",
+                "city": "Moreland Hills",
+                "zip_code": "44022",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "james.garfield@example.com",
+            "phone": "+1-216-555-1881"
+        },
+        "job_title": {
+            "position": "20th President of the United States",
+            "role": "Civil Rights Advocate, Military Leader, and Political Reformer"
+        },
+        "summary": "James A. Garfield, the 20th President of the United States, was a Civil War general, a champion of civil rights, and a strong advocate for government reform. His presidency was tragically cut short after an assassination attempt, but his leadership and vision for a merit-based government remain influential.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Advanced": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1881",
+            "role": "President",
+            "job_description": "Advocated for civil service reform, strengthened African American rights, and fought corruption before being assassinated after just 200 days in office."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1863 - 1881",
+            "role": "Congressman",
+            "job_description": "Served as a leading Republican voice in the House of Representatives, advocating for Reconstruction, civil rights, and fiscal responsibility."
+        },
+        {
+            "org_name": "United States Army",
+            "location": "Civil War Battlefronts",
+            "employment_length": "1861 - 1863",
+            "role": "Major General",
+            "job_description": "Led Union forces during the Civil War, earning a reputation for strategic battlefield leadership and rapid promotions."
+        },
+        {
+            "org_name": "Hiram College",
+            "location": "Hiram, OH",
+            "employment_length": "1856 - 1861",
+            "role": "President & Professor",
+            "job_description": "Taught classical languages and mathematics while serving as the college president, improving academic programs and enrollment."
+        },
+        {
+            "org_name": "Ohio State Senate",
+            "location": "Columbus, OH",
+            "employment_length": "1859 - 1861",
+            "role": "State Senator",
+            "job_description": "Advocated for anti-slavery policies and supported education and economic development in Ohio."
+        },
+        {
+            "org_name": "Williams College",
+            "location": "Williamstown, MA",
+            "employment_length": "1854 - 1856",
+            "role": "Student",
+            "job_description": "Studied literature, science, and oratory, graduating with high honors before returning to Ohio to teach."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts",
+        "location": "Williams College, Williamstown, MA",
+        "majored_in": "Classical Studies & Oratory"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Rutherford B. Hayes",
+        "reference_title": "Former U.S. President",
+        "reference_contact": "hayes.contact@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/jamesgarfield",
+            "linkedin": "https://linkedin.com/in/jamesgarfield",
+            "webapp": "https://www.nps.gov/jaga/index.htm"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/james-garfield/",
+            "historical_writings": "https://www.loc.gov/exhibits/garfield/"
+        }
+    },
+    "notes": "James A. Garfield was a strong advocate for civil rights and government reform, but his assassination cut his presidency short, leaving many of his initiatives unfinished."
+}

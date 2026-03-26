@@ -1,0 +1,8 @@
+{
+  "version": "3.0",
+  "release_date": "2008-12-03",
+  "eol_date": "2009-06-27",
+  "status": "eol",
+  "summary": "Python 3.0 (also 'Python 3000' or 'Py3K') was a major, backwards-incompatible release designed to rectify fundamental design flaws. The guiding principle: reduce feature duplication by removing old ways of doing things. Key changes: print became a function, str/unicode unified into str, bytes and bytearray for binary data, integer division (5/2 = 2.5), all text is Unicode, 'reduce' moved to functools. The 2to3 utility automates mechanical translation from Python 2.",
+  "notes": "Unsupported since 2009-06-27. Last micro 3.0.1. Python 3.0 had a deliberately short support window; 3.1 followed quickly with stability fixes and backports from 2.6/2.7."
+}

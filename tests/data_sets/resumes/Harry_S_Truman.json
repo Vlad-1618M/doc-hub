@@ -1,0 +1,134 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Harry",
+            "last_name": "S. Truman"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "Missouri",
+                "city": "Independence",
+                "zip_code": "64050",
+                "timezone": "CST (Central Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "harry.truman@example.com",
+            "phone": "+1-816-555-1945"
+        },
+        "job_title": {
+            "position": "33rd President of the United States",
+            "role": "Commander-in-Chief, Cold War Strategist, and Economic Reformer"
+        },
+        "summary": "Harry S. Truman, the 33rd President of the United States, led the country through the final stages of World War II, authorized the use of atomic bombs on Japan, initiated the Marshall Plan for European recovery, and laid the groundwork for Cold War containment policies.",
+        "skills": {
+            "Leadership": {"Expert": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Expert": true},
+            "Law and Legislation": {"Advanced": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1945 - 1953",
+            "role": "President",
+            "job_description": "Led the country through the conclusion of World War II, oversaw the implementation of the Marshall Plan, founded NATO, and initiated the Korean War."
+        },
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1945",
+            "role": "Vice President",
+            "job_description": "Served as Vice President under Franklin D. Roosevelt for just 82 days before assuming the presidency after Roosevelt’s death."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Washington, D.C.",
+            "employment_length": "1935 - 1945",
+            "role": "Senator from Missouri",
+            "job_description": "Gained national recognition for leading the Truman Committee, which investigated waste and corruption in military spending during World War II."
+        },
+        {
+            "org_name": "Jackson County Government",
+            "location": "Missouri",
+            "employment_length": "1927 - 1935",
+            "role": "Presiding Judge",
+            "job_description": "Served as an administrative judge, overseeing infrastructure improvements and government efficiency in Jackson County, Missouri."
+        },
+        {
+            "org_name": "Jackson County Government",
+            "location": "Missouri",
+            "employment_length": "1923 - 1925",
+            "role": "Judge",
+            "job_description": "Began his political career as a county judge, focusing on road construction and fiscal responsibility."
+        },
+        {
+            "org_name": "Truman & Jacobson Haberdashery",
+            "location": "Kansas City, MO",
+            "employment_length": "1919 - 1922",
+            "role": "Co-Owner",
+            "job_description": "Ran a men's clothing store, which later failed during the post-war recession, teaching him economic resilience."
+        },
+        {
+            "org_name": "United States Army",
+            "location": "France",
+            "employment_length": "1917 - 1919",
+            "role": "Captain, Field Artillery",
+            "job_description": "Served in World War I as an artillery officer, earning respect for his leadership under combat conditions."
+        },
+        {
+            "org_name": "Various Farming Enterprises",
+            "location": "Grandview, MO",
+            "employment_length": "1906 - 1917",
+            "role": "Farmer & Businessman",
+            "job_description": "Worked on the family farm, gaining experience in agriculture and small business management before joining the military."
+        }
+    ],
+    "education": {
+        "degree": "Self-Educated",
+        "location": "Missouri",
+        "majored_in": "Law, Military Strategy, and Public Administration"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Dean Acheson",
+        "reference_title": "Former U.S. Secretary of State",
+        "reference_contact": "acheson.contact@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/harrytruman",
+            "linkedin": "https://linkedin.com/in/harrytruman",
+            "webapp": "https://www.trumanlibrary.gov/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/harry-s-truman/",
+            "historical_writings": "https://www.archives.gov/presidential-libraries/truman"
+        }
+    },
+    "notes": "Harry S. Truman is best remembered for making the decision to drop the atomic bombs on Japan, implementing the Marshall Plan, and initiating Cold War policies that shaped U.S. foreign relations for decades."
+}

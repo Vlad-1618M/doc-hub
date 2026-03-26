@@ -1,0 +1,9 @@
+{
+  "version": "19.04",
+  "codename": "Disco Dingo",
+  "release_date": "2019-04-18",
+  "support_type": "Interim",
+  "eol_date": "2020-01-23",
+  "summary": "Ubuntu 19.04 (Disco Dingo) was released on 18 April 2019. Features: GNOME 3.32, Python 3.7, Mesa 19.0. The dingo is an Australian wild dog; 'disco' evoked a fun, vibrant release. Interim focus on desktop refinement and developer tooling.",
+  "notes": "Unsupported since 2020-01-23. Kernel 5.0. Standard 9-month interim support."
+}

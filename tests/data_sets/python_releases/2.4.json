@@ -1,0 +1,8 @@
+{
+  "version": "2.4",
+  "release_date": "2004-11-30",
+  "eol_date": "2008-12-19",
+  "status": "eol",
+  "summary": "Python 2.4 added decorators, generator expressions, the itertools and collections modules, and improved Unicode handling. The subprocess module was introduced. Sets became a built-in type. This release bridged the gap between classic Python and the 3.0 era.",
+  "notes": "Unsupported since 2008-12-19. Last micro 2.4.6. Python 3.0 was released the same month as 2.4's final patch."
+}

@@ -1,0 +1,134 @@
+{
+    "resume": {
+        "name": {
+            "first_name": "Franklin",
+            "last_name": "Pierce"
+        },
+        "location": {
+            "address": {
+                "country": "USA",
+                "state": "New Hampshire",
+                "city": "Hillsborough",
+                "zip_code": "03244",
+                "timezone": "EST (Eastern Standard Time)"
+            }
+        },
+        "contact": {
+            "email": "franklin.pierce@example.com",
+            "phone": "+1-603-555-1853"
+        },
+        "job_title": {
+            "position": "14th President of the United States",
+            "role": "Democratic Leader, Expansionist, and States' Rights Advocate"
+        },
+        "summary": "Franklin Pierce, the 14th President of the United States, served during a divisive period leading up to the Civil War. His administration focused on territorial expansion, the Kansas-Nebraska Act, and foreign trade expansion, though his stance on slavery led to political controversy.",
+        "skills": {
+            "Leadership": {"Advanced": true},
+            "Public Speaking": {"Advanced": true},
+            "Crisis Management": {"Expert": true},
+            "Strategic Planning": {"Advanced": true},
+            "Law and Legislation": {"Expert": true},
+            "Project_Management": {"Advanced": true},
+            "Government Policy Oversight": {"Expert": true}
+        },
+        "Programming_Languages": {},
+        "Automation": {},
+        "Testing": {},
+        "Development_Tools": {},
+        "Web_Technologies": {},
+        "Build_Tools": {},
+        "DevOps": {},
+        "Microservices": {},
+        "Databases": {},
+        "Version_Control": {},
+        "OS_Architecture": {},
+        "Virtualization_Compute": {},
+        "Network_Protocols": {},
+        "Management_Tools": {
+            "Kubernetes": {},
+            "Monitoring_Observability": {},
+            "Project_Management": {}
+        }
+    },
+    "Work_Experience": [
+        {
+            "org_name": "United States Government",
+            "location": "Washington, D.C.",
+            "employment_length": "1853 - 1857",
+            "role": "President",
+            "job_description": "Expanded U.S. territory through the Gadsden Purchase, supported the Kansas-Nebraska Act, and promoted diplomatic relations with Japan through the Perry Expedition."
+        },
+        {
+            "org_name": "Democratic National Convention",
+            "location": "United States",
+            "employment_length": "1852",
+            "role": "Presidential Candidate",
+            "job_description": "Won the presidency as a compromise candidate, uniting Northern and Southern Democrats with a pro-expansion, pro-states' rights platform."
+        },
+        {
+            "org_name": "Brigadier General, U.S. Army",
+            "location": "Mexico",
+            "employment_length": "1846 - 1848",
+            "role": "Brigadier General",
+            "job_description": "Led American troops in the Mexican-American War, participating in battles at Contreras and Churubusco."
+        },
+        {
+            "org_name": "United States Senate",
+            "location": "Washington, D.C.",
+            "employment_length": "1837 - 1842",
+            "role": "Senator",
+            "job_description": "Represented New Hampshire, advocating for expansionist policies and limited federal government intervention in state affairs."
+        },
+        {
+            "org_name": "United States House of Representatives",
+            "location": "Washington, D.C.",
+            "employment_length": "1833 - 1837",
+            "role": "Congressman",
+            "job_description": "Served as a young Democratic representative, supporting President Andrew Jackson’s policies and territorial expansion."
+        },
+        {
+            "org_name": "New Hampshire State Legislature",
+            "location": "Concord, NH",
+            "employment_length": "1829 - 1833",
+            "role": "State Legislator & Speaker",
+            "job_description": "Became Speaker of the New Hampshire House of Representatives, advocating for state-driven governance and judicial reforms."
+        },
+        {
+            "org_name": "Private Law Practice",
+            "location": "Concord, NH",
+            "employment_length": "1827 - 1853",
+            "role": "Attorney",
+            "job_description": "Practiced law specializing in litigation and government contracts, earning a reputation as a skilled trial lawyer."
+        },
+        {
+            "org_name": "Bowdoin College",
+            "location": "Brunswick, ME",
+            "employment_length": "1820 - 1824",
+            "role": "Student",
+            "job_description": "Studied law and public policy, forging lifelong connections with future political leaders."
+        }
+    ],
+    "education": {
+        "degree": "Bachelor of Arts",
+        "location": "Bowdoin College, Brunswick, ME",
+        "majored_in": "Law & Political Science"
+    },
+    "work_authorization": "US Citizen",
+    "reference": {
+        "reference_name": "Jefferson Davis",
+        "reference_title": "Former U.S. Secretary of War",
+        "reference_contact": "davis.contact@example.com"
+    },
+    "links": {
+        "tech": {
+            "github": "https://github.com/franklinpierce",
+            "linkedin": "https://linkedin.com/in/franklinpierce",
+            "webapp": "https://www.whitehouse.gov/about-the-white-house/presidents/franklin-pierce/"
+        },
+        "info": {
+            "biography": "https://www.whitehouse.gov/about-the-white-house/presidents/franklin-pierce/",
+            "historical_writings": "https://www.nps.gov/frpi/index.htm"
+        }
+    },
+    "notes": "Franklin Pierce’s presidency was marked by territorial expansion and growing sectional tensions over slavery. His support for the Kansas-Nebraska Act and enforcement of the Fugitive Slave Law alienated much of the Northern electorate."
+}

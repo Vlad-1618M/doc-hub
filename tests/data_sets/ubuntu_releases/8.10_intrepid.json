@@ -1,0 +1,9 @@
+{
+  "version": "8.10",
+  "codename": "Intrepid Ibex",
+  "release_date": "2008-10-30",
+  "support_type": "Interim",
+  "eol_date": "2010-04-30",
+  "summary": "Ubuntu 8.10 (Intrepid Ibex) was released on 30 October 2008. It added RAID support, mobile computing improvements, 3G support, and a guest account with limited rights (files wiped on logout). Also: encrypted private directory, Dynamic Kernel Module Support (DKMS) for auto-rebuilding drivers, support for creating USB flash drive images. The default wallpaper depicted an ibex with curved horns.",
+  "notes": "Unsupported since 2010-04-30. Kernel 2.6.27. Guest accounts improved shared-computer scenarios."
+}
