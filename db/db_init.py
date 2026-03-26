@@ -21,7 +21,8 @@ def init_api_keys():
     if not api_keys_collection.find_one({"key": {"$exists": True}}):
         generated_key = api_key_generator.generate_api_key()
         api_keys_collection.insert_one({"key": generated_key, "created_at": datetime.now(timezone.utc)})
-        print(f"\nGenerated and stored API Key: {generated_key}\n")
+        # print(f"\nGenerated and stored API Key: {generated_key}\n")
+        print(f"\nGenerated Key: {generated_key[-8:]} stored successfully\n")
     else:
         print("\nAPI Key already exists.\n")
 
