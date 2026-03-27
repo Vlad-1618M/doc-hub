@@ -21,11 +21,30 @@ services:
       resources:
         limits:
           memory: 512M                                      # Set a memory limit for the container (swarm mode only)
+    # ______ Must authenticate | same as the API (set_db_creds.sh restarts with --auth after init).
+    # ______ An unauthenticated ping can pass before that, racing doc-hub-api.
     healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.runCommand('ping').ok"]
+    # test: ["CMD", "mongosh", "--eval", "db.runCommand('ping').ok"]
+      test:
+        [
+          "CMD",
+          "mongosh",
+          "-u",
+          "${MONGO_USER}",
+          "-p",
+          "${MONGO_PASS}",
+          "--authenticationDatabase",
+          "${MONGO_DB}",
+          "--eval",
+          "db.runCommand({ ping: 1 }).ok",
+          "--quiet",
+        ]
       interval: 5s
-      timeout: 3s
-      retries: 3
+      # timeout: 3s
+      # retries: 3
+      timeout: 10s
+      retries: 12
+      start_period: 45s
 
   doc-hub-api:
     build:
