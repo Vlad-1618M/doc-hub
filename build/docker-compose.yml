@@ -1,4 +1,4 @@
-# Project name "build" = network build_app-network, images build-*
+# ______ Project name "build" = network build_app-network, images build-*
 name: build
 
 services:
@@ -19,12 +19,30 @@ services:
       - mongo-data:/data/db                                 # <-- Persist MongoDB data across container restarts:
     networks:
       - app-network
+    # ______ Must authenticate | same as the API (set_db_creds.sh restarts with --auth after init).
     healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.runCommand('ping').ok"]
+      # test: ["CMD", "mongosh", "--eval", "db.runCommand('ping').ok"]
+      test:
+        [
+          "CMD",
+          "mongosh",
+          "-u",
+          "${MONGO_USER}",
+          "-p",
+          "${MONGO_PASS}",
+          "--authenticationDatabase",
+          "${MONGO_DB}",
+          "--eval",
+          "db.runCommand({ ping: 1 }).ok",
+          "--quiet",
+        ]
       interval: 10s
-      timeout: 5s
-      retries: 5
-    # _____________ Alternative MongoDB variables _________________________________________________________
+      #  timeout: 5s
+      #  retries: 5
+      timeout: 10s
+      retries: 8
+      start_period: 45s
+    # ______ Alternative MongoDB variables _________________________________________________________
     #   MONGO_INITDB_DATABASE: ${MONGO_DB}             # Initialize a specific database during startup:
     #   MONGO_INITDB_ROOT_ROLE: root                   # Custom root role: [ if applicable ]
     #   MONGO_REPLICA_SET_NAME: rs0                    # Define a replica set for high availability:
@@ -37,7 +55,7 @@ services:
       dockerfile: build/fastapi.Dockerfile
     container_name: doc-hub-api
     environment:
-      MONGO_HOST: ${MONGO_HOST:-doc-hub-mongo}          # <-- MongoDB hostname:     [ service name or IP  ]
+      MONGO_HOST: ${MONGO_HOST:-doc-hub-mongo}         # <-- MongoDB hostname:     [ service name or IP  ]
       MONGO_PORT: ${MONGO_PORT:-27017}                 # <-- MongoDB service port: [ 27017 default       ]
       MONGO_USER: ${MONGO_USER}                        # <-- MongoDB application user:
       MONGO_PASS: ${MONGO_PASS}                        # <-- MongoDB application user password:
