@@ -2,7 +2,7 @@
 fastapi[all]~=0.115.8
 pydantic~=2.10.6
 pydantic-settings~=2.7.1
-pymongo~=4.11.1
+pymongo~=4.17.0
 PyYAML~=6.0.2
 python-dotenv~=1.0.1
 passlib[bcrypt]~=1.7.4
