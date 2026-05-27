@@ -5,7 +5,7 @@ pytest~=8.3.4
 pytest-cov~=6.0.0
 pytest-timeout~=2.3.1
 pytest-benchmark~=5.1.0
-coverage~=7.6.10
+coverage~=7.14.1
 mongomock~=4.3.0
 
 # Tooling (used by logger, sys tests, etc.)
