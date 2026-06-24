@@ -1,5 +1,5 @@
 # App runtime
-fastapi[all]~=0.115.8
+fastapi[all]~=0.138.0
 pydantic~=2.10.6
 pydantic-settings~=2.7.1
 pymongo~=4.11.1
